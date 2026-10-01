@@ -1,0 +1,95 @@
+---
+/**
+ * Occasion card grid (Weddings, Quinceanera, Prom, Airport, Corporate,
+ * Bachelorette) + "HAPPY CLIENT'S" gold banner + copy + "Impress in Every Setting" gold banner.
+ */
+import { occasionCards } from '../data/services';
+import { happyClients, businessClass } from '../data/homepage';
+---
+
+<!-- Occasions Grid -->
+<section class="bg-black py-12 md:py-16">
+  <div class="container-site max-w-6xl mx-auto">
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        occasionCards.map((card) => (
+          <article class="flex flex-col items-center justify-between rounded-[8px] border border-white/10 bg-[#0d0d0d] p-6 text-center shadow-lg transition-transform duration-300 hover:-translate-y-1">
+            <h3 class="font-display text-xl md:text-2xl font-bold tracking-wider text-white uppercase mb-5">
+              {card.title}
+            </h3>
+            
+            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-[6px] bg-neutral-900 mb-6 flex items-center justify-center">
+              <img
+                src={card.image}
+                alt={card.alt}
+                class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                decoding="async"
+              />
+            </div>
+
+            <a
+              href={card.href}
+              class="read-more-btn"
+            >
+              Read More
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Happy Clients Banner -->
+<div class="gold-banner w-full py-6 text-center">
+  <h2 class="banner-title">{happyClients.title}</h2>
+</div>
+
+<!-- Happy Clients Content -->
+<section class="bg-black py-12 md:py-16">
+  <div class="container-site max-w-5xl mx-auto space-y-6 text-center">
+    {happyClients.paragraphs.map((p) => (
+      <p class="text-[15px] md:text-[17px] leading-[1.85] text-white/75">{p}</p>
+    ))}
+  </div>
+</section>
+
+<!-- Impress in Every Setting Banner -->
+<div class="gold-banner w-full py-6 text-center">
+  <h2 class="banner-title text-[20px] md:text-[32px]">{businessClass.title}</h2>
+</div>
+
+<style>
+  .gold-banner {
+    background: linear-gradient(rgb(255, 197, 21) 0%, rgb(218, 169, 47) 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .banner-title {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(24px, 3.5vw, 38px);
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .read-more-btn {
+    display: inline-block;
+    background-color: #000000;
+    color: #fbfbfb;
+    border: 2px solid #b19540;
+    border-radius: 10px;
+    padding: 12px 36px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+  }
+
+  .read-more-btn:hover {
+    background-color: #b19540;
+    color: #000000;
+  }
+</style>

@@ -1,0 +1,179 @@
+---
+/**
+ * About page — split hero, trust stats, and the original page copy laid out in
+ * the shared two-column reading shell. Copy is unchanged.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageShell from '../components/PageShell.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import site from '../data/site';
+import { fleet } from '../data/fleet';
+import { cities } from '../data/cities';
+
+const record = (await getCollection('pages')).find((p) => p.data.path === '/about-us/')?.data;
+
+const tel = site.phone.replace(/[^\d+]/g, '');
+
+const stats = [
+  { num: '20+', label: 'Years in Business' },
+  { num: '24/7', label: 'Availability' },
+  { num: '100%', label: 'Licensed & Insured' },
+  { num: '★ 5.0', label: 'Client Rated' },
+];
+
+const pillars = [
+  {
+    icon: 'star' as const,
+    title: 'Luxury Fleet',
+    body: 'Escalade, Hummer, Chrysler 300, Sprinter party buses and luxury SUVs — maintained to a showroom standard.',
+  },
+  {
+    icon: 'clock' as const,
+    title: 'Always On',
+    body: 'Booked and dispatched around the clock, 365 days a year, for weddings, promos and last-minute rides.',
+  },
+  {
+    icon: 'map-pin' as const,
+    title: 'SoCal Wide',
+    body: `Anaheim at the centre, serving ${cities.length - 1} cities across Orange County, LA, Riverside and San Bernardino.`,
+  },
+  {
+    icon: 'check' as const,
+    title: 'Professional Chauffeurs',
+    body: 'Licensed, insured drivers who know the venue run, the traffic and every shortcut worth taking.',
+  },
+];
+
+const marquee = [
+  'Proms',
+  'Weddings',
+  'Bachelor Parties',
+  'Quinceañeras',
+  'Concerts',
+  'Temecula Wine Tours',
+  'Airport Transfers',
+  'Corporate Events',
+  'Hollywood Tours',
+];
+
+const railLinks = [
+  { label: 'Cities we serve', href: '/cities/' },
+  { label: 'Limo & party bus services', href: '/services/' },
+  { label: 'Our fleet', href: '/fleet/' },
+  { label: 'Get a free quote', href: '/contact/' },
+];
+---
+
+<BaseLayout
+  title="About | 5 Star Limousine"
+  description={record?.description || site.description}
+  path="/about-us/"
+  image={record?.featured}
+  breadcrumbs={[{ name: 'About Us', href: '' }]}
+>
+  <!-- split hero -->
+  <section class="relative overflow-hidden border-b border-line bg-panel">
+    <div
+      class="pointer-events-none absolute inset-0 opacity-70"
+      style="background: radial-gradient(ellipse at 15% -20%, rgba(212,175,55,0.20) 0%, transparent 55%), radial-gradient(ellipse at 95% 120%, rgba(198,155,64,0.14) 0%, transparent 50%);"
+    >
+    </div>
+
+    <div class="container-site relative py-14 md:py-20">
+      <nav aria-label="Breadcrumb" class="mb-6 flex flex-wrap items-center gap-2 text-[12px] tracking-wide text-white/45">
+        <a href="/" class="transition-colors hover:text-gold">Home</a>
+        <span class="text-gold/50">/</span>
+        <span class="text-white/70">About Us</span>
+      </nav>
+
+      <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)]">
+        <div>
+          <span class="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3.5 py-1.5 text-[11px] font-extrabold tracking-[0.2em] text-gold uppercase">
+            <Icon name="gift" class="h-3.5 w-3.5" />
+            1 Hour Free — Call For Details
+          </span>
+          <h1 class="heading-gold mt-5 max-w-2xl text-[30px] leading-[1.15] font-bold md:text-[44px]">
+            Orange County's Premier Luxury Transportation, for Over 20 Years
+          </h1>
+          <p class="mt-5 max-w-xl text-[15px] leading-[1.85] text-white/70">
+            5 Star Limousine Service delivers affordable limo and party bus rental across Anaheim and Orange County —
+            luxury, safety and 24/7 reliability for every occasion.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href={`tel:${tel}`} class="btn-gold">
+              <Icon name="phone" class="h-4 w-4" />
+              Call ({site.phoneDisplay})
+            </a>
+            <a href="/contact/" class="btn-outline">Get a Free Quote</a>
+          </div>
+        </div>
+
+        <div class="card-dark grid grid-cols-2 gap-px overflow-hidden bg-white/5">
+          {
+            stats.map((s) => (
+              <div class="bg-panel-2/80 px-4 py-7 text-center">
+                <p class="font-accent text-2xl font-bold text-gold md:text-[28px]">{s.num}</p>
+                <p class="mt-1.5 text-[10px] font-bold tracking-[0.14em] text-white/55 uppercase">{s.label}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- scrolling occasions -->
+  <div class="overflow-hidden border-b border-line bg-panel py-3.5">
+    <div class="animate-marquee flex w-max items-center gap-8 whitespace-nowrap">
+      {[0, 1].map(() => (
+        <div class="flex shrink-0 items-center gap-8">
+          {marquee.map((m) => (
+            <span class="flex items-center gap-8 text-[13px] font-extrabold tracking-[0.18em] text-gold uppercase">
+              {m}
+              <span class="text-gold/40">●</span>
+            </span>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- why us pillars -->
+  <section class="container-site py-14 md:py-16">
+    <div class="max-w-2xl">
+      <p class="eyebrow">Why 5 Star Limo</p>
+      <h2 class="heading-gold mt-2 text-2xl font-bold md:text-3xl">Twenty years of rides worth remembering</h2>
+    </div>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        pillars.map((p) => (
+          <div class="card-dark group p-5 transition-colors hover:border-gold/40">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold/30 bg-gold/10 text-gold">
+              <Icon name={p.icon} class="h-4.5 w-4.5" />
+            </span>
+            <h3 class="mt-4 text-[15px] font-extrabold tracking-wide text-white uppercase">{p.title}</h3>
+            <p class="mt-2 text-[13.5px] leading-relaxed text-white/60">{p.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- original page copy -->
+  {
+    record && (
+      <PageShell
+        blocks={record.blocks}
+        image={fleet[0].image}
+        imageAlt="Cadillac Escalade limousine"
+        railLinkLabel="Get a Free Quote"
+        railLinkHref="/contact/"
+        railLinks={railLinks}
+      />
+    )
+  }
+
+  <CtaBand />
+</BaseLayout>

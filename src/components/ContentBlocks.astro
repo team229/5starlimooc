@@ -1,0 +1,204 @@
+---
+/**
+ * Renders the scraped content blocks with Tailwind.
+ * Block types produced by scripts/scrape.py:
+ *   h1..h6 | p (html) | ul/ol (items) | img | quote | table | link (button)
+ *
+ * Headings get stable ids so the sticky "on this page" rail in
+ * `PageShell.astro` can link to them. Copy itself is never altered.
+ */
+import { headingId, presentableBlocks } from '../lib/blocks';
+
+interface Block {
+  type: string;
+  text?: string;
+  html?: string;
+  items?: string[];
+  src?: string;
+  alt?: string;
+  caption?: string;
+  href?: string;
+  rows?: string[][];
+}
+
+interface Props {
+  blocks: Block[];
+  class?: string;
+}
+
+const { blocks: rawBlocks, class: className = '' } = Astro.props;
+
+/* review-widget icons and the header logo are chrome, not content */
+const blocks = presentableBlocks(rawBlocks);
+const headingLevels = blocks.filter((b) => b.type === 'h2' || b.type === 'h3').length;
+---
+
+<div class={`prose-site ${className}`}>
+  {
+    blocks.map((b, i) => {
+      switch (b.type) {
+        case 'h1':
+          return <h1 class="mt-12 font-display text-3xl leading-tight font-bold text-white md:text-4xl" set:html={b.text} />;
+        case 'h2':
+          return (
+            <h2
+              id={headingId(b, i, blocks)}
+              class="scroll-mt-28 border-l-[3px] border-gold/70 pl-4 font-display text-2xl leading-snug font-bold text-white md:text-[28px]"
+            >
+              <a href={`#${headingId(b, i, blocks)}`} class="group inline-flex items-start gap-2.5" set:html={b.text} />
+              {headingLevels > 2 && (
+                <a
+                  href={`#${headingId(b, i, blocks)}`}
+                  aria-label="Link to this section"
+                  class="mt-1.5 self-start text-gold/40 opacity-0 transition group-hover:opacity-100"
+                >
+                  #
+                </a>
+              )}
+            </h2>
+          );
+        case 'h3':
+          return (
+            <h3
+              id={headingId(b, i, blocks)}
+              class="scroll-mt-28 text-lg font-extrabold tracking-wide text-gold uppercase md:text-xl"
+            >
+              <span set:html={b.text} />
+            </h3>
+          );
+        case 'h4':
+          return <h4 class="text-base font-bold text-white md:text-lg" set:html={b.text} />;
+        case 'h5':
+        case 'h6':
+          return <h4 class="text-sm font-bold tracking-widest text-gold uppercase" set:html={b.text} />;
+        case 'p':
+          return <p class="text-[15px] leading-[1.85] text-white/75 md:text-base" set:html={b.html || b.text} />;
+        case 'ul':
+          return (
+            <ul class="grid gap-2.5">
+              {b.items?.map((item) => (
+                <li class="flex gap-3 text-[15px] leading-relaxed text-white/75">
+                  <span class="mt-[9px] h-1.5 w-1.5 shrink-0 rotate-45 bg-gold" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          );
+        case 'ol':
+          return (
+            <ol class="grid gap-2.5 pl-1">
+              {b.items?.map((item, i) => (
+                <li class="flex gap-3 text-[15px] leading-relaxed text-white/75">
+                  <span class="font-accent shrink-0 text-gold">{String(i + 1).padStart(2, '0')}</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ol>
+          );
+        case 'img':
+          return b.src ? (
+            <figure class="mx-auto max-h-[520px] overflow-hidden rounded border border-gold/15 bg-panel-2">
+              <img
+                src={b.src}
+                alt={b.alt || ''}
+                class="h-full max-h-[520px] w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              {b.caption && <figcaption class="border-t border-gold/10 px-4 py-2.5 text-center text-xs text-white/45">{b.caption}</figcaption>}
+            </figure>
+          ) : null;
+        case 'quote':
+          return (
+            <blockquote class="border-l-[3px] border-gold bg-panel-2/70 px-6 py-5">
+              <p class="font-display text-lg leading-relaxed text-white/85 italic">{b.text}</p>
+            </blockquote>
+          );
+        case 'table':
+          return (
+            <div class="overflow-x-auto rounded border border-gold/20">
+              <table class="w-full border-collapse text-left text-sm">
+                <tbody>
+                  {b.rows?.map((row, ri) => (
+                    <tr class={ri === 0 ? 'bg-gold/15 text-white' : 'border-t border-white/10 text-white/75'}>
+                      {row.map((cell) =>
+                        ri === 0 ? (
+                          <th class="px-4 py-3 font-bold">{cell}</th>
+                        ) : (
+                          <td class="px-4 py-3">{cell}</td>
+                        ),
+                      )}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          );
+        case 'link':
+          return (
+            <a href={b.href} class="btn-gold inline-flex">
+              {b.text}
+            </a>
+          );
+        default:
+          return null;
+      }
+    })
+  }
+</div>
+
+<style is:global>
+  /* vertical rhythm between blocks */
+  .prose-site > * + * {
+    margin-top: 1.25rem;
+  }
+  .prose-site > h1 + *,
+  .prose-site > h2 + *,
+  .prose-site > h3 + *,
+  .prose-site > h4 + * {
+    margin-top: 1rem;
+  }
+  .prose-site > h1,
+  .prose-site > h2 {
+    margin-top: 2.75rem;
+  }
+  .prose-site > h3 {
+    margin-top: 2rem;
+  }
+  .prose-site > :is(h1, h2, h3, h4) + :is(h1, h2, h3, h4) {
+    margin-top: 1.5rem;
+  }
+  .prose-site figure,
+  .prose-site blockquote,
+  .prose-site table,
+  .prose-site > div {
+    margin-block: 2rem;
+  }
+
+  /* rich text coming from the original pages */
+  .prose-site a {
+    color: #d4af37;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+  }
+  .prose-site a:hover {
+    color: #f4c20d;
+  }
+  .prose-site h2 > a,
+  .prose-site h2 > a:hover,
+  .prose-site h3 > span,
+  .prose-site h1 > a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .prose-site strong,
+  .prose-site b {
+    color: #fff;
+    font-weight: 700;
+  }
+  .prose-site img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>

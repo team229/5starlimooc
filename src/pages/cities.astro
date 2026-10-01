@@ -1,0 +1,118 @@
+---
+/**
+ * Cities index — every service area we cover, grouped for scanning.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import { cities } from '../data/cities';
+
+const serviceCities = cities.filter((c) => c.label !== 'Orange County');
+
+/** Alphabetical buckets so the long list is easy to scan. */
+const groups = Object.entries(
+  serviceCities.reduce<Record<string, typeof serviceCities>>((acc, city) => {
+    const letter = city.label.charAt(0).toUpperCase();
+    (acc[letter] ||= []).push(city);
+    return acc;
+  }, {}),
+).sort(([a], [b]) => a.localeCompare(b));
+
+/** Hand-picked highlights, matched by name so the list stays data-driven. */
+const highlights = ['Anaheim', 'Irvine', 'Newport Beach', 'Long Beach', 'Los Angeles', 'San Diego']
+  .map((name) => serviceCities.find((c) => c.label === name))
+  .filter((c): c is (typeof serviceCities)[number] => Boolean(c));
+---
+
+<BaseLayout
+  title="Cities We Serve | Orange County Limo & Party Bus Rental"
+  description="Explore all cities served by 5 Star Limo OC. We offer luxury limousine and party bus rentals across Orange County, Los Angeles, Riverside and San Bernardino."
+  path="/cities/"
+  breadcrumbs={[{ name: 'Cities', href: '' }]}
+>
+  <PageHero
+    eyebrow="Service areas"
+    title="Orange County Limousine & Party Bus Rental"
+    breadcrumbs={[{ name: 'Cities', href: '' }]}
+  />
+
+  <section class="container-site py-14 md:py-16">
+    <p class="mx-auto max-w-3xl text-center text-[15px] leading-[1.85] text-white/70">
+      Whether you're in Orange County, Los Angeles, Riverside, or San Bernardino County, let 5 Star Party Bus
+      Rental pick you up in STYLE &amp; COMFORT!
+    </p>
+
+    <!-- jump links -->
+    <nav class="mt-8 flex flex-wrap justify-center gap-2" aria-label="Jump to letter">
+      {
+        groups.map(([letter]) => (
+          <a
+            href={`#letter-${letter}`}
+            class="flex h-9 w-9 items-center justify-center rounded border border-gold/20 text-[13px] font-bold text-white/60 transition-colors hover:border-gold hover:bg-gold/10 hover:text-gold"
+          >
+            {letter}
+          </a>
+        ))
+      }
+    </nav>
+  </section>
+
+  {
+    highlights.length > 0 && (
+      <section class="container-site pb-14 md:pb-16">
+        <p class="eyebrow mb-6">Popular destinations</p>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {highlights.map((city) => (
+            <a
+              href={city.href}
+              class="card-dark group relative flex items-center justify-between gap-3 overflow-hidden p-5 transition-colors hover:border-gold/40"
+            >
+              <span class="flex items-center gap-3">
+                <Icon name="map-pin" class="h-4 w-4 text-gold" />
+                <span class="text-[15px] font-semibold text-white/85 transition-colors group-hover:text-gold">
+                  {city.label}
+                </span>
+              </span>
+              <Icon
+                name="arrow-right"
+                class="h-4 w-4 text-gold opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100"
+              />
+            </a>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <section class="container-site pb-16 md:pb-20">
+    <div class="border-t border-line pt-10">
+      <p class="eyebrow mb-8">All {serviceCities.length} service areas</p>
+
+      <div class="space-y-10">
+        {
+          groups.map(([letter, list]) => (
+            <div id={`letter-${letter}`} class="grid scroll-mt-28 gap-4 sm:grid-cols-[60px_minmax(0,1fr)]">
+              <p class="font-accent text-2xl font-bold text-gold/70">{letter}</p>
+              <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+                {list.map((city) => (
+                  <a
+                    href={city.href}
+                    class="card-dark group flex items-center justify-between gap-2 px-4 py-3.5 transition-colors hover:border-gold/40"
+                  >
+                    <span class="text-[13.5px] font-semibold text-white/80 transition-colors group-hover:text-gold">
+                      {city.label}
+                    </span>
+                    <span class="text-gold opacity-0 transition-opacity group-hover:opacity-100">→</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

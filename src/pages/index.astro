@@ -1,0 +1,32 @@
+---
+/**
+ * Homepage — exact replication of https://5starlimooc.com/ sections.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Halloween from '../components/Halloween.astro';
+import FleetShowcase from '../components/FleetShowcase.astro';
+import Reviews from '../components/Reviews.astro';
+import OccasionGrid from '../components/OccasionGrid.astro';
+import WhyChoose from '../components/WhyChoose.astro';
+import ServiceAreas from '../components/ServiceAreas.astro';
+import site from '../data/site';
+
+const description =
+  'Experience luxury transportation with 5 Star Limo Service & Party Bus Rental in Orange County. Book premium limo and party bus rentals today.';
+---
+
+<BaseLayout
+  title="5 Star Limo Service & Party Bus Rental Near You in Orange County"
+  description={description}
+  path="/"
+  image={site.logo}
+>
+  <Hero />
+  <Halloween />
+  <FleetShowcase />
+  <Reviews />
+  <OccasionGrid />
+  <WhyChoose />
+  <ServiceAreas />
+</BaseLayout>

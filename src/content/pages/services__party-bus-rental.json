@@ -1,0 +1,235 @@
+{
+ "path": "/services/party-bus-rental/",
+ "title": "Party Bus Rental Anaheim OC | Party Bus Rental Near You",
+ "description": "Premium party bus rentals in Anaheim and Orange County. Spacious, stylish rides with professional chauffeurs—perfect for events and celebrations. Book now!",
+ "eyebrow": "",
+ "h1": "Party Bus Rental in Anaheim, Orange County",
+ "date": "2022-11-09",
+ "kind": "service",
+ "featured": "/images/wp-content/uploads/2026/03/party-bus-2.webp",
+ "blocks": [
+  {
+   "type": "p",
+   "text": "Party Bus Rental | 5 Star Luxury Limousines",
+   "html": "Party Bus Rental | 5 Star Luxury Limousines"
+  },
+  {
+   "type": "p",
+   "text": "The Ultimate Club on Wheels for Your Group",
+   "html": "The Ultimate Club on\n                Wheels for Your Group"
+  },
+  {
+   "type": "p",
+   "text": "Call Us Now: 714-605-4550",
+   "html": "\n<a href=\"tel:7146054550\">\n<i></i>\n                    Call Us Now: 714-605-4550\n                </a>\n"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2026/03/party-bus-2.webp",
+   "alt": "Party Bus Exterior"
+  },
+  {
+   "type": "p",
+   "text": "Party Bus Rental",
+   "html": "Party Bus Rental"
+  },
+  {
+   "type": "p",
+   "text": "Our party buses are designed to be spacious and luxurious, with all the amenities you need for an unforgettable event. Enjoy a club-like experience on wheels with your friends and family.",
+   "html": "Our party buses are designed to be spacious and luxurious, with\n                    all the amenities you need for an unforgettable event. Enjoy a club-like experience on wheels with\n                    your friends and family."
+  },
+  {
+   "type": "p",
+   "text": "Celebrate in Style, Wherever You Go",
+   "html": "Celebrate in Style, Wherever\n                        You Go"
+  },
+  {
+   "type": "p",
+   "text": "Our party buses are fully equipped to provide a true club experience on the road. With dance floors, laser lights, powerful sound systems, and more, you can keep the party going all night long.",
+   "html": "Our party buses are fully equipped to provide a true club\n                        experience on the road. With dance floors, laser lights, powerful sound systems, and more, you can\n                        keep the party going all night long."
+  },
+  {
+   "type": "p",
+   "text": "Perfect for birthdays, bachelor/bachelorette parties, proms, weddings, and any group celebration. Our professional chauffeurs ensure a safe and fun ride for everyone.",
+   "html": "Perfect for birthdays, bachelor/bachelorette parties, proms,\n                        weddings, and any group celebration. Our professional chauffeurs ensure a safe and fun ride for\n                        everyone."
+  },
+  {
+   "type": "p",
+   "text": "Book your party bus and make your next event unforgettable!",
+   "html": "Book your party bus and make your next event\n                        unforgettable!"
+  },
+  {
+   "type": "p",
+   "text": "Key Features",
+   "html": "Key Features"
+  },
+  {
+   "type": "p",
+   "text": "Room for 20-40 Guests",
+   "html": "Room for 20-40 Guests"
+  },
+  {
+   "type": "p",
+   "text": "Spacious interiors for large groups and celebrations.",
+   "html": "Spacious interiors for large groups and celebrations."
+  },
+  {
+   "type": "p",
+   "text": "Dance Floor & Pole",
+   "html": "Dance Floor & Pole"
+  },
+  {
+   "type": "p",
+   "text": "Dance, mingle, and enjoy the party atmosphere.",
+   "html": "Dance, mingle, and enjoy the party atmosphere."
+  },
+  {
+   "type": "p",
+   "text": "Premium Sound System",
+   "html": "Premium Sound System"
+  },
+  {
+   "type": "p",
+   "text": "Bluetooth, aux, and club-level audio for your playlist.",
+   "html": "Bluetooth, aux, and club-level audio for your playlist."
+  },
+  {
+   "type": "p",
+   "text": "Laser Lights & Smoke",
+   "html": "Laser Lights & Smoke"
+  },
+  {
+   "type": "p",
+   "text": "Create a true nightclub vibe on the go.",
+   "html": "Create a true nightclub vibe on the go."
+  },
+  {
+   "type": "p",
+   "text": "Beverage Bar",
+   "html": "Beverage Bar"
+  },
+  {
+   "type": "p",
+   "text": "Enjoy drinks and refreshments with friends.",
+   "html": "Enjoy drinks and refreshments with friends."
+  },
+  {
+   "type": "p",
+   "text": "Professional Chauffeurs",
+   "html": "Professional Chauffeurs"
+  },
+  {
+   "type": "p",
+   "text": "Experienced, courteous, and safety-focused drivers.",
+   "html": "Experienced, courteous, and safety-focused drivers."
+  },
+  {
+   "type": "p",
+   "text": "Perfect For Weddings Proms Birthday Parties Night Outs",
+   "html": "\nPerfect For\n\n\n<i></i>\nWeddings\n\n\n<i></i>\nProms\n\n\n<i></i>\nBirthday Parties\n\n\n<i></i>\nNight Outs\n\n\n"
+  },
+  {
+   "type": "p",
+   "text": "Testimonials",
+   "html": "Testimonials"
+  },
+  {
+   "type": "img",
+   "src": "/images/ext/avatar-Ashley-Brown.png",
+   "alt": "Ashley Brown"
+  },
+  {
+   "type": "p",
+   "text": "Ashley Brown",
+   "html": "Ashley Brown"
+  },
+  {
+   "type": "p",
+   "text": "★★★★★",
+   "html": "★★★★★"
+  },
+  {
+   "type": "p",
+   "text": "\"The party bus was the highlight of our night! Amazing sound system and so much space for everyone.\"",
+   "html": "\"The party bus was the highlight of our night! Amazing\n                            sound system and so much space for everyone.\""
+  },
+  {
+   "type": "p",
+   "text": "2025-04-12",
+   "html": "2025-04-12"
+  },
+  {
+   "type": "img",
+   "src": "/images/ext/avatar-Chris-Nguyen.png",
+   "alt": "Chris Nguyen"
+  },
+  {
+   "type": "p",
+   "text": "Chris Nguyen",
+   "html": "Chris Nguyen"
+  },
+  {
+   "type": "p",
+   "text": "★★★★★",
+   "html": "★★★★★"
+  },
+  {
+   "type": "p",
+   "text": "\"Best party bus in Orange County! The lights and dance floor made it feel like a real club.\"",
+   "html": "\"Best party bus in Orange County! The lights and dance\n                            floor made it feel like a real club.\""
+  },
+  {
+   "type": "p",
+   "text": "2025-03-28",
+   "html": "2025-03-28"
+  },
+  {
+   "type": "img",
+   "src": "/images/ext/avatar-Priya-Singh.png",
+   "alt": "Priya Singh"
+  },
+  {
+   "type": "p",
+   "text": "Priya Singh",
+   "html": "Priya Singh"
+  },
+  {
+   "type": "p",
+   "text": "★★★★★",
+   "html": "★★★★★"
+  },
+  {
+   "type": "p",
+   "text": "\"We booked the party bus for a birthday and it was unforgettable. Highly recommend!\"",
+   "html": "\"We booked the party bus for a birthday and it was\n                            unforgettable. Highly recommend!\""
+  },
+  {
+   "type": "p",
+   "text": "2025-02-19",
+   "html": "2025-02-19"
+  },
+  {
+   "type": "p",
+   "text": "Ready to reserve your party bus? (714) 605-4550 Call to Book",
+   "html": "\n\nReady to reserve your party bus?\n<a href=\"tel:7146054550\">(714)\n                        605-4550</a>\n<a href=\"tel:7146054550\">Call to\n                        Book</a>\n\n"
+  },
+  {
+   "type": "p",
+   "text": "© 2025 5 Star Luxury Limousines",
+   "html": "© 2025 5 Star Luxury Limousines"
+  }
+ ],
+ "images": [
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.svg#astra",
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.ttf",
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.woff",
+  "https://5starlimooc.com/wp-content/uploads/2024/09/5STAR-B.png",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/party-bus-2.webp",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/party-bus-interior-.webp",
+  "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap",
+  "https://ui-avatars.com/api/?name=Ashley+Brown&background=18181b&color=eab308",
+  "https://ui-avatars.com/api/?name=Chris+Nguyen&background=18181b&color=eab308",
+  "https://ui-avatars.com/api/?name=Priya+Singh&background=18181b&color=eab308"
+ ],
+ "canonical": "https://5starlimooc.com/services/party-bus-rental/"
+}

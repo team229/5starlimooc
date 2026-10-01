@@ -1,0 +1,94 @@
+{
+ "path": "/services/",
+ "title": "Limo Service Anaheim OC | Orange County Limousine Rentals",
+ "description": "5 Star Limousine offers premier limo rentals in Anaheim and Orange County, delivering true five-star service. Book your ride today.",
+ "eyebrow": "",
+ "h1": "Your Trusted Limousine Rental Service in Anaheim & Orange County",
+ "date": "2026-03-31",
+ "kind": "service",
+ "featured": "/images/wp-content/uploads/2024/09/5STAR-B.png",
+ "blocks": [
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2024/09/5STAR-B.png",
+   "alt": ""
+  },
+  {
+   "type": "h4",
+   "text": "We offer luxury limo and party bus services for the following events."
+  },
+  {
+   "type": "p",
+   "text": "Luxury Service Grid",
+   "html": "Luxury Service Grid"
+  },
+  {
+   "type": "h3",
+   "text": "WEDDINGS"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2019/04/weddingpicture19.jpg",
+   "alt": "Wedding Limo Service"
+  },
+  {
+   "type": "h3",
+   "text": "QUINCEANERA"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2023/03/quinceanerapicture19.jpg",
+   "alt": "Quinceanera Limo Service"
+  },
+  {
+   "type": "h3",
+   "text": "PROM"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2023/03/prompicture19.jpg",
+   "alt": "Prom Limo Service"
+  },
+  {
+   "type": "h3",
+   "text": "AIRPORT"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2023/03/airportpicture19.jpg",
+   "alt": "Airport Transfer Service"
+  },
+  {
+   "type": "h3",
+   "text": "CORPORATE EVENTS"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2023/03/corporatepicture19.jpg",
+   "alt": "Corporate Event Limo Service"
+  },
+  {
+   "type": "h3",
+   "text": "BACHELORETTE PARTY"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2023/03/batchlorttepartypicture19.jpg",
+   "alt": "Bachelorette Party Limo Service"
+  }
+ ],
+ "images": [
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.svg#astra",
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.ttf",
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.woff",
+  "https://5starlimooc.com/wp-content/uploads/2019/04/weddingpicture19.jpg",
+  "https://5starlimooc.com/wp-content/uploads/2023/03/airportpicture19.jpg",
+  "https://5starlimooc.com/wp-content/uploads/2023/03/batchlorttepartypicture19.jpg",
+  "https://5starlimooc.com/wp-content/uploads/2023/03/corporatepicture19.jpg",
+  "https://5starlimooc.com/wp-content/uploads/2023/03/prompicture19.jpg",
+  "https://5starlimooc.com/wp-content/uploads/2023/03/quinceanerapicture19.jpg",
+  "https://5starlimooc.com/wp-content/uploads/2024/09/5STAR-B.png",
+  "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
+ ],
+ "canonical": "https://5starlimooc.com/services/"
+}

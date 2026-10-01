@@ -1,0 +1,69 @@
+---
+/** Privacy policy (local content — the original footer linked here). */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import site from '../data/site';
+---
+
+<BaseLayout
+  title="Privacy Policy | 5 Star Limousine Service"
+  description="How 5 Star Limousine & Transportation Services collects, uses and protects your information."
+  path="/privacy-policy/"
+  breadcrumbs={[{ name: 'Privacy Policy', href: '' }]}
+>
+  <PageHero eyebrow="Legal" title="Privacy Policy" breadcrumbs={[{ name: 'Privacy Policy', href: '' }]} />
+
+  <section class="container-site py-14 md:py-20">
+    <div class="mx-auto max-w-3xl space-y-7 text-[15px] leading-[1.85] text-white/75">
+      <p>
+        5 Star Limousine &amp; Transportation Services ("we", "us") respects your privacy. This policy explains what
+        information we collect through this website and how it is used.
+      </p>
+
+      <div>
+        <h2 class="heading-gold mb-3 text-xl font-bold">Information we collect</h2>
+        <p>
+          When you submit a quote or contact form we collect the details you provide: your name, email address,
+          phone number and information about your trip (date, group size and occasion). We also collect standard
+          technical data such as browser type and pages visited via analytics cookies.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="heading-gold mb-3 text-xl font-bold">How we use it</h2>
+        <p>
+          Your details are used solely to answer your enquiry, provide pricing, fulfil bookings and improve our
+          service. We do not sell or rent your personal information to third parties.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="heading-gold mb-3 text-xl font-bold">Cookies &amp; analytics</h2>
+        <p>
+          This site uses Google Analytics and Google Tag Manager to understand how visitors use the site, and a
+          Google reviews widget to display customer feedback. You can disable cookies in your browser settings at
+          any time.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="heading-gold mb-3 text-xl font-bold">Data retention &amp; security</h2>
+        <p>
+          Enquiry data is retained only as long as needed to service your booking and meet legal obligations.
+          Transmission of data is protected using SSL encryption.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="heading-gold mb-3 text-xl font-bold">Contact</h2>
+        <p>
+          Questions about this policy? Email <a href={`mailto:${site.email}`} class="text-gold hover:underline">{site.email}</a>
+          or call <a href={`tel:${site.phone.replace(/[^\d+]/g, '')}`} class="text-gold hover:underline">{site.phoneDisplay}</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

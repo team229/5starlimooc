@@ -1,0 +1,49 @@
+---
+/**
+ * "Luxury Service Grid" — the 6 occasion cards (WEDDINGS, QUINCEANERA, PROM,
+ * AIRPORT, CORPORATE EVENTS, BACHELORETTE PARTY) used on the city pages.
+ */
+const cards = [
+  { title: 'Weddings', image: '/images/wp-content/uploads/2026/07/weddings.png', alt: 'Wedding Limo Service', href: '/services/wedding-limo-service/' },
+  { title: 'Quinceanera', image: '/images/wp-content/uploads/2026/07/quinceanera-limo-service.png', alt: 'Quinceanera Limo Service', href: '/services/quinceanera-limo-service/' },
+  { title: 'Prom', image: '/images/wp-content/uploads/2026/07/prom-limo-service.png', alt: 'Prom Limo Service', href: '/services/prom-limo-service/' },
+  { title: 'Airport', image: '/images/wp-content/uploads/2026/07/airport-limo-service.png', alt: 'Airport Transfer Service', href: '/services/airport-limo-service/' },
+  { title: 'Corporate Events', image: '/images/wp-content/uploads/2026/07/corporate-events-limo-service.png', alt: 'Corporate Events Limo Service', href: '/corporate-limo-service/' },
+  { title: 'Bachelorette Party', image: '/images/wp-content/uploads/2026/07/bachelorette-party-limo-service.png', alt: 'Bachelorette Party Limo Service', href: '/services/bachelor-party-limo-service/' },
+];
+---
+
+<section class="service-grid-component bg-[#0d0d0d] px-4 py-8">
+  <div class="mx-auto max-w-[1300px]">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        cards.map((card) => (
+          <article class="service-card group flex flex-col overflow-hidden rounded-xl border border-[#1a1a1a] bg-black shadow-[0_8px_15px_rgba(0,0,0,0.7)] transition-all duration-[400ms] ease-in-out hover:-translate-y-[5px] hover:border-[#FFC72C] hover:shadow-[0_0_35px_rgba(255,199,44,0.7)]">
+            <h3
+              class="px-4 pt-5 pb-1 text-center text-[22px] font-extrabold tracking-[0.15em] text-[#FFC72C] uppercase [text-shadow:0_0_5px_rgba(255,199,44,0.4)] sm:text-[26px]"
+            >
+              {card.title}
+            </h3>
+            <div class="relative pt-4">
+              <img
+                src={card.image}
+                alt={card.alt}
+                class="block h-[220px] w-full object-cover lg:h-[280px]"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="mt-auto flex justify-center p-6">
+              <a
+                href={card.href}
+                class="inline-block rounded-lg border-2 border-[#FFC72C] px-10 py-3.5 text-[15px] font-bold text-[#FFC72C] uppercase transition-all duration-200 hover:scale-105 hover:bg-[#FFC72C] hover:text-black hover:shadow-[0_4px_15px_rgba(255,199,44,0.6)]"
+              >
+                Read More
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

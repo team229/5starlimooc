@@ -1,0 +1,96 @@
+---
+/**
+ * "REQUEST A quote" lead form.
+ * Posts to the same endpoint as the original site (byTHUB) and redirects to
+ * the local /thankyou/ page.
+ */
+import Icon from './Icon.astro';
+import { tracking } from '../data/site';
+---
+
+<section id="quote" class="border-y border-line bg-carbon py-14 md:py-20">
+  <div class="container-site grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+    <div>
+      <p class="eyebrow mb-4">Request a quote</p>
+      <h2 class="heading-gold text-3xl font-bold md:text-[38px]">REQUEST A QUOTE</h2>
+      <div class="gold-rule mt-5"></div>
+      <p class="mt-6 max-w-md text-[15px] leading-relaxed text-white/70">
+        Premium features without the premium costs. Tell us about your event and we’ll send back availability and
+        pricing — usually within minutes.
+      </p>
+      <ul class="mt-7 grid gap-3 text-sm text-white/65">
+        <li class="flex gap-2.5"><Icon name="check" class="mt-0.5 h-4 w-4 shrink-0 text-gold" />First hour free on booking</li>
+        <li class="flex gap-2.5"><Icon name="check" class="mt-0.5 h-4 w-4 shrink-0 text-gold" />24/7 booking support</li>
+        <li class="flex gap-2.5"><Icon name="check" class="mt-0.5 h-4 w-4 shrink-0 text-gold" />Fully licensed &amp; insured fleet</li>
+      </ul>
+    </div>
+
+    <form
+      id="quote-form"
+      action={tracking.quoteEndpoint}
+      method="POST"
+      class="card-dark p-6 md:p-8"
+    >
+      <input type="hidden" name="redirect" value={tracking.thankYouUrl} />
+      <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" />
+
+      <div class="input-stack grid gap-3.5">
+        <input
+          type="text"
+          name="name"
+          required
+          autocomplete="off"
+          placeholder="Full Name"
+          class="w-full rounded border border-white/10 bg-panel-3 px-4 py-3.5 text-sm text-white placeholder:text-white/40 transition-colors focus:border-gold focus:outline-none"
+        />
+        <input
+          type="email"
+          name="email"
+          required
+          autocomplete="off"
+          placeholder="Email Address"
+          class="w-full rounded border border-white/10 bg-panel-3 px-4 py-3.5 text-sm text-white placeholder:text-white/40 transition-colors focus:border-gold focus:outline-none"
+        />
+        <input
+          type="tel"
+          name="phone"
+          required
+          autocomplete="off"
+          placeholder="Phone Number"
+          class="w-full rounded border border-white/10 bg-panel-3 px-4 py-3.5 text-sm text-white placeholder:text-white/40 transition-colors focus:border-gold focus:outline-none"
+        />
+        <select
+          name="fleet_type"
+          required
+          class="w-full rounded border border-white/10 bg-panel-3 px-4 py-3.5 text-sm text-white transition-colors focus:border-gold focus:outline-none"
+        >
+          <option disabled selected value="">Select Fleet Type</option>
+          <option value="Party Bus">Party Bus</option>
+          <option value="Limousine">Limousine</option>
+        </select>
+        <input
+          type="date"
+          name="event_date"
+          required
+          class="w-full rounded border border-white/10 bg-panel-3 px-4 py-3.5 text-sm text-white transition-colors focus:border-gold focus:outline-none"
+        />
+        <textarea
+          name="message"
+          rows="4"
+          placeholder="Event Details (Group Size, Occasion, etc.)"
+          class="w-full resize-y rounded border border-white/10 bg-panel-3 px-4 py-3.5 text-sm text-white placeholder:text-white/40 transition-colors focus:border-gold focus:outline-none"
+        ></textarea>
+      </div>
+
+      <button type="submit" class="btn-gold mt-5 w-full">CHECK AVAILABILITY</button>
+      <p class="mt-3 text-center text-xs text-white/40">No spam — we only use your details to quote your ride.</p>
+    </form>
+  </div>
+</section>
+
+<style>
+  select option {
+    background: #111;
+    color: #fff;
+  }
+</style>

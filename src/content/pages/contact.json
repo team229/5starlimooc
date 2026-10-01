@@ -1,0 +1,98 @@
+{
+ "path": "/contact/",
+ "title": "Contact Us",
+ "description": "Need limo or limousine rental info or quotes? Call us anytime at 714-605-4550, email us, or fill out the form below, our friendly team will help you plan your ride!",
+ "eyebrow": "Contact Us 5 Star Limousine Service | Anaheim, Ca",
+ "h1": "Contact Us",
+ "date": "2018-05-05",
+ "kind": "page",
+ "featured": "",
+ "blocks": [
+  {
+   "type": "h2",
+   "text": "5 Star Limousine Service | Anaheim, Ca"
+  },
+  {
+   "type": "h3",
+   "text": "Address"
+  },
+  {
+   "type": "p",
+   "text": "5 Star Limousine & Transportation Service 1125 N. Magnolia Ave. Anaheim, CA 92801",
+   "html": "\n\t\t\t\t\t\t5 Star Limousine & Transportation Service\n1125 N. Magnolia Ave.\nAnaheim, CA 92801\t\t\t\t\t"
+  },
+  {
+   "type": "h3",
+   "text": "Telephone"
+  },
+  {
+   "type": "p",
+   "text": "714-605-4550",
+   "html": "\n\t\t\t\t\t\t714-605-4550\t\t\t\t\t"
+  },
+  {
+   "type": "h3",
+   "text": "Email"
+  },
+  {
+   "type": "p",
+   "text": "fivestarzlimo@hotmail.com",
+   "html": "\n\t\t\t\t\t\tfivestarzlimo@hotmail.com\t\t\t\t\t"
+  },
+  {
+   "type": "p",
+   "text": "LUXURY MEETS PARTY VIBES",
+   "html": "LUXURY MEETS PARTY VIBES"
+  },
+  {
+   "type": "h2",
+   "text": "Premier Limousine Service"
+  },
+  {
+   "type": "p",
+   "text": "Experience the ultimate luxury limousine rental service in Orange County. From weddings to corporate events, we specialize in making every occasion unforgettable with our elite fleet.",
+   "html": "\n                Experience the ultimate luxury limousine rental service in Orange County. \n                From weddings to corporate events, we specialize in making every occasion unforgettable with our elite fleet.\n            "
+  },
+  {
+   "type": "p",
+   "text": "EXCLUSIVE OFFER",
+   "html": "EXCLUSIVE OFFER"
+  },
+  {
+   "type": "h3",
+   "text": "Get 1 Hour FREE!"
+  },
+  {
+   "type": "p",
+   "text": "Call now to unlock exclusive limousine deals for your next event.",
+   "html": "Call now to unlock exclusive limousine deals for your next event."
+  },
+  {
+   "type": "p",
+   "text": "Call Us Now!",
+   "html": "Call Us Now!"
+  },
+  {
+   "type": "p",
+   "text": "Serving Santa Ana, Anaheim, Newport Beach, and surrounding areas.",
+   "html": "Serving Santa Ana, Anaheim, Newport Beach, and surrounding areas."
+  },
+  {
+   "type": "h2",
+   "text": "REQUEST A QUOTE"
+  },
+  {
+   "type": "p",
+   "text": "Premium features without the premium costs.",
+   "html": "Premium features without the premium costs."
+  }
+ ],
+ "images": [
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.svg#astra",
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.ttf",
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.woff",
+  "https://5starlimooc.com/wp-content/uploads/2024/09/5STAR-B.png",
+  "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
+ ],
+ "canonical": "https://5starlimooc.com/contact/"
+}

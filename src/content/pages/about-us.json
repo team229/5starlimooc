@@ -1,0 +1,271 @@
+{
+ "path": "/about-us/",
+ "title": "About",
+ "description": "5 Star Limousine in Anaheim delivers premium limo & limousine rentals across Orange County with a professional fleet and top-rated chauffeurs.",
+ "eyebrow": "1 Hour Free — Call For Details",
+ "h1": "Orange County's Premier Luxury Transportation, for Over 20 Years",
+ "date": "2026-07-31",
+ "kind": "page",
+ "featured": "/images/wp-content/uploads/2026/03/cadillac-escalade-limousine-.png",
+ "blocks": [
+  {
+   "type": "p",
+   "text": "1 Hour Free — Call For Details",
+   "html": "1 Hour Free — Call For Details"
+  },
+  {
+   "type": "p",
+   "text": "5 Star Limousine Service delivers affordable limo and party bus rental across Orange County — elegance, reliability, and exceptional service on every ride.",
+   "html": "5 Star Limousine Service delivers affordable limo and party bus rental across Orange County — elegance, reliability, and exceptional service on every ride."
+  },
+  {
+   "type": "p",
+   "text": "Call (714) 605-4550 Get a Free Quote",
+   "html": "\n<a href=\"tel:+17146054550\">Call (714) 605-4550</a>\n<a href=\"/contact/\">Get a Free Quote</a>\n"
+  },
+  {
+   "type": "p",
+   "text": "20+ Years in Business 24/7 Availability 100% Licensed & Insured ★ 5.0 Client Rated",
+   "html": "\n20+Years in Business\n24/7Availability\n100%Licensed & Insured\n★ 5.0Client Rated\n"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2026/03/cadillac-escalade-limousine-.png",
+   "alt": "5 Star Limousine fleet"
+  },
+  {
+   "type": "p",
+   "text": "5★ Anaheim OC",
+   "html": "\n<b>5★</b>Anaheim<br>OC\n"
+  },
+  {
+   "type": "p",
+   "text": "Who We Are",
+   "html": "Who We Are"
+  },
+  {
+   "type": "h2",
+   "text": "Affordable Limo & Party Bus Rental"
+  },
+  {
+   "type": "p",
+   "text": "5 Star Limousine Service offers affordable limo rental and party bus rental in Anaheim and Orange County. Our luxurious fleet includes stretch limousines, party buses, Hummer limos, Lincoln MKT stretch limos, Cadillac Escalade stretched limos, Mercedes Sprinter van limos, Chrysler 300 limos, executive SUVs, and shuttle vans.",
+   "html": "<strong>5 Star Limousine Service offers affordable limo rental and party bus rental in Anaheim and Orange County.</strong> Our luxurious fleet includes stretch limousines, party buses, Hummer limos, Lincoln MKT stretch limos, Cadillac Escalade stretched limos, Mercedes Sprinter van limos, Chrysler 300 limos, executive SUVs, and shuttle vans."
+  },
+  {
+   "type": "p",
+   "text": "We want to be the one and only transportation service you employ. No one else in Orange County can match our level of skill and service — our wide selection of luxury vehicles means no matter what your plans call for, we have you covered.",
+   "html": "We want to be the one and only transportation service you employ. No one else in Orange County can match our level of skill and service — our wide selection of luxury vehicles means no matter what your plans call for, we have you covered."
+  },
+  {
+   "type": "p",
+   "text": "Our fleet consists of luxury cars in excellent condition. We maintain our vehicles regularly and are always prepared for any need you have.",
+   "html": "\n            Our fleet consists of luxury cars in excellent condition. We maintain our vehicles regularly and are always prepared for any need you have.\n          "
+  },
+  {
+   "type": "p",
+   "text": "Our goal is a transportation service that embodies luxury, style, and safety . Once you experience our level of service, you'll realize you made an excellent choice selecting us as your provider — and we're here for you 24/7 to make sure of it.",
+   "html": "Our goal is a transportation service that embodies <strong>luxury, style, and safety</strong>. Once you experience our level of service, you'll realize you made an excellent choice selecting us as your provider — and we're here for you 24/7 to make sure of it."
+  },
+  {
+   "type": "p",
+   "text": "Proms ● Weddings ● Bachelor Parties ● Quinceañeras ● Concerts ● Temecula Wine Tours ● Airport Transfers ● Corporate Events ● Hollywood Tours ● Proms ● Weddings ● Bachelor Parties ● Quinceañeras ● Concerts ● Temecula Wine Tours ● Airport Transfers ● Corporate Events ● Hollywood Tours ●",
+   "html": "\n\nProms ●\nWeddings ●\nBachelor Parties ●\nQuinceañeras ●\nConcerts ●\nTemecula Wine Tours ●\nAirport Transfers ●\nCorporate Events ●\nHollywood Tours ●\n duplicate set for seamless loop \nProms ●\nWeddings ●\nBachelor Parties ●\nQuinceañeras ●\nConcerts ●\nTemecula Wine Tours ●\nAirport Transfers ●\nCorporate Events ●\nHollywood Tours ●\n\n"
+  },
+  {
+   "type": "p",
+   "text": "Our Fleet",
+   "html": "Our Fleet"
+  },
+  {
+   "type": "h2",
+   "text": "We Offer 5 Star Transportation Service"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2026/03/cadillac-escalade-limousine-.png",
+   "alt": "Cadillac Escalade Limo"
+  },
+  {
+   "type": "p",
+   "text": "01",
+   "html": "01"
+  },
+  {
+   "type": "h3",
+   "text": "Cadillac Escalade Limo"
+  },
+  {
+   "type": "p",
+   "text": "Read More →",
+   "html": "Read More →"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2026/03/hummer-limousine-1-2.webp",
+   "alt": "Hummer Limo"
+  },
+  {
+   "type": "p",
+   "text": "02",
+   "html": "02"
+  },
+  {
+   "type": "h3",
+   "text": "Hummer Limo"
+  },
+  {
+   "type": "p",
+   "text": "Read More →",
+   "html": "Read More →"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2026/03/party-bus-2.webp",
+   "alt": "Party Bus"
+  },
+  {
+   "type": "p",
+   "text": "03",
+   "html": "03"
+  },
+  {
+   "type": "h3",
+   "text": "Party Bus"
+  },
+  {
+   "type": "p",
+   "text": "Read More →",
+   "html": "Read More →"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2026/03/chrsyler-limousine-1-1.webp",
+   "alt": "Chrysler 300 Limo"
+  },
+  {
+   "type": "p",
+   "text": "04",
+   "html": "04"
+  },
+  {
+   "type": "h3",
+   "text": "Chrysler 300 Limo"
+  },
+  {
+   "type": "p",
+   "text": "Read More →",
+   "html": "Read More →"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2026/03/mercedes-sprinter-party-bus-.webp",
+   "alt": "Mercedes Sprinter Limo"
+  },
+  {
+   "type": "p",
+   "text": "05",
+   "html": "05"
+  },
+  {
+   "type": "h3",
+   "text": "Mercedes Sprinter Limo"
+  },
+  {
+   "type": "p",
+   "text": "Read More →",
+   "html": "Read More →"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2026/03/suv-suburban-.png",
+   "alt": "Luxury SUV"
+  },
+  {
+   "type": "p",
+   "text": "06",
+   "html": "06"
+  },
+  {
+   "type": "h3",
+   "text": "Luxury SUV"
+  },
+  {
+   "type": "p",
+   "text": "Read More →",
+   "html": "Read More →"
+  },
+  {
+   "type": "p",
+   "text": "Exceptional Service, Exceptional Price",
+   "html": "Exceptional Service, Exceptional Price"
+  },
+  {
+   "type": "h2",
+   "text": "That's Our Motto"
+  },
+  {
+   "type": "p",
+   "text": "Our fleet consists of luxury cars in excellent condition, maintained on a regular basis so we're always prepared for any need you have. We're here for you 24/7 — no one else offers the same level of customer service, and our dedicated representatives are on call to make your experience memorable.",
+   "html": "Our fleet consists of luxury cars in excellent condition, maintained on a regular basis so we're always prepared for any need you have. We're here for you 24/7 — no one else offers the same level of customer service, and our dedicated representatives are on call to make your experience memorable."
+  },
+  {
+   "type": "p",
+   "text": "For over 20 years, 5 Star Limousine Service in Anaheim has been the premier choice for high-quality luxury transportation. Let us be your choice for your next event in Anaheim or Orange County and discover the difference.",
+   "html": "For over 20 years, 5 Star Limousine Service in Anaheim has been the premier choice for high-quality luxury transportation. Let us be your choice for your next event in Anaheim or Orange County and discover the difference."
+  },
+  {
+   "type": "p",
+   "text": "We genuinely care about our customers, taking great pride in exceeding your expectations. Once you experience our level of service, you'll realize you made an excellent choice selecting us as your transportation provider.",
+   "html": "We genuinely care about our customers, taking great pride in exceeding your expectations. Once you experience our level of service, you'll realize you made an excellent choice selecting us as your transportation provider."
+  },
+  {
+   "type": "p",
+   "text": "Testimonials",
+   "html": "Testimonials"
+  },
+  {
+   "type": "h2",
+   "text": "Happy Clients"
+  },
+  {
+   "type": "p",
+   "text": "\" ★★★★★ We hired 5 Star Limousine & Transportation Services for our wedding, and they truly provided 5-star service! From the initial inquiry to the final drop-off, everything was professional, efficient, and stress-free. The limo was absolutely beautiful, spotless, and stocked with everything promised. Our driver, was incredible, on time, courteous, and very helpful with loading/unloading. They made our special day memorable and we couldn't be happier. Highly recommended!! Thank you! B D \" ★★★★★ Absolutely phenomenal experience with 5 Star Limo Service! From the moment the limo arrived, everything was seamless and beyond our expectations. The vehicle was immaculate, spacious, and luxurious—our family felt like royalty! Our driver was on time, extremely professional, and made the entire ride smooth and enjoyable. Even our kids had the time of their lives—they’re still talking about it! It was the perfect touch for a special day and created memories we’ll never forget. If you’re looking for reliable, classy, and top-notch limo service, look no further. I’d give more than 5 stars if I could! Inez Eid Puleio \" ★★★★★ Our experience with 5 Star Limousine Service was fantastic! The stretched limo rental was luxurious, clean, and perfect for our event. The team was professional, and the chauffeur was punctual and attentive. They truly delivered a 5-star experience from start to finish. I would definitely book again and recommend to others. Jenny Smith",
+   "html": "\n\n\"\n★★★★★\nWe hired 5 Star Limousine & Transportation Services for our wedding, and they truly provided 5-star service! From the initial inquiry to the final drop-off, everything was professional, efficient, and stress-free. The limo was absolutely beautiful, spotless, and stocked with everything promised. Our driver, was incredible, on time, courteous, and very helpful with loading/unloading. They made our special day memorable and we couldn't be happier. Highly recommended!! Thank you!\nB D\n\n\n\"\n★★★★★\nAbsolutely phenomenal experience with 5 Star Limo Service! From the moment the limo arrived, everything was seamless and beyond our expectations. The vehicle was immaculate, spacious, and luxurious—our family felt like royalty! Our driver was on time, extremely professional, and made the entire ride smooth and enjoyable. Even our kids had the time of their lives—they’re still talking about it! It was the perfect touch for a special day and created memories we’ll never forget. If you’re looking for reliable, classy, and top-notch limo service, look no further. I’d give more than 5 stars if I could!\nInez Eid Puleio\n\n\n\"\n★★★★★\nOur experience with 5 Star Limousine Service was fantastic! The stretched limo rental was luxurious, clean, and perfect for our event. The team was professional, and the chauffeur was punctual and attentive. They truly delivered a 5-star experience from start to finish. I would definitely book again and recommend to others.\nJenny Smith\n\n"
+  },
+  {
+   "type": "p",
+   "text": "Placeholder reviews shown — swap in real client quotes from your Yelp/Google/Facebook pages.",
+   "html": "Placeholder reviews shown — swap in real client quotes from your Yelp/Google/Facebook pages."
+  },
+  {
+   "type": "h2",
+   "text": "Contact 5 Star Limousine Service Today"
+  },
+  {
+   "type": "p",
+   "text": "Find the perfect affordable limo rental for your special occasion. Reserve now and get 1 hour free on your first booking.",
+   "html": "Find the perfect affordable limo rental for your special occasion. Reserve now and get 1 hour free on your first booking."
+  },
+  {
+   "type": "p",
+   "text": "Call (714) 605-4550 Get a Free Quote",
+   "html": "\n<a href=\"tel:+17146054550\">Call (714) 605-4550</a>\n<a href=\"/contact/\">Get a Free Quote</a>\n"
+  }
+ ],
+ "images": [
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.svg#astra",
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.ttf",
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.woff",
+  "https://5starlimooc.com/wp-content/uploads/2024/09/5STAR-B.png",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/cadillac-escalade-limousine-.png",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/chrsyler-limousine-1-1.webp",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/hummer-limousine-1-2.webp",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/lincoln-mkt-limousine-.png",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/mercedes-sprinter-party-bus-.webp",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/party-bus-2.webp",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/suv-suburban-.png",
+  "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
+ ],
+ "canonical": "https://5starlimooc.com/about-us/"
+}

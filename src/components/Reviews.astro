@@ -1,0 +1,91 @@
+---
+/**
+ * Testimonials section — full-width gold banner + Trustindex Google-reviews widget.
+ */
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { ratingSummary, reviews } from '../data/testimonials';
+
+const widgetHtml = readFileSync(join(process.cwd(), 'src/data/trustindex-widget.html'), 'utf8');
+---
+
+<!-- Testimonials Banner -->
+<div class="gold-banner w-full py-6 text-center">
+  <h2 class="banner-title">Testimonials</h2>
+</div>
+
+<section class="bg-black py-12 md:py-16">
+  <div class="container-site max-w-6xl mx-auto">
+    <!-- summary + fallback cards (also what shows before the widget hydrates) -->
+    <div class="mb-8 flex flex-col items-center gap-3 text-center">
+      <p class="text-sm font-extrabold tracking-[0.2em] text-gold uppercase">{ratingSummary.label}</p>
+      <div class="flex items-center gap-1 text-gold" aria-hidden="true">
+        {[0, 1, 2, 3, 4].map((i) => (
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill={i === 4 ? 'url(#half)' : 'currentColor'} aria-hidden="true">
+            <defs>
+              <linearGradient id="half">
+                <stop offset="50%" stop-color="currentColor"></stop>
+                <stop offset="50%" stop-color="rgba(212,175,55,0.25)"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 21.2l1.6-7L2 9.5l7.1-.6z"></path>
+          </svg>
+        ))}
+      </div>
+      <p class="text-sm text-white/55">
+        Based on <strong class="text-white">{ratingSummary.total} reviews</strong> on {ratingSummary.source}
+      </p>
+    </div>
+
+    <!-- static review cards -->
+    <div class="grid gap-6 md:grid-cols-3">
+      {
+        reviews.map((r) => (
+          <figure class="rounded-[8px] border border-white/10 bg-neutral-950 flex flex-col p-6">
+            <div class="mb-3 flex items-center gap-3">
+              <img
+                src={r.avatar}
+                alt={`${r.name} profile picture`}
+                class="h-10 w-10 rounded-full object-cover"
+                decoding="async"
+                width="40"
+                height="40"
+              />
+              <div>
+                <figcaption class="text-sm font-bold text-white">{r.name}</figcaption>
+                <p class="text-[11px] tracking-wide text-white/40">Posted on {r.source}</p>
+              </div>
+            </div>
+            <div class="mb-3 flex gap-0.5 text-gold" aria-label={`${r.stars} out of 5 stars`}>
+              {Array.from({ length: r.stars }).map(() => (
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 21.2l1.6-7L2 9.5l7.1-.6z" />
+                </svg>
+              ))}
+            </div>
+            <blockquote class="text-sm leading-relaxed text-white/70">{r.text}</blockquote>
+          </figure>
+        ))
+      }
+    </div>
+
+    <!-- hydrated live widget -->
+    <div class="ti-widget-wrapper mt-8 overflow-hidden rounded" set:html={widgetHtml} />
+  </div>
+</section>
+
+<style>
+  .gold-banner {
+    background: linear-gradient(rgb(255, 197, 21) 0%, rgb(218, 169, 47) 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .banner-title {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(24px, 3.5vw, 38px);
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.25;
+  }
+</style>

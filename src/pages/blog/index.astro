@@ -1,0 +1,77 @@
+---
+/**
+ * Blog index — cards for every scraped article.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+
+const posts = (await getCollection('pages'))
+  .filter((p) => p.data.kind === 'post')
+  .sort((a, b) => (a.data.date < b.data.date ? 1 : -1));
+
+function excerpt(page: { description: string; blocks: { type: string; text?: string }[] }) {
+  if (page.description) return page.description;
+  const p = page.blocks.find((b) => b.type === 'p' && b.text && b.text.length > 60);
+  return p?.text?.slice(0, 220) + '…' ?? '';
+}
+---
+
+<BaseLayout
+  title="Blog | Limo & Party Bus Tips in Orange County"
+  description="Guides, tips and ideas for limousine and party bus rentals in Anaheim and Orange County from 5 Star Limousine Service."
+  path="/blog/"
+  breadcrumbs={[{ name: 'Blog', href: '' }]}
+>
+  <PageHero
+    eyebrow="From the blog"
+    title="Blog"
+    breadcrumbs={[{ name: 'Blog', href: '' }]}
+  />
+
+  <section class="container-site py-14 md:py-20">
+    <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        posts.map((post) => (
+          <article class="card-dark group flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1.5">
+            <a href={post.data.path} class="relative block aspect-[16/10] overflow-hidden bg-black">
+              {post.data.featured ? (
+                <img
+                  src={post.data.featured}
+                  alt={post.data.title}
+                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : (
+                <div class="flex h-full w-full items-center justify-center bg-panel-3">
+                  <span class="font-accent text-3xl text-gold/40">5★</span>
+                </div>
+              )}
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+            </a>
+            <div class="flex flex-1 flex-col p-6">
+              {post.data.date && (
+                <p class="mb-3 text-[11px] font-bold tracking-[0.16em] text-gold uppercase">{post.data.date}</p>
+              )}
+              <h2 class="font-display text-lg leading-snug font-bold text-white">
+                <a href={post.data.path} class="transition-colors group-hover:text-gold">
+                  {post.data.title}
+                </a>
+              </h2>
+              <p class="mt-3 flex-1 text-sm leading-relaxed text-white/60">{excerpt(post.data)}</p>
+              <span class="mt-5 inline-flex items-center gap-2 text-[12px] font-extrabold tracking-widest text-gold uppercase">
+                Read More
+                <Icon name="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

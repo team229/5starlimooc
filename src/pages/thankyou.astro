@@ -1,0 +1,32 @@
+---
+/** Form thank-you page (redirect target for the quote form). */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import site from '../data/site';
+---
+
+<BaseLayout
+  title="Thank You | 5 Star Limousine Service"
+  description="Thank you — your luxury transportation request has been received. 5 Star Limousine Service will be in touch shortly."
+  path="/thankyou/"
+  noindex={true}
+>
+  <section class="container-site flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
+    <span class="flex h-16 w-16 items-center justify-center rounded-full border-2 border-gold text-gold">
+      <Icon name="check" class="h-8 w-8" />
+    </span>
+    <p class="eyebrow mt-7 mb-4">Request received</p>
+    <h1 class="heading-gold text-3xl font-bold md:text-[42px]">Thank You</h1>
+    <p class="mt-5 max-w-xl text-[15px] leading-[1.85] text-white/70">
+      Your luxury transportation request has been received. A 5 Star Limousine Service representative will contact
+      you shortly to confirm availability — usually within minutes during business hours.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href={`tel:${site.phone.replace(/[^\d+]/g, '')}`} class="btn-gold">
+        <Icon name="phone" class="h-4 w-4" />
+        Call {site.phoneDisplay}
+      </a>
+      <a href="/" class="btn-outline">Back to home</a>
+    </div>
+  </section>
+</BaseLayout>

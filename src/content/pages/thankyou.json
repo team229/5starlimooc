@@ -1,0 +1,44 @@
+{
+ "path": "/thankyou/",
+ "title": "thankyou",
+ "description": "5 STAR LIMOUSINE ✓ Thank You Your luxury transportation request has been received. Our concierge team is currently reviewing your details and will contact y ...",
+ "eyebrow": "",
+ "h1": "5 STAR LIMOUSINE",
+ "date": "2026-03-02",
+ "kind": "page",
+ "featured": "",
+ "blocks": [
+  {
+   "type": "h1",
+   "text": "Thank You"
+  },
+  {
+   "type": "p",
+   "text": "Your luxury transportation request has been received. Our concierge team is currently reviewing your details and will contact you shortly to confirm your reservation.",
+   "html": "\n            Your luxury transportation request has been received. Our concierge team is currently reviewing your details and will contact you shortly to confirm your reservation.\n        "
+  },
+  {
+   "type": "p",
+   "text": "Return to Home",
+   "html": "Return to Home"
+  },
+  {
+   "type": "p",
+   "text": "Need immediate assistance?",
+   "html": "Need immediate assistance?"
+  },
+  {
+   "type": "p",
+   "text": "Call Now: (714) 605-4550",
+   "html": "\n            Call Now: (714) 605-4550\n"
+  }
+ ],
+ "images": [
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.svg#astra",
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.ttf",
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.woff",
+  "https://5starlimooc.com/wp-content/uploads/2024/09/5STAR-B.png",
+  "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
+ ],
+ "canonical": ""
+}

@@ -1,0 +1,141 @@
+---
+import Icon from './Icon.astro';
+import site from '../data/site';
+import { fleetFooter, serviceFooter } from '../data/fleet';
+
+const year = new Date().getFullYear();
+
+const socials = [
+  { name: 'facebook' as const, href: site.social.facebook, label: 'Facebook' },
+  { name: 'instagram' as const, href: site.social.instagram, label: 'Instagram' },
+  { name: 'yelp' as const, href: site.social.yelp, label: 'Yelp' },
+  { name: 'phone' as const, href: `tel:${site.phone.replace(/[^\d+]/g, '')}`, label: 'Call us' },
+];
+---
+
+<footer id="colophon" class="border-t border-line bg-ink">
+  <!-- vehicle quick links -->
+  <div class="border-b border-line bg-panel">
+    <div class="container-site flex flex-wrap items-center justify-center gap-x-3 gap-y-2 py-3.5 text-[11px] font-bold tracking-wider uppercase md:text-[12px]">
+      {fleetFooter.map((item, i) => (
+        <>
+          <a href={item.href} class="text-white/70 transition-colors hover:text-gold">{item.label}</a>
+          {i < fleetFooter.length - 1 && <span class="text-gold/40">|</span>}
+        </>
+      ))}
+    </div>
+  </div>
+
+  <div class="container-site grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
+    <!-- brand -->
+    <div>
+      <div class="mb-4 flex items-baseline gap-1.5">
+        <span class="font-display text-2xl font-bold text-white">5 Star</span>
+        <span class="font-accent text-2xl font-bold text-gold">Limo OC</span>
+      </div>
+      <div class="mb-4 flex gap-1 text-gold" aria-label="5 star rating">
+        {[0, 1, 2, 3, 4].map(() => <Icon name="star" class="h-4 w-4" />)}
+      </div>
+      <p class="text-sm leading-relaxed text-white/65">
+        5 Star Limousine Service offers premier luxury transportation in Anaheim and Orange County. From
+        weddings to corporate events, we specialize in making every occasion unforgettable with our elite fleet.
+      </p>
+      <div class="mt-5 flex gap-3">
+        {socials.map((s) => (
+          <a
+            href={s.href}
+            target={s.href.startsWith('tel') ? undefined : '_blank'}
+            rel="noopener noreferrer"
+            aria-label={s.label}
+            class="flex h-9 w-9 items-center justify-center rounded-full border border-gold/40 text-gold transition-all hover:bg-gold hover:text-ink"
+          >
+            <Icon name={s.name} class="h-4 w-4" />
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- services -->
+    <div>
+      <h3 class="mb-4 text-sm font-extrabold tracking-[0.2em] text-gold uppercase">Our Services</h3>
+      <ul class="space-y-2.5">
+        {serviceFooter.map((item) => (
+          <li>
+            <a href={item.href} class="text-sm text-white/70 transition-colors hover:text-gold">{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- fleet -->
+    <div>
+      <h3 class="mb-4 text-sm font-extrabold tracking-[0.2em] text-gold uppercase">Our Fleet</h3>
+      <ul class="space-y-2.5">
+        {fleetFooter.map((item) => (
+          <li>
+            <a href={item.href} class="text-sm text-white/70 transition-colors hover:text-gold">{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- contact -->
+    <div>
+      <h3 class="mb-4 text-sm font-extrabold tracking-[0.2em] text-gold uppercase">Contact Us</h3>
+      <ul class="space-y-3 text-sm text-white/70">
+        <li class="flex gap-2.5">
+          <Icon name="map-pin" class="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+          <span>
+            <span class="block font-bold text-white">Anaheim Location</span>
+            {site.address.streetAlt},<br />
+            {site.address.city}, {site.address.region} {site.address.postalCode}
+          </span>
+        </li>
+        <li class="flex gap-2.5">
+          <Icon name="phone" class="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+          <a href={`tel:${site.phone.replace(/[^\d+]/g, '')}`} class="transition-colors hover:text-gold">
+            {site.phonePretty}
+          </a>
+        </li>
+        <li class="flex gap-2.5">
+          <Icon name="mail" class="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+          <a href={`mailto:${site.email}`} class="break-all transition-colors hover:text-gold">{site.email}</a>
+        </li>
+        <li class="flex gap-2.5">
+          <Icon name="clock" class="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+          <span>Available 24/7 — We Never Close</span>
+        </li>
+        <li class="flex gap-2.5">
+          <Icon name="check" class="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+          <span>Anaheim · Santa Ana · Newport Beach<br />Orange County &amp; Surrounding Areas</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CTA band -->
+  <div class="border-t border-line bg-panel">
+    <div class="container-site flex flex-col items-center justify-between gap-4 py-6 md:flex-row">
+      <div>
+        <p class="text-base font-extrabold text-white">Ready for a luxury ride?</p>
+        <p class="text-sm text-white/60">Call now and get 1 hour FREE on your first booking!</p>
+      </div>
+      <a href={`tel:${site.phone.replace(/[^\d+]/g, '')}`} class="btn-gold">
+        <Icon name="phone" class="h-4 w-4" />
+        714-605-4550
+      </a>
+    </div>
+  </div>
+
+  <!-- legal -->
+  <div class="border-t border-line bg-ink">
+    <div class="container-site flex flex-col items-center justify-between gap-3 py-5 text-[13px] text-white/50 md:flex-row">
+      <p>© {year} {site.legalName}. All rights reserved.</p>
+      <nav class="flex gap-5">
+        <a href="/privacy-policy/" class="transition-colors hover:text-gold">Privacy Policy</a>
+        <a href="/terms-of-service/" class="transition-colors hover:text-gold">Terms of Service</a>
+        <a href="/sitemap/" class="transition-colors hover:text-gold">Sitemap</a>
+      </nav>
+    </div>
+  </div>
+</footer>

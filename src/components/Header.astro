@@ -1,0 +1,164 @@
+---
+/**
+ * Site header — offer marquee strip + gold utility bar + logo/nav bar,
+ * matching the original fixed black & gold header. Sticky on scroll.
+ */
+import Icon from './Icon.astro';
+import { mainNav, offerStrip } from '../data/nav';
+import site from '../data/site';
+
+const socials = [
+  { name: 'facebook' as const, href: site.social.facebook, label: 'Facebook' },
+  { name: 'instagram' as const, href: site.social.instagram, label: 'Instagram' },
+  { name: 'yelp' as const, href: site.social.yelp, label: 'Yelp' },
+  { name: 'youtube' as const, href: site.social.youtube, label: 'YouTube' },
+];
+
+const offers = [...offerStrip, ...offerStrip];
+---
+
+<header class="site-header sticky top-0 z-50 w-full border-b border-line bg-ink">
+  <!-- scrolling offer marquee -->
+  <div class="relative w-full overflow-hidden border-b border-line bg-ink">
+    <div class="animate-offer flex w-max">
+      {[0, 1].map((set) => (
+        <div class="offer-marquee-set flex shrink-0 items-center">
+          {offerStrip.map((item) => (
+            <div class="offer-item flex items-center gap-2.5 whitespace-nowrap px-8 py-3">
+              <Icon name={item.icon} class="h-[18px] w-[18px] shrink-0 text-gold drop-shadow-[0_0_5px_rgba(212,175,55,0.4)]" />
+              <span class="text-[13px] font-extrabold uppercase tracking-[0.14em] text-gold md:text-[15px] md:tracking-[0.15em]">
+                {item.text}
+              </span>
+              <span class="ml-3 h-6 w-px bg-gold/35"></span>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- gold utility bar -->
+  <div class="flex items-center justify-between bg-gold px-5 py-2 text-[12px] font-extrabold text-ink md:px-[5%]">
+    <a href={`tel:${site.phone.replace(/[^\d+]/g, '')}`} class="flex items-center gap-2 transition-opacity hover:opacity-70">
+      <Icon name="phone" class="h-[15px] w-[15px]" />
+      <span>+1714-605-4550</span>
+    </a>
+    <div class="flex items-center gap-4 md:gap-5">
+      {socials.map((s) => (
+        <a
+          href={s.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={s.label}
+          class="text-ink transition-opacity hover:opacity-70"
+        >
+          <Icon name={s.name} class="h-[17px] w-[17px]" />
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <!-- navbar -->
+  <div class="flex h-[80px] items-center justify-between px-5 md:h-[100px] md:px-[5%]">
+    <a href="/" class="logo-wrap block shrink-0" aria-label={site.name}>
+      <img
+        src={site.logo}
+        alt="Logo"
+        class="h-[58px] w-auto md:h-[92px]"
+        width="300"
+        height="92"
+        decoding="async"
+      />
+    </a>
+
+    <button
+      id="hamburger"
+      type="button"
+      aria-label="Open menu"
+      aria-controls="nav-container"
+      aria-expanded="false"
+      class="z-[10001] flex h-10 w-10 flex-col items-center justify-center gap-[6px] lg:hidden"
+    >
+      <span class="block h-[3px] w-[30px] bg-gold transition-transform"></span>
+      <span class="block h-[3px] w-[30px] bg-gold transition-opacity"></span>
+      <span class="block h-[3px] w-[30px] bg-gold transition-transform"></span>
+    </button>
+
+    <nav
+      id="nav-container"
+      class="nav-menu-container fixed top-0 right-[-100%] h-screen w-[80%] max-w-[360px] overflow-y-auto bg-panel-2 pt-[100px] shadow-[-10px_0_30px_rgba(0,0,0,0.5)] transition-[right] duration-300 lg:static lg:h-auto lg:w-auto lg:max-w-none lg:translate-y-0 lg:overflow-visible lg:bg-transparent lg:p-0 lg:shadow-none"
+    >
+      <ul class="flex h-full flex-col items-start lg:flex-row lg:items-center">
+        {mainNav.map((item) => (
+          <li class="menu-item relative flex w-full flex-col items-start lg:h-auto lg:w-auto lg:flex-row lg:items-center">
+            {item.children ? (
+              <>
+                <button
+                  type="button"
+                  class="has-dropdown flex w-full items-center justify-between gap-1.5 px-6 py-4 text-left text-[15px] font-bold tracking-wide text-gold uppercase transition-colors hover:text-white lg:w-auto lg:px-[15px] lg:text-[13px] lg:font-bold"
+                >
+                  {item.label}
+                  <Icon name="chevron-down" class="h-3.5 w-3.5" />
+                </button>
+                <ul
+                  class="sub-menu hidden w-full border-l-2 border-gold bg-black lg:absolute lg:top-full lg:left-0 lg:min-w-[280px] lg:w-auto lg:border-t-[3px] lg:border-l-0 lg:shadow-[0_10px_30px_rgba(0,0,0,0.8)] lg:group-hover:block"
+                >
+                  {item.children.map((child) => (
+                    <li>
+                      <a
+                        href={child.href}
+                        class="block border-b border-white/5 px-6 py-3.5 text-[14px] leading-snug text-gold transition-colors hover:text-white lg:px-5 lg:text-[13px]"
+                      >
+                        {child.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              <a
+                href={item.href}
+                class="w-full px-6 py-4 text-[15px] font-bold tracking-wide text-gold uppercase transition-colors hover:text-white lg:w-auto lg:px-[15px] lg:text-[13px]"
+              >
+                {item.label}
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style is:global>
+  /* desktop dropdown (hover driven, mirrors the original header) */
+  @media (min-width: 1024px) {
+    .menu-item:hover > .sub-menu {
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navContainer = document.getElementById('nav-container');
+
+  hamburger?.addEventListener('click', () => {
+    const open = navContainer?.classList.toggle('active') ?? false;
+    if (navContainer) navContainer.style.right = open ? '0' : '';
+    hamburger.classList.toggle('active', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  // submenu toggles for touch devices
+  document.querySelectorAll<HTMLButtonElement>('.has-dropdown').forEach((item) => {
+    item.addEventListener('click', (e) => {
+      if (window.innerWidth <= 1024) {
+        e.preventDefault();
+        const menu = item.parentElement?.querySelector('.sub-menu');
+        menu?.classList.toggle('hidden');
+      }
+    });
+  });
+</script>

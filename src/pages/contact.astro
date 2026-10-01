@@ -1,0 +1,170 @@
+---
+/**
+ * Contact page — lead form (Web3Forms, same endpoint & key as the original),
+ * contact details and map.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Icon from '../components/Icon.astro';
+import site, { tracking } from '../data/site';
+
+const socials = [
+  { name: 'facebook' as const, href: site.social.facebook, label: 'Facebook' },
+  { name: 'instagram' as const, href: site.social.instagram, label: 'Instagram' },
+  { name: 'yelp' as const, href: site.social.yelp, label: 'Yelp' },
+  { name: 'youtube' as const, href: site.social.youtube, label: 'YouTube' },
+];
+
+const mapEmbed = `https://www.google.com/maps?q=${encodeURIComponent(`${site.address.street}, ${site.address.city}, ${site.address.region} ${site.address.postalCode}`)}&output=embed`;
+const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${site.address.street}, ${site.address.city}, ${site.address.region} ${site.address.postalCode}`)}`;
+
+const inputClass =
+  'w-full rounded border border-white/10 bg-panel-3 px-4 py-3.5 text-sm text-white placeholder:text-white/40 transition-colors focus:border-gold focus:outline-none';
+---
+
+<BaseLayout
+  title="Contact Us | 5 Star Limousine Service Anaheim OC"
+  description="Need limo or limousine rental info or quotes? Call us anytime — 5 Star Limousine Service is available 24/7 in Anaheim and Orange County."
+  path="/contact/"
+  breadcrumbs={[{ name: 'Contact', href: '' }]}
+>
+  <PageHero
+    eyebrow="Contact us"
+    title="Contact Us"
+    breadcrumbs={[{ name: 'Contact', href: '' }]}
+  />
+
+  <section class="container-site py-14 md:py-20">
+    <div class="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+      <!-- details -->
+      <div class="grid gap-6">
+        <div class="card-dark p-7">
+          <p class="eyebrow mb-4">5 Star Limousine Service</p>
+          <ul class="grid gap-4 text-sm text-white/75">
+            <li class="flex gap-3">
+              <Icon name="map-pin" class="mt-0.5 h-4.5 w-4.5 shrink-0 text-gold" />
+              <span>
+                <strong class="block text-white">Anaheim Location</strong>
+                {site.address.streetAlt}, {site.address.city}, {site.address.region} {site.address.postalCode}
+              </span>
+            </li>
+            <li class="flex gap-3">
+              <Icon name="phone" class="mt-0.5 h-4.5 w-4.5 shrink-0 text-gold" />
+              <a href={`tel:${site.phone.replace(/[^\d+]/g, '')}`} class="hover:text-gold">{site.phonePretty}</a>
+            </li>
+            <li class="flex gap-3">
+              <Icon name="mail" class="mt-0.5 h-4.5 w-4.5 shrink-0 text-gold" />
+              <a href={`mailto:${site.email}`} class="break-all hover:text-gold">{site.email}</a>
+            </li>
+            <li class="flex gap-3">
+              <Icon name="clock" class="mt-0.5 h-4.5 w-4.5 shrink-0 text-gold" />
+              <span>{site.hours} — we never close</span>
+            </li>
+          </ul>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            {socials.map((s) => (
+              <a
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                class="flex h-10 w-10 items-center justify-center rounded-full border border-gold/40 text-gold transition-all hover:bg-gold hover:text-ink"
+              >
+                <Icon name={s.name} class="h-4 w-4" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="card-dark overflow-hidden p-0">
+          <iframe
+            src={mapEmbed}
+            title="5 Star Limousine Service location map"
+            class="h-[300px] w-full border-0 grayscale-[35%] contrast-[1.05]"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- form -->
+      <div class="card-dark p-7 md:p-9">
+        <h2 class="heading-gold text-2xl font-bold md:text-[32px]">Request a quote</h2>
+        <div class="gold-rule mt-4"></div>
+        <p class="mt-5 text-sm leading-relaxed text-white/65">
+          Tell us the date, group size and occasion — we'll come back with availability and pricing.
+        </p>
+
+        <form id="limo-lead-form" class="mt-6 grid gap-3.5">
+          <input type="hidden" name="access_key" value={tracking.contactAccessKey} />
+          <input type="hidden" name="subject" value="New quote request from 5starlimooc.com" />
+          <input type="hidden" name="from_name" value="5 Star Limo OC Website" />
+          <input type="checkbox" name="botcheck" class="hidden" />
+
+          <input type="text" name="name" required placeholder="Full Name" autocomplete="name" class={inputClass} />
+          <input type="email" name="email" required placeholder="Email Address" autocomplete="email" class={inputClass} />
+          <input type="tel" name="phone" required placeholder="Phone Number" autocomplete="tel" class={inputClass} />
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Event Details (Date, Group Size, Occasion)"
+            class={`${inputClass} resize-y`}></textarea>
+
+          <button id="submit-btn" type="submit" class="btn-gold mt-1 w-full">CHECK AVAILABILITY</button>
+          <p id="form-status" class="hidden text-center text-sm" role="status"></p>
+        </form>
+      </div>
+    </div>
+
+    <p class="mt-10 text-center text-sm text-white/50">
+      Prefer to talk?
+      <a href={mapLink} target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">
+        Find us on Google Maps
+      </a>
+      or call {site.phoneDisplay} any time, day or night.
+    </p>
+  </section>
+</BaseLayout>
+
+<script>
+  import { tracking } from '../data/site';
+
+  const form = document.getElementById('limo-lead-form') as HTMLFormElement | null;
+  const btn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+  const status = document.getElementById('form-status');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!btn || !status) return;
+    btn.innerHTML = 'SENDING...';
+    btn.disabled = true;
+    status.classList.add('hidden');
+
+    try {
+      const response = await fetch(tracking.contactEndpoint, {
+        method: 'POST',
+        body: new FormData(form),
+      });
+      const data = await response.json();
+      if (data.success) {
+        status.textContent = 'Success! Redirecting…';
+        status.className = 'mt-3 text-center text-sm text-gold';
+        form.reset();
+        window.location.href = tracking.thankYouUrl;
+        return;
+      } else {
+        status.textContent = 'Error: ' + (data.message || 'please call us instead');
+        status.className = 'mt-3 text-center text-sm text-red-400';
+      }
+    } catch {
+      status.textContent = 'Something went wrong. Please check your connection or call us.';
+      status.className = 'mt-3 text-center text-sm text-red-400';
+    } finally {
+      btn.innerHTML = 'CHECK AVAILABILITY';
+      btn.disabled = false;
+      status.classList.remove('hidden');
+    }
+  });
+</script>

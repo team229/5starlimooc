@@ -1,0 +1,204 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------ *
+ * 5 Star Limo OC — design tokens (matched to the original site)
+ * ------------------------------------------------------------------ */
+@theme {
+  --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+  --font-accent: 'Cinzel', 'Libre Baskerville', serif;
+  --font-serif-alt: 'Playfair Display', Georgia, serif;
+  --font-lato: 'Lato', 'Montserrat', sans-serif;
+
+  --color-ink: #000000;
+  --color-panel: #0a0a0a;
+  --color-panel-2: #111111;
+  --color-panel-3: #1a1a1a;
+  --color-carbon: #0d0d0d;
+  --color-night: #07070a;
+
+  --color-gold: #d4af37;
+  --color-gold-deep: #c69b40;
+  --color-gold-dark: #b19540;
+  --color-gold-bright: #ffd700;
+  --color-gold-amber: #ffa500;
+  --color-gold-pop: #ffc72c;
+  --color-gold-soft: #f4c20d;
+  --color-gold-pale: #f4e5c2;
+
+  --color-line: rgba(212, 175, 55, 0.3);
+}
+
+/* ------------------------------------------------------------------ *
+ * Base
+ * ------------------------------------------------------------------ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    overflow-x: hidden;
+  }
+
+  /* sticky mobile action bar room */
+  @media (max-width: 1024px) {
+    body {
+      padding-bottom: 62px;
+    }
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: #000;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Utilities
+ * ------------------------------------------------------------------ */
+@utility container-site {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* Gold section heading with the little rule underneath */
+@utility heading-gold {
+  font-family: var(--font-display);
+  color: #fff;
+  letter-spacing: 0.01em;
+}
+
+@utility eyebrow {
+  font-family: var(--font-accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+@utility gold-rule {
+  height: 3px;
+  width: 76px;
+  background: linear-gradient(90deg, var(--color-gold-bright), var(--color-gold-amber));
+}
+
+@utility btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-gold);
+  color: #000;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.9rem;
+  border-radius: 2px;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.16);
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  &:hover {
+    background: var(--color-gold-soft);
+    transform: translateY(-2px);
+  }
+}
+
+@utility btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.85rem;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: var(--color-gold);
+    color: #000;
+  }
+}
+
+@utility card-dark {
+  background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(10, 10, 10, 0.95));
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  border-radius: 4px;
+}
+
+/* ------------------------------------------------------------------ *
+ * Animations carried over from the original design
+ * ------------------------------------------------------------------ */
+@keyframes offerScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-offer {
+  animation: offerScroll 30s linear infinite;
+}
+.animate-offer:hover {
+  animation-play-state: paused;
+}
+.animate-float {
+  animation: floaty 6s ease-in-out infinite;
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+/* long-word safety for scraped content */
+.prose-site {
+  overflow-wrap: break-word;
+}

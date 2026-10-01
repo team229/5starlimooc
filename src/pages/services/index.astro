@@ -1,0 +1,111 @@
+---
+/**
+ * Services index — every limousine & party bus service we offer.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { mainNav } from '../../data/nav';
+import { offeredServices, occasionCards } from '../../data/services';
+
+const navServices = mainNav.find((n) => n.label === 'Services')?.children ?? [];
+
+const extra = [
+  { label: 'Concert Limo Rental', href: '/concert-limo-rental/' },
+  { label: 'Corporate Limo Service', href: '/corporate-limo-service/' },
+  { label: 'Party Bus Rental', href: '/services/party-bus-rental/' },
+  { label: 'Luxury SUV Service', href: '/luxury-suv-service/' },
+  { label: 'Shuttle Van Service', href: '/shuttle-van-service/' },
+  { label: 'Black Car Service', href: '/black-car-service/' },
+  { label: 'Executive Car Service', href: '/executive-car-service-orange-county/' },
+  { label: 'Luxury Car Service', href: '/luxury-car-service/' },
+  { label: 'Private Car Service to LAX', href: '/private-car-service-to-lax/' },
+  { label: 'SUV Limo Service', href: '/suv-limo-service/' },
+  { label: 'Professional Limousine Service', href: '/professional-limousine-service/' },
+  { label: 'Luxury Transportation Services', href: '/luxury-transportation-services/' },
+];
+
+const all = [...navServices, ...extra];
+---
+
+<BaseLayout
+  title="Limo & Party Bus Services in Anaheim, Orange County"
+  description="5 Star Limousine offers premier limo rentals in Anaheim and Orange County for weddings, proms, airport transfers, corporate events, concerts and more."
+  path="/services/"
+  breadcrumbs={[{ name: 'Services', href: '' }]}
+>
+  <PageHero
+    eyebrow="What we do"
+    title="Your Trusted Limousine Rental Service in Anaheim & Orange County"
+    breadcrumbs={[{ name: 'Services', href: '' }]}
+  />
+
+  <!-- occasion imagery -->
+  <section class="container-site py-14 md:py-16">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        occasionCards.map((card) => (
+          <a href={card.href} class="card-dark group relative block overflow-hidden">
+            <div class="relative aspect-[16/10] overflow-hidden bg-black">
+              <img
+                src={card.image}
+                alt={card.alt}
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent" />
+            </div>
+            <div class="absolute inset-x-0 bottom-0 flex items-center justify-between p-5">
+              <h2 class="text-sm font-extrabold tracking-[0.16em] text-white uppercase">{card.title}</h2>
+              <span class="text-[12px] font-extrabold tracking-widest text-gold uppercase">Read More</span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- all services -->
+  <section class="border-y border-line bg-carbon py-14 md:py-16">
+    <div class="container-site">
+      <div class="mb-9 text-center">
+        <p class="eyebrow mb-3">Full list</p>
+        <h2 class="heading-gold text-2xl font-bold md:text-[32px]">Services We Offer</h2>
+        <div class="gold-rule mx-auto mt-4"></div>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          all.map((s) => (
+            <a
+              href={s.href}
+              class="card-dark group flex items-center justify-between gap-3 px-5 py-4 transition-transform hover:-translate-y-0.5"
+            >
+              <span class="text-[15px] font-semibold text-white/85 transition-colors group-hover:text-gold">
+                {s.label}
+              </span>
+              <Icon name="arrow-right" class="h-4 w-4 shrink-0 text-gold transition-transform group-hover:translate-x-1" />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- highlights -->
+  <section class="container-site py-14 md:py-16">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      {
+        offeredServices.map((s) => (
+          <div class="card-dark p-6">
+            <h3 class="text-sm font-extrabold tracking-[0.16em] text-gold uppercase">{s.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-white/65">{s.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

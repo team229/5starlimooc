@@ -1,0 +1,112 @@
+---
+/**
+ * "What We Do Best!" banner + copy
+ * "Our Limousine Rental Limo" banner + 6-card fleet grid
+ * "Book Your Perfect Luxury Ride with 5 Star Limousine Service!" banner + copy
+ */
+import { fleet } from '../data/fleet';
+import { whatWeDoBest, fleetSection, bookingSection } from '../data/homepage';
+---
+
+<!-- What We Do Best! Banner -->
+<div class="gold-banner w-full py-6 text-center">
+  <h2 class="banner-title">{whatWeDoBest.title}</h2>
+</div>
+
+<!-- What We Do Best! Content -->
+<section class="bg-black py-12 md:py-16">
+  <div class="container-site mx-auto max-w-5xl text-center space-y-6">
+    {whatWeDoBest.paragraphs.map((p) => (
+      <p class="text-[16px] md:text-[18px] leading-[1.8] text-white/85" set:html={p} />
+    ))}
+  </div>
+</section>
+
+<!-- Our Limousine Rental Limo Banner -->
+<div class="gold-banner w-full py-6 text-center">
+  <h2 class="banner-title">{fleetSection.title}</h2>
+</div>
+
+<!-- Fleet Grid -->
+<section id="fleet" class="bg-black py-16 md:py-20">
+  <div class="container-site max-w-6xl mx-auto">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        fleet.map((car) => (
+          <article class="flex flex-col items-center text-center">
+            <h3 class="font-display text-2xl font-bold text-white mb-4">{car.name}</h3>
+            <div class="relative w-full aspect-[3/2] overflow-hidden rounded-[8px] bg-neutral-900 mb-5">
+              <img
+                src={car.image}
+                alt={car.alt}
+                class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                decoding="async"
+              />
+            </div>
+            <p class="text-[15px] font-bold leading-relaxed text-white/80 max-w-xs mb-6">
+              {car.tagline}
+            </p>
+            <a
+              href={car.href}
+              class="read-more-btn"
+            >
+              Read More
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Book Your Perfect Luxury Ride Banner -->
+<div class="gold-banner w-full py-6 text-center">
+  <h2 class="banner-title text-[20px] md:text-[32px]">{bookingSection.title}</h2>
+</div>
+
+<!-- Booking Intro Content -->
+<section class="bg-black py-12 md:py-16">
+  <div class="container-site mx-auto max-w-5xl text-center space-y-5">
+    <h3 class="text-xl md:text-2xl font-bold text-white/90 leading-relaxed">
+      {bookingSection.lead}
+    </h3>
+    <p class="text-[15px] md:text-[17px] leading-[1.85] text-white/70">
+      {bookingSection.body}
+    </p>
+  </div>
+</section>
+
+<style>
+  .gold-banner {
+    background: linear-gradient(rgb(255, 197, 21) 0%, rgb(218, 169, 47) 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .banner-title {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(24px, 3.5vw, 38px);
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .read-more-btn {
+    display: inline-block;
+    background-color: #000000;
+    color: #fbfbfb;
+    border: 2px solid #b19540;
+    border-radius: 10px;
+    padding: 14px 42px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+  }
+
+  .read-more-btn:hover {
+    background-color: #b19540;
+    color: #000000;
+  }
+</style>

@@ -1,0 +1,103 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileBar from '../components/MobileBar.astro';
+import Tracking from '../components/Tracking.astro';
+import JsonLd from '../components/JsonLd.astro';
+import site from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+  image?: string;
+  date?: string;
+  kind?: string;
+  breadcrumbs?: Array<{ name: string; href: string }>;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = site.description,
+  path = '/',
+  image = site.logo,
+  date = '',
+  kind = 'page',
+  breadcrumbs = [],
+  noindex = false,
+} = Astro.props;
+
+const fullTitle = title ? `${title}` : '5 Star Limo Service & Party Bus Rental Near You in Orange County';
+const canonical = `${site.url}${path}`;
+const ogImage = image?.startsWith('/') ? `${site.url}${image}` : image || `${site.url}${site.logo}`;
+---
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-site-verification" content="g3lPU0EdDBV5pphXR_Z--thiRxDEf6m11MV9IGe_b5E" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="max-image-preview:large" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={kind === 'post' ? 'article' : 'website'} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content={site.shortName} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+
+    <!-- icons (local) -->
+    <link rel="icon" href={site.logo} />
+    <link rel="apple-touch-icon" href={site.logo} />
+
+    <!-- self-hosted webfonts: zero external font requests -->
+    <link rel="stylesheet" href="/fonts/fonts.css" />
+    <link rel="stylesheet" href="/css/trustindex-google-widget.css" />
+
+    <slot name="head" />
+
+    <!-- analytics + review widgets -->
+    <Tracking />
+
+    <!-- structured data -->
+    <JsonLd
+      path={path}
+      title={fullTitle}
+      description={description}
+      image={ogImage}
+      date={date}
+      kind={kind}
+      breadcrumbs={breadcrumbs}
+    />
+  </head>
+  <body class="min-h-screen bg-ink text-white antialiased">
+    <a
+      href="#content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:bg-gold focus:px-4 focus:py-2 focus:text-ink"
+    >
+      Skip to content
+    </a>
+
+    <Header />
+
+    <div id="content" class="site-content">
+      <slot />
+    </div>
+
+    <Footer />
+    <MobileBar />
+  </body>
+</html>

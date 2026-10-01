@@ -1,0 +1,86 @@
+---
+/**
+ * Hero used by every inner page: eyebrow, H1, breadcrumb trail and CTA pair.
+ */
+import Icon from './Icon.astro';
+import site from '../data/site';
+
+interface Crumb {
+  name: string;
+  href: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  breadcrumbs?: Crumb[];
+  date?: string;
+  /** Optional background photo behind the heading. */
+  image?: string;
+  imageAlt?: string;
+}
+
+const { eyebrow = '', title, breadcrumbs = [], date = '', image = '', imageAlt = '' } = Astro.props;
+---
+
+<section class="relative overflow-hidden border-b border-line bg-panel">
+  {
+    image && (
+      <div class="absolute inset-0">
+        <img
+          src={image}
+          alt={imageAlt}
+          class="h-full w-full object-cover"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+        {/* scrim keeps the heading legible over any photo */}
+        <div
+          class="absolute inset-0"
+          style="background: linear-gradient(100deg, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.80) 45%, rgba(0,0,0,0.45) 100%), linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.55) 100%);"
+        />
+      </div>
+    )
+  }
+  <div
+    class="pointer-events-none absolute inset-0 opacity-70"
+    style="background: radial-gradient(ellipse at 20% -10%, rgba(212,175,55,0.18) 0%, transparent 55%), radial-gradient(ellipse at 90% 110%, rgba(198,155,64,0.12) 0%, transparent 50%);"
+  >
+  </div>
+  <div class="container-site relative py-14 md:py-20">
+    {
+      breadcrumbs.length > 0 && (
+        <nav aria-label="Breadcrumb" class="mb-6 flex flex-wrap items-center gap-2 text-[12px] tracking-wide text-white/45">
+          <a href="/" class="transition-colors hover:text-gold">
+            Home
+          </a>
+          {breadcrumbs.map((c) => (
+            <>
+              <span class="text-gold/50">/</span>
+              {c.href ? (
+                <a href={c.href} class="transition-colors hover:text-gold">
+                  {c.name}
+                </a>
+              ) : (
+                <span class="text-white/70">{c.name}</span>
+              )}
+            </>
+          ))}
+        </nav>
+      )
+    }
+
+    {eyebrow && <p class="eyebrow mb-4">{eyebrow}</p>}
+    <h1 class="heading-gold max-w-4xl text-3xl leading-[1.15] font-bold md:text-[44px]">{title}</h1>
+    {date && <p class="mt-4 text-sm text-white/50">Published on {date}</p>}
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href={`tel:${site.phone.replace(/[^\d+]/g, '')}`} class="btn-gold">
+        <Icon name="phone" class="h-4 w-4" />
+        Call {site.phoneDisplay}
+      </a>
+      <a href="/contact/" class="btn-outline">Get a Free Quote</a>
+    </div>
+  </div>
+</section>

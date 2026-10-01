@@ -1,0 +1,262 @@
+---
+/**
+ * Filterable photo grid with a keyboard-navigable lightbox.
+ * Pure client-side: filters and the modal are driven by a small inline script
+ * so the grid still renders fully without JavaScript.
+ */
+import { galleryGroups, galleryImages, type GalleryCategory } from '../data/gallery';
+import Icon from './Icon.astro';
+
+const counts = galleryGroups.map((g) => ({
+  ...g,
+  count: galleryImages.filter((i) => i.category === g.id).length,
+}));
+---
+
+<section class="container-site py-14 md:py-20">
+  <!-- filters -->
+  <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+    <div class="max-w-xl">
+      <p class="eyebrow">Our work</p>
+      <h2 class="heading-gold mt-2 text-2xl font-bold md:text-3xl">
+        Limos, party buses and every occasion in between
+      </h2>
+    </div>
+
+    <div class="flex flex-wrap gap-2" role="group" aria-label="Filter gallery by category">
+      <button
+        type="button"
+        class="gallery-filter is-active"
+        data-filter="all"
+        aria-pressed="true"
+      >
+        All photos
+        <span class="opacity-60">{galleryImages.length}</span>
+      </button>
+      {
+        counts.map((g) => (
+          <button type="button" class="gallery-filter" data-filter={g.id} aria-pressed="false">
+            {g.label}
+            <span class="opacity-60">{g.count}</span>
+          </button>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- grid -->
+  <div class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4" id="gallery-grid">
+    {
+      galleryImages.map((image, i) => (
+        <button
+          type="button"
+          class="gallery-tile group"
+          data-category={image.category}
+          data-caption={image.caption}
+          data-category-label={galleryGroups.find((g) => g.id === image.category)?.label ?? ''}
+          data-index={i}
+          aria-label={`View ${image.caption}`}
+        >
+          <img
+            src={image.src}
+            alt={image.alt}
+            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+            loading={i < 8 ? 'eager' : 'lazy'}
+            decoding="async"
+          />
+          <span class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <span class="absolute inset-x-0 bottom-0 translate-y-2 p-4 text-left opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+            <span class="block text-[13px] font-bold text-white">{image.caption}</span>
+            <span class="mt-0.5 block text-[10px] font-bold tracking-[0.16em] text-gold uppercase">
+              {galleryGroups.find((g) => g.id === image.category)?.label}
+            </span>
+          </span>
+        </button>
+      ))
+    }
+  </div>
+
+  <p class="mt-8 text-center text-[13px] text-white/40" id="gallery-empty" hidden>
+    No photos in this collection yet — call us and we'll shoot it for you.
+  </p>
+</section>
+
+<!-- lightbox -->
+<div
+  id="gallery-lightbox"
+  class="fixed inset-0 z-[10050] hidden items-center justify-center bg-black/95 p-4 md:p-8"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Photo viewer"
+>
+  <button
+    type="button"
+    class="absolute top-4 right-4 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 text-gold transition-colors hover:bg-gold hover:text-ink"
+    data-lightbox-close
+    aria-label="Close"
+  >
+    <Icon name="close" class="h-5 w-5" />
+  </button>
+
+  <button
+    type="button"
+    class="absolute top-1/2 left-3 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/50 text-white transition-colors hover:border-gold hover:text-gold md:left-6"
+    data-lightbox-prev
+    aria-label="Previous photo"
+  >
+    <Icon name="arrow-right" class="h-5 w-5 rotate-180" />
+  </button>
+
+  <button
+    type="button"
+    class="absolute top-1/2 right-3 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/50 text-white transition-colors hover:border-gold hover:text-gold md:right-6"
+    data-lightbox-next
+    aria-label="Next photo"
+  >
+    <Icon name="arrow-right" class="h-5 w-5" />
+  </button>
+
+  <figure class="flex max-h-full max-w-5xl flex-col items-center">
+    <img id="lightbox-img" src="" alt="" class="max-h-[76vh] w-auto max-w-full object-contain" />
+    <figcaption class="mt-5 text-center">
+      <p id="lightbox-caption" class="text-[15px] font-bold text-white"></p>
+      <p id="lightbox-category" class="mt-1 text-[11px] font-bold tracking-[0.18em] text-gold uppercase"></p>
+    </figcaption>
+  </figure>
+</div>
+
+<style>
+  .gallery-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .gallery-filter:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+  }
+  .gallery-filter.is-active {
+    background: var(--color-gold);
+    border-color: var(--color-gold);
+    color: #000;
+  }
+
+  .gallery-tile {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.16);
+    border-radius: 4px;
+    background: #0a0a0a;
+    aspect-ratio: 4 / 3;
+    cursor: pointer;
+  }
+  .gallery-tile:hover {
+    border-color: rgba(212, 175, 55, 0.5);
+  }
+  .gallery-tile[hidden] {
+    display: none;
+  }
+
+  #gallery-lightbox.is-open {
+    display: flex;
+  }
+</style>
+
+<script>
+  const grid = document.getElementById('gallery-grid');
+  const lightbox = document.getElementById('gallery-lightbox');
+  const lbImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
+  const lbCaption = document.getElementById('lightbox-caption');
+  const lbCategory = document.getElementById('lightbox-category');
+  const empty = document.getElementById('gallery-empty');
+  const tiles = Array.from(document.querySelectorAll<HTMLElement>('.gallery-tile'));
+
+  let visible: number[] = [];
+  let current = 0;
+  let lastFocused: HTMLElement | null = null;
+
+  const show = (pos: number) => {
+    const tile = tiles[visible[pos]];
+    if (!tile || !lbImg) return;
+    const img = tile.querySelector('img') as HTMLImageElement;
+    current = pos;
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    if (lbCaption) lbCaption.textContent = tile.dataset.caption ?? img.alt;
+    if (lbCategory) lbCategory.textContent = tile.dataset.categoryLabel ?? '';
+  };
+
+  const open = (pos: number) => {
+    if (!lightbox) return;
+    lastFocused = document.activeElement as HTMLElement;
+    show(pos);
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    (lightbox.querySelector('[data-lightbox-close]') as HTMLElement | null)?.focus();
+  };
+
+  const close = () => {
+    if (!lightbox) return;
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+    lastFocused?.focus();
+  };
+
+  // filters
+  document.querySelectorAll<HTMLButtonElement>('.gallery-filter').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter ?? 'all';
+      document.querySelectorAll('.gallery-filter').forEach((b) => {
+        const on = b === btn;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
+
+      visible = [];
+      tiles.forEach((tile, i) => {
+        const showTile = filter === 'all' || tile.dataset.category === filter;
+        tile.hidden = !showTile;
+        if (showTile) visible.push(i);
+      });
+      if (empty) empty.hidden = visible.length > 0;
+    });
+  });
+
+  // open tiles
+  tiles.forEach((tile, i) => {
+    tile.addEventListener('click', () => {
+      const pos = visible.indexOf(i);
+      if (pos > -1) open(pos);
+    });
+  });
+
+  lightbox?.querySelector('[data-lightbox-close]')?.addEventListener('click', close);
+  lightbox?.querySelector('[data-lightbox-prev]')?.addEventListener('click', () =>
+    show((current - 1 + visible.length) % visible.length),
+  );
+  lightbox?.querySelector('[data-lightbox-next]')?.addEventListener('click', () =>
+    show((current + 1) % visible.length),
+  );
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) close();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox?.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show((current - 1 + visible.length) % visible.length);
+    if (e.key === 'ArrowRight') show((current + 1) % visible.length);
+  });
+</script>

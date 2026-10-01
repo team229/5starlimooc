@@ -1,0 +1,27 @@
+---
+/**
+ * Closing call-to-action band shared by inner pages.
+ */
+import Icon from './Icon.astro';
+import site from '../data/site';
+---
+
+<section class="relative overflow-hidden border-y border-line bg-carbon">
+  <div
+    class="pointer-events-none absolute inset-0"
+    style="background: radial-gradient(circle at 15% 30%, rgba(212,175,55,0.14) 0%, transparent 45%), radial-gradient(circle at 85% 70%, rgba(198,155,64,0.10) 0%, transparent 45%);"
+  >
+  </div>
+  <div class="container-site relative flex flex-col items-center gap-6 py-14 text-center md:flex-row md:justify-between md:text-left">
+    <div>
+      <p class="eyebrow mb-3">Get 1 Hour Free!</p>
+      <h2 class="heading-gold text-2xl font-bold md:text-3xl">
+        Call now to unlock exclusive limo and party bus deals for your next event
+      </h2>
+    </div>
+    <a href={`tel:${site.phone.replace(/[^\d+]/g, '')}`} class="btn-gold shrink-0">
+      <Icon name="phone" class="h-4 w-4" />
+      Call Us Now! {site.phoneDisplay}
+    </a>
+  </div>
+</section>

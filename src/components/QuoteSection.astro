@@ -1,0 +1,227 @@
+---
+/**
+ * The exact 2-column ".page-background / .luxury-main-container" section from the
+ * original site: "Premier Limousine Service" copy + REQUEST A QUOTE form.
+ */
+import site, { tracking } from '../data/site';
+---
+
+<section class="page-background">
+  <div class="luxury-main-container">
+    <div class="text-content">
+      <p class="sub-headline">LUXURY MEETS PARTY VIBES</p>
+      <h2 class="hero-headline">Premier <span class="accent-text">Limousine</span> Service</h2>
+      <p class="description">
+        Experience the ultimate luxury limousine rental service in Orange County.
+        From weddings to corporate events, we specialize in making every occasion unforgettable with our elite fleet.
+      </p>
+
+      <div class="offer-box">
+        <p class="offer-label">EXCLUSIVE OFFER</p>
+        <h3>Get 1 Hour <span class="accent-text">FREE!</span></h3>
+        <p class="offer-desc">Call now to unlock exclusive limousine deals for your next event.</p>
+        <a href={`tel:${site.phone.replace(/[^\d+]/g, '')}`} class="call-link">Call Us Now!</a>
+      </div>
+
+      <p class="footer-areas">Serving Santa Ana, Anaheim, Newport Beach, and surrounding areas.</p>
+    </div>
+
+    <div class="luxury-card">
+      <div class="form-header">
+        <h2>REQUEST A QUOTE</h2>
+        <p class="form-sub">Premium features without the premium costs.</p>
+      </div>
+
+      <form id="quote-section-form" action={tracking.quoteEndpoint} method="POST">
+        <input type="hidden" name="redirect" value={tracking.thankYouUrl} />
+        <input type="checkbox" name="botcheck" style="display: none;" tabindex="-1" autocomplete="off" />
+
+        <div class="input-stack">
+          <input type="text" name="name" placeholder="Full Name" required />
+          <input type="email" name="email" placeholder="Email Address" required />
+          <input type="tel" name="phone" placeholder="Phone Number" required />
+
+          <select name="fleet_type" required>
+            <option value="" disabled selected>Select Fleet Type</option>
+            <option value="Party Bus">Party Bus</option>
+            <option value="Limousine">Limousine</option>
+          </select>
+
+          <input type="date" name="event_date" required />
+
+          <textarea name="message" rows="4" placeholder="Event Details (Group Size, Occasion, etc.)"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">CHECK AVAILABILITY</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .page-background *, .page-background *::before, .page-background *::after {
+    box-sizing: border-box;
+  }
+
+  .page-background {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 60px 20px;
+    font-family: 'Inter', 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .luxury-main-container {
+    display: flex;
+    max-width: 1150px;
+    width: 100%;
+    gap: 50px;
+    align-items: flex-start;
+  }
+
+  .text-content { flex: 1.2; width: 100%; }
+
+  .sub-headline {
+    color: #d4af37;
+    letter-spacing: 2px;
+    font-weight: 800;
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+
+  .hero-headline {
+    font-size: clamp(34px, 5vw, 64px);
+    line-height: 1.1;
+    margin-bottom: 25px;
+    font-weight: 900;
+    color: #ffffff;
+  }
+
+  .accent-text { color: #d4af37; }
+
+  .description {
+    color: #dddddd;
+    font-size: clamp(16px, 2vw, 19px);
+    line-height: 1.6;
+    max-width: 550px;
+    margin-bottom: 40px;
+  }
+
+  .offer-box {
+    background: #1a1a1a;
+    border-left: 4px solid #d4af37;
+    padding: 30px;
+    width: 100%;
+    max-width: 480px;
+    margin-bottom: 30px;
+  }
+
+  .offer-label { font-size: 12px; font-weight: 900; color: #d4af37; margin-bottom: 8px; }
+  .offer-box h3 { font-size: clamp(24px, 4vw, 34px); margin-bottom: 12px; font-weight: 800; color: #ffffff; }
+  .offer-desc { color: #cccccc; margin-bottom: 20px; font-size: 15px; }
+  .call-link { color: #d4af37; text-decoration: underline; font-weight: 900; font-size: 18px; }
+
+  .footer-areas { font-size: 13px; color: #888888; margin-top: 40px; }
+
+  .luxury-card {
+    background-color: #1a1a1a;
+    flex: 0.8;
+    padding: clamp(30px, 5vw, 50px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    border-radius: 4px;
+    width: 100%;
+  }
+
+  .form-header h2 { font-size: 26px; font-weight: 900; margin-bottom: 10px; color: #ffffff; }
+  .form-sub { color: #bbbbbb; font-size: 15px; margin-bottom: 30px; }
+
+  .input-stack { display: flex; flex-direction: column; gap: 15px; }
+
+  .input-stack input,
+  .input-stack textarea,
+  .input-stack select {
+    width: 100%;
+    padding: 16px;
+    background: #000000;
+    border: 1px solid #333333;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 4px;
+    outline: none;
+  }
+
+  .input-stack input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+
+  .submit-btn {
+    background-color: #d4af37;
+    color: #000000;
+    border: none;
+    width: 100%;
+    padding: 20px;
+    margin-top: 25px;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .submit-btn:hover { background-color: #f4c20d; }
+
+  .submit-btn:disabled {
+    background-color: #555555;
+    color: #888888;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 1024px) {
+    .luxury-main-container { flex-direction: column; align-items: center; }
+    .text-content { text-align: center; }
+    .luxury-card { max-width: 550px; }
+  }
+</style>
+
+<script>
+  const quoteSectionForm = document.getElementById('quote-section-form');
+  if (quoteSectionForm) {
+    quoteSectionForm.addEventListener('submit', async function (event) {
+      event.preventDefault();
+      const form = event.target as HTMLFormElement;
+      const submitBtn = form.querySelector('.submit-btn') as HTMLButtonElement;
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'SENDING...';
+
+      const formData = new FormData(form);
+      const formObject: Record<string, unknown> = Object.fromEntries(formData.entries());
+      const botcheck = form.querySelector('input[name="botcheck"]') as HTMLInputElement;
+      formObject.botcheck = botcheck ? String(botcheck.checked) : 'false';
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: JSON.stringify(formObject),
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        });
+
+        if (response.ok) {
+          const redirectInput = form.querySelector('input[name="redirect"]') as HTMLInputElement | null;
+          window.location.href = redirectInput && redirectInput.value ? redirectInput.value : '/thankyou';
+        } else {
+          alert('There was a problem submitting your request. Please try again.');
+          submitBtn.disabled = false;
+          submitBtn.innerText = 'CHECK AVAILABILITY';
+        }
+      } catch (error) {
+        alert('A network error occurred. Please check your connection and try again.');
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'CHECK AVAILABILITY';
+      }
+    });
+  }
+</script>

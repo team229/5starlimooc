@@ -1,0 +1,23 @@
+---
+/**
+ * Sticky call/contact bar shown on small screens (as on the original site).
+ */
+import Icon from './Icon.astro';
+import site from '../data/site';
+---
+
+<div class="mobile-bottom-bar fixed bottom-0 left-0 z-[10002] flex w-full lg:hidden">
+  <a
+    href={`tel:${site.phone.replace(/[^\d+]/g, '')}`}
+    class="flex flex-1 items-center justify-center gap-2 bg-gold py-4 text-[13px] font-extrabold tracking-wide text-ink"
+  >
+    <Icon name="phone" class="h-4 w-4" />
+    CALL NOW
+  </a>
+  <a
+    href="/contact/"
+    class="flex flex-1 items-center justify-center gap-2 bg-[#181818] py-4 text-[13px] font-extrabold tracking-wide text-white"
+  >
+    CONTACT US
+  </a>
+</div>

@@ -1,0 +1,89 @@
+---
+/**
+ * Analytics + review widgets — preserved exactly as on the original site:
+ *   1. Google Tag Manager  (GTM-KHQFFXS4)
+ *   2. Google Analytics 4  (G-9F9GDE33Z9)
+ *   3. Trustindex Google-reviews loader (cdn.trustindex.io)
+ *   4. dataLayer bootstrap + Complianz cookie-flag config
+ * These are the only outbound requests the built site makes.
+ */
+import { tracking } from '../data/site';
+---
+
+<!-- 1. Google Tag Manager -->
+<script is:inline define:vars={{ gtmId: tracking.gtmId }}>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', gtmId);
+</script>
+
+<!-- 2. Google Analytics 4 -->
+<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${tracking.ga4Id}`}></script>
+<script is:inline define:vars={{ ga4Id: tracking.ga4Id }}>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', ga4Id);
+</script>
+
+<!-- 3. Trustindex (Google reviews widget) loader + fallback -->
+<script
+  is:inline
+  data-ccm-injected="1"
+  data-wp-strategy="async"
+  id="trustindex-loader-js-js"
+  async
+  src={tracking.trustindexLoader}
+></script>
+<script is:inline>
+  (function () {
+    if (window.tiLoaderFallback) {
+      return;
+    }
+    window.tiLoaderFallback = true;
+    function tiLoadLoader() {
+      if (window.TrustindexWidget || document.querySelector('script[src*="https://cdn.trustindex.io/loader.js"]')) {
+        return;
+      }
+      let script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://cdn.trustindex.io/loader.js';
+      script.setAttribute('data-ccm-injected', '1');
+      document.head.appendChild(script);
+    }
+    if ('loading' === document.readyState) {
+      document.addEventListener('DOMContentLoaded', tiLoadLoader);
+    } else {
+      tiLoadLoader();
+    }
+  })();
+</script>
+
+<!-- 4. Consent / cookie flags (as on the original site) -->
+<script is:inline>
+  window['gtag_enable_tcf_support'] = false;
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', '', { cookie_flags: 'secure;samesite=none' });
+</script>
+
+<!-- Google Tag Manager (noscript fallback) -->
+<noscript>
+  <iframe
+    src={`https://www.googletagmanager.com/ns.html?id=${tracking.gtmId}`}
+    height="0"
+    width="0"
+    style="display:none;visibility:hidden"></iframe>
+</noscript>

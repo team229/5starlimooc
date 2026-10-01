@@ -1,0 +1,77 @@
+---
+/** Terms of service (local content — the original footer linked here). */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import site from '../data/site';
+---
+
+<BaseLayout
+  title="Terms of Service | 5 Star Limousine Service"
+  description="Terms and conditions for limousine and party bus rentals with 5 Star Limousine & Transportation Services."
+  path="/terms-of-service/"
+  breadcrumbs={[{ name: 'Terms of Service', href: '' }]}
+>
+  <PageHero eyebrow="Legal" title="Terms of Service" breadcrumbs={[{ name: 'Terms of Service', href: '' }]} />
+
+  <section class="container-site py-14 md:py-20">
+    <div class="mx-auto max-w-3xl space-y-7 text-[15px] leading-[1.85] text-white/75">
+      <p>
+        By booking with 5 Star Limousine &amp; Transportation Services ("5 Star Limo") you agree to the terms
+        below. Please read them before confirming a reservation.
+      </p>
+
+      <div>
+        <h2 class="heading-gold mb-3 text-xl font-bold">Reservations &amp; deposits</h2>
+        <p>
+          A reservation is held once a deposit is received and confirmed in writing. Dates are subject to
+          availability and are not guaranteed until confirmed by our team.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="heading-gold mb-3 text-xl font-bold">Pricing</h2>
+        <p>
+          Quotes are based on the vehicle, time and route provided at booking. Additional hours, extra stops or
+          route changes may alter the final price. Gratuity is not included unless stated in your quote.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="heading-gold mb-3 text-xl font-bold">Cancellations</h2>
+        <p>
+          Cancellations made outside 72 hours of the pickup time are eligible for a full deposit refund.
+          Cancellations inside 72 hours may forfeit the deposit. Prom, homecoming and New Year's Eve bookings may
+          carry stricter terms, which are stated at the time of booking.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="heading-gold mb-3 text-xl font-bold">Passenger conduct</h2>
+        <p>
+          All passengers must comply with local law. Vehicles are non-smoking. The chauffeur may end a trip without
+          refund if passengers create an unsafe situation or cause damage; the responsible party will be charged
+          for repair and downtime.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="heading-gold mb-3 text-xl font-bold">Liability</h2>
+        <p>
+          We carry full commercial liability insurance and operate with licensed, insured chauffeurs. We are not
+          liable for delays caused by traffic, weather, road closures or events beyond our control.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="heading-gold mb-3 text-xl font-bold">Contact</h2>
+        <p>
+          Questions about these terms? Email <a href={`mailto:${site.email}`} class="text-gold hover:underline">{site.email}</a>
+          or call <a href={`tel:${site.phone.replace(/[^\d+]/g, '')}`} class="text-gold hover:underline">{site.phoneDisplay}</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

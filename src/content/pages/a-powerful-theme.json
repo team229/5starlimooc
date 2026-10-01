@@ -1,0 +1,39 @@
+{
+  "path": "/a-powerful-theme/",
+  "title": "Spark: Premium Responsive & Retina Ready Theme",
+  "description": "We are selling quality, we are selling excellence, we’re selling a super support. We are selling a Multi-Purpose Responsive & Retina Theme we are sellin ...",
+  "eyebrow": "",
+  "h1": "Spark: Premium Responsive & Retina Ready Theme",
+  "date": "2014-06-13",
+  "kind": "post",
+  "featured": "",
+  "blocks": [
+    {
+      "type": "p",
+      "text": "We are selling quality, we are selling excellence, we’re selling a super support. We are selling a Multi-Purpose Responsive & Retina Theme we are selling Spark.",
+      "html": "We are selling quality, we are selling excellence, we’re selling a super support. We are selling a Multi-Purpose Responsive & Retina Theme we are selling Spark."
+    },
+    {
+      "type": "p",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultrices, nulla adipiscing interdum lobortis, metus elit dictum orci, vitae aliquet dui ligula eu risus. Quisque nulla magna, consequat sed consectetur vitae, pellentesque quis lectus. Pellentesque lobortis in odio a posuere. Cras et massa sodales, gravida nibh sit amet, blandit enim. Aliquam egestas, ipsum ut aliquet placerat, dolor arcu placerat neque, sed commodo sapien dolor lobortis arcu. Donec vel nulla ut odio blandit consectetur at ac dolor. Donec dapibus est ut urna tempus, non laoreet leo rutrum. Nullam ultrices diam non neque sodales molestie. Etiam lobortis, eros vitae hendrerit pharetra, tortor eros congue tortor, id cursus lectus ipsum ut est. Nullam et leo rhoncus, viverra nunc sit amet, egestas turpis. Aliquam ullamcorper purus ultricies augue imperdiet suscipit. Praesent a tortor neque. Nullam sollicitudin facilisis dolor, nec bibendum tellus congue nec. Etiam ac vehicula lorem. Praesent pellentesque nibh interdum auctor cursus. Suspendisse potenti.",
+      "html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultrices, nulla adipiscing interdum lobortis, metus elit dictum orci, vitae aliquet dui ligula eu risus. Quisque nulla magna, consequat sed consectetur vitae, pellentesque quis lectus. Pellentesque lobortis in odio a posuere. Cras et massa sodales, gravida nibh sit amet, blandit enim. Aliquam egestas, ipsum ut aliquet placerat, dolor arcu placerat neque, sed commodo sapien dolor lobortis arcu. Donec vel nulla ut odio blandit consectetur at ac dolor. Donec dapibus est ut urna tempus, non laoreet leo rutrum. Nullam ultrices diam non neque sodales molestie. Etiam lobortis, eros vitae hendrerit pharetra, tortor eros congue tortor, id cursus lectus ipsum ut est. Nullam et leo rhoncus, viverra nunc sit amet, egestas turpis. Aliquam ullamcorper purus ultricies augue imperdiet suscipit. Praesent a tortor neque. Nullam sollicitudin facilisis dolor, nec bibendum tellus congue nec. Etiam ac vehicula lorem. Praesent pellentesque nibh interdum auctor cursus. Suspendisse potenti."
+    },
+    {
+      "type": "quote",
+      "text": "Donec rhoncus neque ipsum, nec rutrum eros cursus id. Duis in nisi ac leo elementum gravida suscipit eu arcu. Donec ut ante erat. Sed varius tempor risus, eu sodales massa mollis id. Proin porta tempor fermentum. Nunc at diam id eros faucibus feugiat. Phasellus adipiscing metus volutpat, aliquet lectus sed, blandit enim. Donec placerat orci eget tortor interdum mattis. Aenean nec rhoncus massa. Morbi arcu tellus, auctor id luctus nec, bibendum ac massa. Vivamus dignissim mi vel urna condimentum, eu sodales dolor scelerisque. Donec blandit eget massa vitae vulputate. Aenean magna diam, gravida ac elit lacinia, dignissim dictum libero."
+    },
+    {
+      "type": "p",
+      "text": "Nulla id vulputate risus. Vestibulum accumsan quis mauris eget vulputate. Donec vitae quam ut metus lacinia viverra pulvinar in metus. Morbi feugiat felis non tincidunt dignissim. Duis sagittis fringilla dapibus. Aenean at pellentesque dolor, quis viverra sapien. Nam rutrum, nulla gravida vehicula pharetra, massa mauris lobortis turpis, quis rhoncus felis lectus nec nisi. Donec viverra turpis non lorem interdum, sed suscipit mauris egestas. Cras eget felis vitae augue porta ultricies id eget nisi. Nunc fermentum libero tempus neque interdum, mattis luctus purus porttitor. Donec iaculis risus rutrum enim vulputate, sit amet fringilla ipsum pulvinar. Nunc dapibus urna et ante tincidunt congue. Praesent posuere cursus tellus, non consequat nibh convallis sed. Suspendisse laoreet malesuada tempor. Aenean hendrerit libero ac ligula accumsan blandit.",
+      "html": "Nulla id vulputate risus. Vestibulum accumsan quis mauris eget vulputate. Donec vitae quam ut metus lacinia viverra pulvinar in metus. Morbi feugiat felis non tincidunt dignissim. Duis sagittis fringilla dapibus. Aenean at pellentesque dolor, quis viverra sapien. Nam rutrum, nulla gravida vehicula pharetra, massa mauris lobortis turpis, quis rhoncus felis lectus nec nisi. Donec viverra turpis non lorem interdum, sed suscipit mauris egestas. Cras eget felis vitae augue porta ultricies id eget nisi. Nunc fermentum libero tempus neque interdum, mattis luctus purus porttitor. Donec iaculis risus rutrum enim vulputate, sit amet fringilla ipsum pulvinar. Nunc dapibus urna et ante tincidunt congue. Praesent posuere cursus tellus, non consequat nibh convallis sed. Suspendisse laoreet malesuada tempor. Aenean hendrerit libero ac ligula accumsan blandit."
+    }
+  ],
+  "images": [
+    "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.svg#astra",
+    "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.ttf",
+    "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.woff",
+    "https://5starlimooc.com/wp-content/uploads/2024/09/5STAR-B.png",
+    "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
+  ],
+  "canonical": "https://5starlimooc.com/a-powerful-theme/"
+}

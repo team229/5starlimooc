@@ -1,0 +1,119 @@
+{
+ "path": "/fleet/",
+ "title": "Limo Service Anaheim OC | Orange County Limousine Rentals",
+ "description": "5 Star Limousine offers premier limo rentals in Anaheim and Orange County, delivering true five-star service. Book your ride today.",
+ "eyebrow": "",
+ "h1": "Your Trusted Limousine Rental Service in Anaheim & Orange County",
+ "date": "2026-03-31",
+ "kind": "fleet",
+ "featured": "/images/wp-content/uploads/2024/09/5STAR-B.png",
+ "blocks": [
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2024/09/5STAR-B.png",
+   "alt": ""
+  },
+  {
+   "type": "h2",
+   "text": "Our Limousine Fleet"
+  },
+  {
+   "type": "h2",
+   "text": "Escalade Limo"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2026/03/cadillac-escalade-limousine-.webp",
+   "alt": ""
+  },
+  {
+   "type": "p",
+   "text": "A modern and unique limo that suits any celebration.",
+   "html": "<strong>A modern and unique limo that suits any celebration.</strong>"
+  },
+  {
+   "type": "h2",
+   "text": "Hummer Limo"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2026/03/hummer-limousine-2-.webp",
+   "alt": ""
+  },
+  {
+   "type": "p",
+   "text": "A spacious and pleasant limo with top of the line interior.",
+   "html": "<strong>A spacious and pleasant limo with top of the line interior.</strong>"
+  },
+  {
+   "type": "h2",
+   "text": "Party Bus"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2026/03/party-bus.webp",
+   "alt": ""
+  },
+  {
+   "type": "p",
+   "text": "A classic and elegant ride with additional space for larger groups.",
+   "html": "<strong>A classic and elegant ride with additional space for larger groups.</strong>"
+  },
+  {
+   "type": "h2",
+   "text": "Chrysler 300 Limo"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2026/03/lincoln-mkt-limousine-.webp",
+   "alt": ""
+  },
+  {
+   "type": "p",
+   "text": "A comfortable and modern limo perfect for any occasion.",
+   "html": "<strong>A comfortable and modern limo perfect for any occasion.</strong>"
+  },
+  {
+   "type": "h2",
+   "text": "Sprinter Limo"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2026/03/mercedes-sprinter-party-bus--300x200.webp",
+   "alt": ""
+  },
+  {
+   "type": "p",
+   "text": "An entertaining and fancy ride with state of the art features.",
+   "html": "<strong>An entertaining and fancy ride with state of the art features.</strong>"
+  },
+  {
+   "type": "h2",
+   "text": "Luxury SUV"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2026/03/suv-suburban--300x200.webp",
+   "alt": ""
+  },
+  {
+   "type": "p",
+   "text": "A classy & luxurious SUV suitable for airport services or business ventures.",
+   "html": "<strong>A classy & luxurious SUV suitable for airport services or business ventures.</strong>"
+  }
+ ],
+ "images": [
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.svg#astra",
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.ttf",
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.woff",
+  "https://5starlimooc.com/wp-content/uploads/2024/09/5STAR-B.png",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/cadillac-escalade-limousine-.webp",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/hummer-limousine-2-.webp",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/lincoln-mkt-limousine-.webp",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/mercedes-sprinter-party-bus--300x200.webp",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/party-bus.webp",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/suv-suburban--300x200.webp",
+  "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
+ ],
+ "canonical": "https://5starlimooc.com/fleet/"
+}

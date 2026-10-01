@@ -1,0 +1,94 @@
+{
+ "path": "/gallery/",
+ "title": "Gallery",
+ "description": "Explore our Anaheim Orange County limo gallery! View luxury cars, clean interiors & stylish rides from 5 Star Limousine Service.",
+ "eyebrow": "",
+ "h1": "Gallery",
+ "date": "2018-05-05",
+ "kind": "page",
+ "featured": "/images/wp-content/uploads/2026/03/suv-suburban-.webp",
+ "blocks": [
+  {
+   "type": "p",
+   "text": "A Huge Collection of Limousines & Party Bus Available",
+   "html": "A Huge Collection of Limousines & Party Bus Available"
+  },
+  {
+   "type": "h2",
+   "text": "Orange County's most trusted fleet for every occasion"
+  },
+  {
+   "type": "p",
+   "text": "Party limo rental in Ornage County provides outstanding service while offering affordable prices. Our fleet of luxury limos are clean, comfortable, and suitable for any event. Our trained drivers are always on time and ensure guests arrive safely — most of all, we aim to exceed the expectations of every guest we drive.",
+   "html": "<strong>Party limo rental in Ornage County provides outstanding service while offering affordable prices.</strong> Our fleet of luxury limos are clean, comfortable, and suitable for any event. Our trained drivers are always on time and ensure guests arrive safely — most of all, we aim to exceed the expectations of every guest we drive."
+  },
+  {
+   "type": "p",
+   "text": "Our goal is to provide transportation that defines luxury, style, and safety . We take great pride in meeting and exceeding your expectations — once you've experienced our level of service, you'll know you made an excellent choice in selecting 5 Star as your transportation provider.",
+   "html": "Our goal is to provide transportation that defines <strong>luxury, style, and safety</strong>. We take great pride in meeting and exceeding your expectations — once you've experienced our level of service, you'll know you made an excellent choice in selecting 5 Star as your transportation provider."
+  },
+  {
+   "type": "p",
+   "text": "Celebrate life's biggest moments—whether it's a birthday, wedding, or bachelor party—with a safe, luxurious, and unforgettable limousine experience.",
+   "html": "\n        Celebrate life's biggest moments—whether it's a birthday, wedding, or bachelor party—with a safe, luxurious, and unforgettable limousine experience.\n      "
+  },
+  {
+   "type": "p",
+   "text": "No one else in Orange County matches our level of skill and service. With a wide selection of stylish vehicles, we have you covered no matter the occasion.",
+   "html": "No one else in Orange County matches our level of skill and service. With a wide selection of stylish vehicles, we have you covered no matter the occasion."
+  },
+  {
+   "type": "p",
+   "text": "Call (714) 605-4550 Get a Free Quote",
+   "html": "\n<a href=\"tel:+17146054550\">Call (714) 605-4550</a>\n<a href=\"/contact/\">Get a Free Quote</a>\n"
+  },
+  {
+   "type": "h3",
+   "text": "Built For Your Occasion"
+  },
+  {
+   "type": "p",
+   "text": "Wherever the night takes you, we've got the ride.",
+   "html": "Wherever the night takes you, we've got the ride."
+  },
+  {
+   "type": "ul",
+   "items": [
+    "Proms",
+    "Weddings",
+    "Bachelor Parties",
+    "Quinceañeras",
+    "Concerts",
+    "Temecula Wine Tours",
+    "Airport Transfers",
+    "Corporate Events",
+    "Hollywood Tours",
+    "Special Occasions"
+   ]
+  },
+  {
+   "type": "p",
+   "text": "★★★★★ Serving Anaheim & all of Orange County",
+   "html": "\n★★★★★\nServing Anaheim & all of Orange County\n"
+  },
+  {
+   "type": "img",
+   "src": "/images/wp-content/uploads/2026/03/suv-suburban-.webp",
+   "alt": ""
+  }
+ ],
+ "images": [
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.svg#astra",
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.ttf",
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.woff",
+  "https://5starlimooc.com/wp-content/uploads/2024/09/5STAR-B.png",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/cadillac-escalade-limousine-.webp",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/chrsyler-limousine-.webp",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/hummer-limousine-2-.webp",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/mercedes-sprinter-party-bus-.webp",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/party-bus.webp",
+  "https://5starlimooc.com/wp-content/uploads/2026/03/suv-suburban-.webp",
+  "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
+ ],
+ "canonical": "https://5starlimooc.com/gallery/"
+}

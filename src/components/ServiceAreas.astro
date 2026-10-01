@@ -1,0 +1,132 @@
+---
+/**
+ * "We Serve All Of Southern California" — exact service-area city links + Premium CTA box.
+ */
+import { cities } from '../data/cities';
+import { serviceAreas } from '../data/homepage';
+import site from '../data/site';
+---
+
+<section class="section-dark py-16 md:py-20">
+  <div class="container-site max-w-6xl mx-auto text-center">
+    <h2 class="font-display text-3xl md:text-5xl font-bold text-white mb-6">
+      We Serve <span class="gold-gradient-text">All Of Southern California</span>
+    </h2>
+    <p class="text-base md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+      {serviceAreas.body}
+    </p>
+
+    <!-- City Pills -->
+    <div class="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto mb-16">
+      {
+        cities.map((city) => (
+          <span class="city-pill">
+            <a href={city.href}>
+              {city.label}
+            </a>
+          </span>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Premium CTA Section -->
+  <div class="container-site max-w-5xl mx-auto px-4">
+    <div class="premium-cta">
+      <div class="cta-decoration decoration-1"></div>
+      <div class="cta-decoration decoration-2"></div>
+      <h3 class="text-2xl md:text-4xl font-extrabold uppercase tracking-wide text-[#FFD700] mb-3">
+        Get 1 Hour Free!
+      </h3>
+      <p class="text-base md:text-lg text-gray-300 mb-8 max-w-xl mx-auto">
+        Call now to unlock exclusive limo and party bus deals for your next event
+      </p>
+      <a class="premium-cta-button" href={`tel:${site.phone.replace(/[^\d+]/g, '')}`}>
+        Call Us Now! {site.phonePretty}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-dark {
+    background-color: #000000;
+  }
+
+  .gold-gradient-text {
+    background: linear-gradient(to right, #D4AF37, #F4E5C2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .city-pill {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-size: 14px;
+    background-color: #0d0d0d;
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    transition: all 0.2s ease;
+  }
+
+  .city-pill:hover {
+    background-color: rgba(255, 215, 0, 0.15);
+    border-color: rgba(255, 215, 0, 0.4);
+    transform: scale(1.04);
+  }
+
+  .city-pill a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .city-pill a:hover {
+    color: #FFD700;
+  }
+
+  /* Premium CTA Box */
+  .premium-cta {
+    background: linear-gradient(135deg, #0d0d0d 0%, #000000 100%);
+    color: #FFD700;
+    text-align: center;
+    padding: 50px 30px;
+    border-radius: 14px;
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 215, 0, 0.18);
+    border: 1px solid rgba(255, 215, 0, 0.25);
+  }
+
+  .premium-cta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #D4AF37, #FFD700, #D4AF37);
+  }
+
+  .premium-cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%);
+    color: #000000;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .premium-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.5);
+    background: #FFD700;
+  }
+</style>

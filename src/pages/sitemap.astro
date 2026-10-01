@@ -1,0 +1,47 @@
+---
+/** HTML sitemap — linked from the footer. */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { HAND_BUILT } from '../data/routes';
+
+const scraped = (await getCollection('pages'))
+  .map((p) => ({ path: p.data.path, title: p.data.h1 || p.data.title }))
+  .filter((p) => p.path && p.path !== '/')
+  .sort((a, b) => a.path.localeCompare(b.path));
+
+const statics = [
+  { path: '/', title: 'Home' },
+  ...HAND_BUILT.filter((h) => h !== '/' && !scraped.some((s) => s.path === h)).map((h) => ({
+    path: h,
+    title: h.replace(/\//g, ' ').trim(),
+  })),
+];
+
+const all = [...statics, ...scraped.filter((s) => !statics.some((x) => x.path === s.path))].sort((a, b) =>
+  a.path.localeCompare(b.path),
+);
+---
+
+<BaseLayout
+  title="Sitemap | 5 Star Limousine Service"
+  description="Every page on the 5 Star Limousine Service website."
+  path="/sitemap/"
+  breadcrumbs={[{ name: 'Sitemap', href: '' }]}
+>
+  <PageHero eyebrow="Browse the site" title="Sitemap" breadcrumbs={[{ name: 'Sitemap', href: '' }]} />
+
+  <section class="container-site py-14 md:py-20">
+    <ul class="mx-auto grid max-w-4xl gap-2.5 sm:grid-cols-2">
+      {
+        all.map((p) => (
+          <li>
+            <a href={p.path} class="block truncate rounded border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white/75 transition-colors hover:border-gold/40 hover:text-gold">
+              <span class="text-gold/70">{p.path}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

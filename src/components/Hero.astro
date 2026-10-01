@@ -1,0 +1,13 @@
+---
+/**
+ * Homepage hero — full-bleed background video with the gold 3D logo + H1,
+ * followed by the exact 2-column luxury hero with "Premier Limousine Service"
+ * and the "REQUEST A QUOTE" form.
+ */
+import VideoHero from './VideoHero.astro';
+import QuoteSection from './QuoteSection.astro';
+import { hero } from '../data/homepage';
+---
+
+<VideoHero title={hero.title} />
+<QuoteSection />

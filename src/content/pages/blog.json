@@ -1,0 +1,29 @@
+{
+ "path": "/blog/",
+ "title": "Blog",
+ "description": "",
+ "eyebrow": "",
+ "h1": "Blog",
+ "date": "2022-08-31",
+ "kind": "post",
+ "featured": "",
+ "blocks": [],
+ "images": [
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.svg#astra",
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.ttf",
+  "https://5starlimooc.com/wp-content/themes/astra/assets/fonts/astra.woff",
+  "https://5starlimooc.com/wp-content/uploads/2024/09/5STAR-B.png",
+  "https://5starlimooc.com/wp-content/uploads/2026/07/cruise-port-transportation-guide-from-orange-county-1024x683.png",
+  "https://5starlimooc.com/wp-content/uploads/2026/07/executive-transportation-checklist-for-corporate-events-1024x683.png",
+  "https://5starlimooc.com/wp-content/uploads/2026/08/anniversary-limo-rental-in-orange-county-1024x683.png",
+  "https://5starlimooc.com/wp-content/uploads/2026/08/limo-rental-for-6-8-10-and-14-passengers-1024x683.png",
+  "https://5starlimooc.com/wp-content/uploads/2026/08/limo-rental-quote-orange-county-1024x683.png",
+  "https://5starlimooc.com/wp-content/uploads/2026/08/luxury-suv-car-service-1024x683.png",
+  "https://5starlimooc.com/wp-content/uploads/2026/08/wedding-shuttle-vs-limousine-1024x683.png",
+  "https://5starlimooc.com/wp-content/uploads/2026/09/disneyland-to-lax-transportation-1024x683.png",
+  "https://5starlimooc.com/wp-content/uploads/2026/09/graduation-party-bus-rental-orange-county-1024x683.png",
+  "https://5starlimooc.com/wp-content/uploads/2026/09/wedding-guest-transportation-orange-county-1024x683.png",
+  "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
+ ],
+ "canonical": "https://5starlimooc.com/blog/"
+}

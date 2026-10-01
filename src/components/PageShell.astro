@@ -1,0 +1,138 @@
+---
+/**
+ * Two-column reading layout used by long-form pages (About, city pages,
+ * services, blog posts): main copy on the left, a sticky rail on the right
+ * holding the section outline plus a quote/contact card.
+ */
+import ContentBlocks from './ContentBlocks.astro';
+import Icon from './Icon.astro';
+import site from '../data/site';
+import { buildToc, type ContentBlock } from '../lib/blocks';
+
+interface Props {
+  blocks: ContentBlock[];
+  /** Link shown on the rail card, e.g. a nearby-city page. */
+  railLinkLabel?: string;
+  railLinkHref?: string;
+  /** Extra links appended under the outline. */
+  railLinks?: Array<{ label: string; href: string }>;
+  /** Optional illustration rendered above the outline. */
+  image?: string;
+  imageAlt?: string;
+}
+
+const { blocks, railLinkLabel = '', railLinkHref = '/contact/', railLinks = [], image = '', imageAlt = '' } =
+  Astro.props;
+
+const toc = buildToc(blocks);
+const tel = site.phone.replace(/[^\d+]/g, '');
+---
+
+<section class="container-site py-14 md:py-20">
+  <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start lg:gap-14">
+    <!-- main copy -->
+    <div class="min-w-0">
+      <slot name="pre" />
+      <div class="mx-auto max-w-3xl lg:mx-0">
+        <ContentBlocks blocks={blocks} />
+      </div>
+      <slot name="post" />
+    </div>
+
+    <!-- sticky rail -->
+    <aside class="lg:sticky lg:top-24">
+      <div class="card-dark overflow-hidden">
+        {
+          image && (
+            <img
+              src={image}
+              alt={imageAlt}
+              class="h-40 w-full object-cover opacity-90"
+              loading="lazy"
+              decoding="async"
+            />
+          )
+        }
+
+        <div class="p-5">
+          <p class="eyebrow">Book now</p>
+          <p class="mt-2 text-sm leading-relaxed text-white/60">
+            Free quotes, same-day availability, and 1 hour free on select vehicles.
+          </p>
+          <div class="mt-4 grid gap-2.5">
+            <a href={`tel:${tel}`} class="btn-gold w-full !py-3 text-[13px]">
+              <Icon name="phone" class="h-4 w-4" />
+              {site.phonePretty}
+            </a>
+            <a href={railLinkHref} class="btn-outline w-full !py-3 text-[13px]">
+              {railLinkLabel}
+            </a>
+          </div>
+
+          <dl class="mt-5 grid gap-2.5 border-t border-white/10 pt-4 text-[13px]">
+            <div class="flex items-start gap-2.5">
+              <Icon name="clock" class="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+              <span class="text-white/60">{site.hours}</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <Icon name="map-pin" class="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+              <span class="text-white/60">
+                {site.address.street}, {site.address.city}, {site.address.region} {site.address.postalCode}
+              </span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <Icon name="star" class="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+              <span class="text-white/60">
+                {site.rating.value} ★ from {site.rating.count} Google reviews
+              </span>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      {
+        toc.length > 2 && (
+          <nav class="card-dark mt-5 p-5" aria-label="On this page">
+            <p class="eyebrow">On this page</p>
+            <ul class="mt-3.5 grid gap-1.5 border-l border-white/10 text-[13px]">
+              {toc.map((entry) => (
+                <li>
+                  <a
+                    href={`#${entry.id}`}
+                    class:list={[
+                      '-ml-px block border-l-2 border-transparent py-1 leading-snug text-white/55 transition-colors hover:border-gold hover:text-gold',
+                      entry.level === 3 ? 'pl-6' : 'pl-3.5 font-semibold text-white/75',
+                    ]}
+                  >
+                    {entry.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )
+      }
+
+      {
+        railLinks.length > 0 && (
+          <nav class="card-dark mt-5 p-5" aria-label="Related pages">
+            <p class="eyebrow">Keep exploring</p>
+            <ul class="mt-3.5 grid gap-1.5 text-[13px]">
+              {railLinks.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="group flex items-center justify-between gap-2 py-1 text-white/60 transition-colors hover:text-gold"
+                  >
+                    <span>{link.label}</span>
+                    <Icon name="arrow-right" class="h-3.5 w-3.5 text-gold/50 transition-transform group-hover:translate-x-0.5" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )
+      }
+    </aside>
+  </div>
+</section>

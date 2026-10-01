@@ -1,0 +1,171 @@
+---
+/**
+ * City service-area page (e.g. /limo-party-bus-rentals-service-anaheim-ca/).
+ * Split hero with the city intro, sticky rail with outline + quote card,
+ * and a nearby-cities switcher at the end. Copy is untouched — only the
+ * presentation changes.
+ */
+import PageShell from '../components/PageShell.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import site from '../data/site';
+import { cities } from '../data/cities';
+import { fleet } from '../data/fleet';
+import { plainText } from '../lib/blocks';
+
+interface Page {
+  path: string;
+  title: string;
+  description: string;
+  h1: string;
+  kind: string;
+  featured?: string;
+  blocks: any[];
+}
+
+const { page } = Astro.props as { page: Page };
+
+const tel = site.phone.replace(/[^\d+]/g, '');
+
+/** "limo-party-bus-rentals-service-anaheim-ca" → "Anaheim" */
+const cityName =
+  cities.find((c) => page.path.replace(/^\/|\/$/g, '') === c.href.replace(/^\/|\/$/g, ''))?.label ??
+  (() => {
+    const slug = page.path.replace(/^\/|\/$/g, '').replace(/-ca$/, '').split('-').slice(-1)[0] ?? '';
+    return plainText(slug)
+      .split('-')
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ');
+  })();
+
+const breadcrumbs = [
+  { name: 'Service Areas', href: '/cities/' },
+  { name: page.h1 || page.title, href: '' },
+];
+
+/** Sibling cities, grouped in the order the site lists them. */
+const others = cities.filter((c) => c.href !== page.path && c.label !== 'Orange County');
+
+const railLinks = [
+  { label: 'All service areas', href: '/cities/' },
+  { label: 'Our limo & bus fleet', href: '/fleet/' },
+  { label: 'Services & occasions', href: '/services/' },
+  { label: 'About 5 Star Limo', href: '/about-us/' },
+  { label: 'Get a free quote', href: '/contact/' },
+];
+
+const heroImage =
+  page.featured && !page.featured.includes('5STAR-B') ? page.featured : fleet[0].image;
+
+/** First sentence-ish intro used only as the hero standfirst (taken from the page). */
+const firstParagraph = plainText(page.blocks.find((b) => b.type === 'p' && plainText(b.text).length > 80)?.text);
+---
+
+<!-- split hero -->
+  <section class="relative overflow-hidden border-b border-line bg-panel">
+    <div
+      class="pointer-events-none absolute inset-0 opacity-70"
+      style="background: radial-gradient(ellipse at 15% -20%, rgba(212,175,55,0.20) 0%, transparent 55%), radial-gradient(ellipse at 95% 120%, rgba(198,155,64,0.14) 0%, transparent 50%);"
+    >
+    </div>
+
+    <div class="container-site relative py-14 md:py-20">
+      <nav aria-label="Breadcrumb" class="mb-6 flex flex-wrap items-center gap-2 text-[12px] tracking-wide text-white/45">
+        <a href="/" class="transition-colors hover:text-gold">Home</a>
+        <span class="text-gold/50">/</span>
+        <a href="/cities/" class="transition-colors hover:text-gold">Service Areas</a>
+        <span class="text-gold/50">/</span>
+        <span class="text-white/70">{cityName}</span>
+      </nav>
+
+      <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)]">
+        <div>
+          <span class="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3.5 py-1.5 text-[11px] font-extrabold tracking-[0.2em] text-gold uppercase">
+            <Icon name="map-pin" class="h-3.5 w-3.5" />
+            Serving {cityName}
+          </span>
+          <h1 class="heading-gold mt-5 max-w-2xl text-[30px] leading-[1.15] font-bold md:text-[42px]">
+            {page.h1 || page.title}
+          </h1>
+          {firstParagraph && <p class="mt-5 max-w-xl text-[15px] leading-[1.85] text-white/70">{firstParagraph}</p>}
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href={`tel:${tel}`} class="btn-gold">
+              <Icon name="phone" class="h-4 w-4" />
+              Call ({site.phoneDisplay})
+            </a>
+            <a href="/contact/" class="btn-outline">Get a Free Quote</a>
+          </div>
+        </div>
+
+        <div class="relative hidden lg:block">
+          <div class="card-dark overflow-hidden">
+            <img
+              src={heroImage}
+              alt={`Limo and party bus service in ${cityName}`}
+              class="h-64 w-full object-cover"
+              loading="eager"
+              decoding="async"
+            />
+            <div class="grid grid-cols-3 divide-x divide-white/10 border-t border-white/10 text-center">
+              <div class="px-2 py-3">
+                <p class="font-accent text-base font-bold text-gold">24/7</p>
+                <p class="mt-0.5 text-[10px] tracking-[0.12em] text-white/50 uppercase">Bookings</p>
+              </div>
+              <div class="px-2 py-3">
+                <p class="font-accent text-base font-bold text-gold">20+</p>
+                <p class="mt-0.5 text-[10px] tracking-[0.12em] text-white/50 uppercase">Years</p>
+              </div>
+              <div class="px-2 py-3">
+                <p class="font-accent text-base font-bold text-gold">{fleet.length}</p>
+                <p class="mt-0.5 text-[10px] tracking-[0.12em] text-white/50 uppercase">Vehicles</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <PageShell
+    blocks={page.blocks}
+    image={fleet[1].image}
+    imageAlt={`${fleet[1].name} available in ${cityName}`}
+    railLinkLabel={`Get a Quote in ${cityName}`}
+    railLinkHref="/contact/"
+    railLinks={railLinks}
+  />
+
+  <!-- nearby service areas -->
+  <section class="border-t border-line bg-carbon py-14 md:py-16">
+    <div class="container-site">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="eyebrow">Nearby service areas</p>
+          <h2 class="heading-gold mt-2 text-2xl font-bold md:text-3xl">More cities we serve</h2>
+        </div>
+        <a href="/cities/" class="group inline-flex items-center gap-2 text-[13px] font-bold tracking-wide text-gold">
+          View all service areas
+          <Icon name="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </a>
+      </div>
+
+      <div class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+        {
+          others.map((city) => (
+            <a
+              href={city.href}
+              class="card-dark group flex items-center justify-between gap-2 px-4 py-3.5 transition-colors hover:border-gold/40"
+            >
+              <span class="text-[13px] font-semibold text-white/80 transition-colors group-hover:text-gold">
+                {city.label}
+              </span>
+              <span class="text-gold opacity-0 transition-opacity group-hover:opacity-100">→</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />

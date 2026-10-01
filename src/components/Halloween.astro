@@ -1,0 +1,85 @@
+---
+/**
+ * Halloween 2026 promotional banner.
+ */
+import Icon from './Icon.astro';
+import site from '../data/site';
+import { halloween } from '../data/homepage';
+---
+
+<section class="relative overflow-hidden border-b border-line">
+  <!-- haunted backdrop -->
+  <div
+    class="pointer-events-none absolute inset-0"
+    style="background:
+      radial-gradient(circle at 8% 12%, rgba(198,155,64,0.16) 0%, transparent 40%),
+      radial-gradient(circle at 92% 88%, rgba(140,20,20,0.18) 0%, transparent 45%),
+      radial-gradient(circle at 75% 20%, rgba(80,20,100,0.10) 0%, transparent 35%),
+      radial-gradient(circle at 20% 80%, rgba(30,80,30,0.08) 0%, transparent 30%),
+      linear-gradient(180deg, #07070a 0%, #0a0612 40%, #07070a 100%);"
+  >
+  </div>
+
+  <div class="container-site relative py-16 md:py-24">
+    <div class="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+      <div>
+        <span
+          class="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-[11px] font-extrabold tracking-[0.18em] text-gold uppercase"
+        >
+          {halloween.eyebrow}
+        </span>
+
+        <h2 class="mt-6 font-display text-[30px] leading-[1.15] font-bold text-white md:text-[46px]">
+          {halloween.titleLines.map((line, i) => (
+            <span class={`block ${i === 1 ? 'text-gold' : ''}`}>{line}</span>
+          ))}
+        </h2>
+
+        <p class="mt-6 max-w-3xl text-[15px] leading-[1.85] text-white/70">{halloween.body}</p>
+
+        <ul class="mt-7 grid gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+          {halloween.bullets.map((b) => (
+            <li class="flex items-start gap-2.5 text-sm text-white/80">
+              <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gold/40 text-[11px]">
+                <Icon name="check" class="h-3 w-3 text-gold" />
+              </span>
+              {b}
+            </li>
+          ))}
+        </ul>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={`tel:${site.phone.replace(/[^\d+]/g, '')}`} class="btn-gold">{halloween.callCta}</a>
+          <a href="/contact/" class="btn-outline">{halloween.quoteCta}</a>
+        </div>
+
+        <p class="mt-6 max-w-3xl border-l-2 border-gold/40 pl-4 text-xs leading-relaxed text-white/45">
+          {halloween.note}
+        </p>
+      </div>
+
+      <!-- poster -->
+      <figure class="relative">
+        <div class="animate-float relative overflow-hidden rounded border border-gold/25">
+          <img
+            src={halloween.image}
+            alt={halloween.imageAlt}
+            class="h-auto w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-4">
+            <p class="text-sm font-extrabold text-gold">{halloween.date}</p>
+          </div>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {halloween.chips.map((chip) => (
+            <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] tracking-wide text-white/70">
+              {chip}
+            </span>
+          ))}
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>

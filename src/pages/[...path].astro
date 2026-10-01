@@ -1,0 +1,112 @@
+---
+/**
+ * Catch-all route: renders every page captured from the original site.
+ * Routes we hand-build in Astro take precedence over this (see HAND_BUILT).
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import PageShell from '../components/PageShell.astro';
+import CtaBand from '../components/CtaBand.astro';
+import CityPage from '../components/CityPage.astro';
+import { HAND_BUILT, KIND_CRUMB } from '../data/routes';
+import { heroFor } from '../data/serviceHeroes';
+
+/** Sidebar "keep exploring" links, tuned per page kind. */
+const railLinks: Record<string, Array<{ label: string; href: string }>> = {
+  post: [
+    { label: 'All blog articles', href: '/blog/' },
+    { label: 'Limo & party bus services', href: '/services/' },
+    { label: 'Cities we serve', href: '/cities/' },
+    { label: 'About 5 Star Limo', href: '/about-us/' },
+  ],
+  service: [
+    { label: 'All services', href: '/services/' },
+    { label: 'Our fleet', href: '/fleet/' },
+    { label: 'Cities we serve', href: '/cities/' },
+    { label: 'Get a free quote', href: '/contact/' },
+  ],
+  fleet: [
+    { label: 'Full fleet', href: '/fleet/' },
+    { label: 'All services', href: '/services/' },
+    { label: 'Cities we serve', href: '/cities/' },
+    { label: 'Get a free quote', href: '/contact/' },
+  ],
+  default: [
+    { label: 'Cities we serve', href: '/cities/' },
+    { label: 'Limo & party bus services', href: '/services/' },
+    { label: 'Our fleet', href: '/fleet/' },
+    { label: 'About 5 Star Limo', href: '/about-us/' },
+  ],
+};
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages
+    .filter((p) => p.data.path && !HAND_BUILT.includes(p.data.path))
+    .map((entry) => {
+      const path = entry.data.path;
+      const trimmed = path.replace(/^\/+|\/+$/g, '');
+      return {
+        params: { path: trimmed === '' ? undefined : trimmed },
+        props: { page: entry.data },
+      };
+    });
+}
+
+const { page } = Astro.props;
+
+const crumbGroup = KIND_CRUMB[page.kind];
+const breadcrumbs = [
+  ...(crumbGroup ? [{ name: crumbGroup.name, href: crumbGroup.href }] : []),
+  { name: page.h1 || page.title, href: '' },
+];
+---
+
+<BaseLayout
+  title={page.title || page.h1}
+  description={page.description}
+  path={page.path}
+  image={page.featured}
+  date={page.date}
+  kind={page.kind}
+  breadcrumbs={breadcrumbs}
+>
+  {page.kind === 'city' && <CityPage page={page} />}
+
+  {
+    page.kind !== 'city' && (
+      <>
+        <PageHero
+          eyebrow={page.eyebrow || KIND_CRUMB[page.kind]?.name || ''}
+          title={page.h1 || page.title}
+          breadcrumbs={breadcrumbs}
+          date={page.kind === 'post' ? page.date : ''}
+          image={page.kind === 'service' ? heroFor(page.path).src : page.featured || ''}
+          imageAlt={page.kind === 'service' ? heroFor(page.path).alt : page.title}
+        />
+
+        <PageShell
+          blocks={page.blocks}
+          railLinkLabel="Get a Free Quote"
+          railLinks={railLinks[page.kind] ?? railLinks.default}
+        >
+          {
+            page.kind === 'post' && page.featured && (
+              <figure slot="pre" class="mb-10 overflow-hidden rounded border border-gold/15">
+                <img
+                  src={page.featured}
+                  alt={page.title}
+                  class="h-auto w-full object-cover"
+                  decoding="async"
+                />
+              </figure>
+            )
+          }
+        </PageShell>
+
+        <CtaBand />
+      </>
+    )
+  }
+</BaseLayout>
