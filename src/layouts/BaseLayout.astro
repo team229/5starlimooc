@@ -16,6 +16,7 @@ interface Props {
   kind?: string;
   breadcrumbs?: Array<{ name: string; href: string }>;
   noindex?: boolean;
+  faq?: Array<{ question: string; answer: string }>;
 }
 
 const {
@@ -27,6 +28,7 @@ const {
   kind = 'page',
   breadcrumbs = [],
   noindex = false,
+  faq = [],
 } = Astro.props;
 
 const fullTitle = title ? `${title}` : '5 Star Limo Service & Party Bus Rental Near You in Orange County';
@@ -81,6 +83,7 @@ const ogImage = image?.startsWith('/') ? `${site.url}${image}` : image || `${sit
       date={date}
       kind={kind}
       breadcrumbs={breadcrumbs}
+      faq={faq}
     />
   </head>
   <body class="min-h-screen bg-ink text-white antialiased">

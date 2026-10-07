@@ -13,6 +13,8 @@ interface Props {
   date?: string;
   breadcrumbs?: Array<{ name: string; href: string }>;
   kind?: string;
+  /** Q/A pairs for FAQPage schema. Omit to emit no FAQPage markup. */
+  faq?: Array<{ question: string; answer: string }>;
 }
 
 const {
@@ -23,6 +25,7 @@ const {
   date = '',
   breadcrumbs = [],
   kind = 'page',
+  faq = [],
 } = Astro.props;
 
 const pageUrl = `${site.url}${path}`;
@@ -133,9 +136,28 @@ const breadcrumb =
         ],
       }
     : null;
+
+/**
+ * FAQPage from an explicit list. Answers still containing unresolved
+ * [PLACEHOLDER] markup are dropped — shipping bracket tokens to Google inside
+ * structured data is worse than emitting no FAQPage at all.
+ */
+const faqEntities = faq
+  .filter(({ answer }) => !/\[[A-Z][^\]]*\]/.test(answer))
+  .map(({ question, answer }) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  }));
+
+const faqSchema =
+  faqEntities.length > 0
+    ? { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqEntities }
+    : null;
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(localBusiness)}></script>
 <script type="application/ld+json" set:html={JSON.stringify(website)}></script>
 <script type="application/ld+json" set:html={JSON.stringify(entity)}></script>
 {breadcrumb && <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)}></script>}
+{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>}

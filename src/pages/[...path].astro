@@ -56,6 +56,17 @@ export async function getStaticPaths() {
 
 const { page } = Astro.props;
 
+/**
+ * FAQ candidates: an h3 question immediately followed by a p answer.
+ * JsonLd.astro drops any pair whose answer still holds [PLACEHOLDER] markup.
+ */
+const faq = (page.blocks ?? []).reduce<Array<{ question: string; answer: string }>>((acc, b, i, all) => {
+  if (b.type !== 'h3' || !b.text) return acc;
+  const next = all[i + 1];
+  if (next?.type === 'p' && next.text) acc.push({ question: b.text, answer: next.text });
+  return acc;
+}, []);
+
 const crumbGroup = KIND_CRUMB[page.kind];
 const breadcrumbs = [
   ...(crumbGroup ? [{ name: crumbGroup.name, href: crumbGroup.href }] : []),
@@ -71,6 +82,7 @@ const breadcrumbs = [
   date={page.date}
   kind={page.kind}
   breadcrumbs={breadcrumbs}
+  faq={faq}
 >
   {page.kind === 'city' && <CityPage page={page} />}
 
