@@ -5,3 +5,7 @@ dist/
 *.log
 .playwright-mcp/
 __pycache__/
+
+# Bunny Storage credentials
+.env
+.env.production
