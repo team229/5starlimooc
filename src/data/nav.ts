@@ -26,6 +26,7 @@ export const mainNav: NavItem[] = [
       { label: 'Concerts Limo & Party Bus', href: '/services/concerts-limo-party-bus-service/' },
       { label: '50 Passenger Party Bus', href: '/services/large-50-passenger-party-bus-service/' },
       { label: 'Birthday Limo & Party Bus', href: '/services/birthday-limo-party-bus-service/' },
+      { label: 'Party Bus Prices & Rates', href: '/party-bus-prices-orange-county/' },
     ],
   },
   {

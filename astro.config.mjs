@@ -13,5 +13,10 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      // Preview host headers — vite 403s these otherwise.
+      allowedHosts: ['.trycloudflare.com', 'web.clickboostmedia.com', '.clickboostmedia.com'],
+      host: true,
+    },
   },
 });

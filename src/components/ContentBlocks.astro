@@ -185,6 +185,14 @@ const headingLevels = blocks.filter((b) => b.type === 'h2' || b.type === 'h3').l
   .prose-site a:hover {
     color: #f4c20d;
   }
+  /* The `link` block renders a CTA button, not a prose link. The rule above
+     (.prose-site a) outranks .btn-gold on specificity, which paints the label
+     gold on a gold background and makes the text invisible. Undo it here. */
+  .prose-site a.btn-gold,
+  .prose-site a.btn-gold:hover {
+    color: #000;
+    text-decoration: none;
+  }
   .prose-site h2 > a,
   .prose-site h2 > a:hover,
   .prose-site h3 > span,
