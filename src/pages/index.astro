@@ -22,11 +22,37 @@ const description =
   path="/"
   image={site.logo}
 >
-  <Hero />
-  <Halloween />
-  <FleetShowcase />
-  <Reviews />
-  <OccasionGrid />
-  <WhyChoose />
-  <ServiceAreas />
+  <div class="home-starfield">
+    <Hero />
+    <Halloween />
+    <FleetShowcase />
+    <Reviews />
+    <OccasionGrid />
+    <WhyChoose />
+    <ServiceAreas />
+  </div>
 </BaseLayout>
+
+<style>
+  /* Whole-homepage gold starfield. A fixed layer sits behind everything (negative
+     z-index, so it never covers in-flow content); the solid black section blocks
+     below are made transparent so it shows through, while each section's own
+     cards/panels stay opaque for readability. */
+  .home-starfield {
+    position: relative;
+  }
+
+  .home-starfield::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: #000 url('/images/backgrounds/starfield-night.webp') center center / cover no-repeat;
+  }
+
+  /* Reveal the fixed starfield behind the solid black section blocks */
+  .home-starfield :global(section) {
+    background-color: transparent !important;
+  }
+</style>

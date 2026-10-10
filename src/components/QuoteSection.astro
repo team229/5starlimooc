@@ -64,7 +64,11 @@ import site, { tracking } from '../data/site';
   }
 
   .page-background {
-    background-color: #000000;
+    position: relative;
+    background-color: transparent;
+    /* Scrim only - the page-wide gold starfield shows through from the fixed
+       layer behind the homepage, so the copy keeps AA contrast over it. */
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.6) 55%, rgba(0, 0, 0, 0.85) 100%);
     color: #ffffff;
     padding: 60px 20px;
     font-family: 'Inter', 'Montserrat', sans-serif;
@@ -99,6 +103,7 @@ import site, { tracking } from '../data/site';
     margin-bottom: 25px;
     font-weight: 900;
     color: #ffffff;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.75);
   }
 
   .accent-text { color: #d4af37; }
@@ -109,6 +114,7 @@ import site, { tracking } from '../data/site';
     line-height: 1.6;
     max-width: 550px;
     margin-bottom: 40px;
+    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.65);
   }
 
   .offer-box {
