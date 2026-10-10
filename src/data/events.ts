@@ -176,7 +176,7 @@ export const homecomingLanding: LandingEvent = {
   keyword: 'homecoming limo & party bus',
   eyebrow: 'Homecoming 2026 — Orange County',
   h1: 'Homecoming Limo & Party Bus Rental in Orange County',
-  metaTitle: 'Homecoming Limo & Party Bus Rental in Orange County | 5 Star Limo',
+  metaTitle: 'Homecoming Limo & Party Bus Rental in Orange County | 5 Star Limo OC',
   metaDescription:
     'Book a homecoming limo or party bus in Orange County. Groups from Anaheim, Fullerton, Santa Ana, Tustin and Orange ride together — safe, on time and affordable. Call (714) 605-4550.',
   heroImage: '/images/events/homecoming-limo-party-bus-orange-county.webp',
