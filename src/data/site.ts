@@ -2,6 +2,7 @@
  * Global business data for 5 Star Limousine Service.
  * Everything here was captured from the original site and is served locally.
  */
+import { ratingSummary } from './testimonials';
 
 export const site = {
   name: '5 Star Limousine & Transportation Services',
@@ -27,7 +28,9 @@ export const site = {
     country: 'US',
   },
   geo: { lat: '33.84788010', lng: '-117.97654090' },
-  rating: { value: '4.5', count: '30' },
+  // Single source of truth for the rating shown on the site and in JSON-LD:
+  // the Google reviews widget (see data/testimonials.ts).
+  rating: { value: ratingSummary.rating, count: String(ratingSummary.total) },
   hours: 'Open 24 hours, 7 days a week',
   logo: '/images/wp-content/uploads/2024/09/5STAR-B.png',
   founded: '2004',
