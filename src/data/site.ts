@@ -8,6 +8,10 @@ export const site = {
   name: '5 Star Limousine & Transportation Services',
   shortName: '5 Star Limo OC',
   legalName: '5 Star Limousine & Transportation Services',
+  // Marketing aliases. Emitted as schema.org alternateName so search engines
+  // connect the on-site/domain brand ("5 Star Limo OC") with the legal name
+  // used on the Google Business Profile.
+  alternateNames: ['5 Star Limo OC', '5 Star Limo', 'Five Star Limousine'],
   // Canonical domain of the site this build is for (used for schema/canonical only,
   // never to load an asset).
   url: 'https://5starlimooc.com',

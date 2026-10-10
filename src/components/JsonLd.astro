@@ -38,6 +38,7 @@ const localBusiness = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: site.name,
+  alternateName: site.alternateNames,
   description: site.description,
   email: site.email,
   image: `${site.url}${site.logo}`,
@@ -92,10 +93,11 @@ const website = {
       '@type': 'Organization',
       '@id': `${site.url}/#schema-publishing-organization`,
       url: site.url,
-      name: site.shortName,
+      name: site.name,
+      alternateName: site.alternateNames,
       description: site.description,
       logo: `${site.url}${site.logo}`,
-      sameAs: [site.social.facebook, site.social.instagram, site.social.yelp, site.social.youtube],
+      sameAs: [site.social.facebook, site.social.instagram, site.social.yelp, site.social.youtube, site.social.maps],
     },
     {
       '@type': 'WebSite',
@@ -117,8 +119,8 @@ const entity = {
   ...(kind === 'post' && date ? { datePublished: date } : {}),
   ...(kind === 'post'
     ? {
-        author: { '@type': 'Organization', name: site.shortName },
-        publisher: { '@type': 'Organization', name: site.shortName, logo: { '@type': 'ImageObject', url: `${site.url}${site.logo}` } },
+        author: { '@type': 'Organization', name: site.name },
+        publisher: { '@type': 'Organization', name: site.name, logo: { '@type': 'ImageObject', url: `${site.url}${site.logo}` } },
       }
     : {}),
 };
