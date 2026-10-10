@@ -15,7 +15,7 @@ import { whatWeDoBest, fleetSection, bookingSection } from '../data/homepage';
 
 <!-- What We Do Best! Content -->
 <section class="bg-black py-12 md:py-16">
-  <div class="container-site mx-auto max-w-5xl text-center space-y-6">
+  <div class="what-we-do-copy container-site mx-auto max-w-5xl text-center space-y-6">
     {whatWeDoBest.paragraphs.map((p) => (
       <p class="text-[16px] md:text-[18px] leading-[1.8] text-white/85" set:html={p} />
     ))}
@@ -66,13 +66,11 @@ import { whatWeDoBest, fleetSection, bookingSection } from '../data/homepage';
 
 <!-- Booking Intro Content -->
 <section class="bg-black py-12 md:py-16">
-  <div class="container-site mx-auto max-w-5xl text-center space-y-5">
+  <div class="booking-copy container-site mx-auto max-w-5xl text-center space-y-5">
     <h3 class="text-xl md:text-2xl font-bold text-white/90 leading-relaxed">
       {bookingSection.lead}
     </h3>
-    <p class="text-[15px] md:text-[17px] leading-[1.85] text-white/70">
-      {bookingSection.body}
-    </p>
+    <p class="text-[15px] md:text-[17px] leading-[1.85] text-white/70" set:html={bookingSection.body} />
   </div>
 </section>
 
@@ -108,5 +106,20 @@ import { whatWeDoBest, fleetSection, bookingSection } from '../data/homepage';
   .read-more-btn:hover {
     background-color: #b19540;
     color: #000000;
+  }
+
+  /* internal links inside the "What We Do Best!" and booking copy stay gold + underlined */
+  .what-we-do-copy :global(a),
+  .booking-copy :global(a) {
+    color: #e7c766;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: color 0.2s ease;
+  }
+
+  .what-we-do-copy :global(a:hover),
+  .booking-copy :global(a:hover) {
+    color: #ffd700;
   }
 </style>

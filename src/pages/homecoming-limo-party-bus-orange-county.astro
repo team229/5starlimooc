@@ -1,0 +1,29 @@
+---
+/**
+ * Homecoming limo & party bus landing page.
+ * Composition only — all copy lives in src/data/events.ts and the shared
+ * EventLandingPage component.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EventLandingPage from '../components/EventLandingPage.astro';
+import { homecomingLanding, buildEventSchema } from '../data/events';
+
+const event = homecomingLanding;
+const schema = buildEventSchema({
+  ...event.event,
+  image: event.heroImage,
+  url: event.path,
+});
+---
+
+<BaseLayout
+  title={event.metaTitle}
+  description={event.metaDescription}
+  path={event.path}
+  image={event.heroImage}
+  breadcrumbs={[{ name: event.crumb, href: '' }]}
+  faq={event.faq}
+  events={[schema]}
+>
+  <EventLandingPage event={event} />
+</BaseLayout>

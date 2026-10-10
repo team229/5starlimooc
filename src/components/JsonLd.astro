@@ -15,6 +15,8 @@ interface Props {
   kind?: string;
   /** Q/A pairs for FAQPage schema. Omit to emit no FAQPage markup. */
   faq?: Array<{ question: string; answer: string }>;
+  /** Extra schema.org Event objects (seasonal campaigns). */
+  events?: Array<Record<string, unknown>>;
 }
 
 const {
@@ -26,6 +28,7 @@ const {
   breadcrumbs = [],
   kind = 'page',
   faq = [],
+  events = [],
 } = Astro.props;
 
 const pageUrl = `${site.url}${path}`;
@@ -161,3 +164,4 @@ const faqSchema =
 <script type="application/ld+json" set:html={JSON.stringify(entity)}></script>
 {breadcrumb && <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)}></script>}
 {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>}
+{events.map((event) => <script type="application/ld+json" set:html={JSON.stringify(event)} />)}

@@ -13,6 +13,8 @@ export const HAND_BUILT = [
   '/privacy-policy/',
   '/terms-of-service/',
   '/sitemap/',
+  '/homecoming-limo-party-bus-orange-county/',
+  '/oktoberfest-fall-festival-party-bus-orange-county/',
 ];
 
 /** Group used for breadcrumb labels on scraped pages. */

@@ -17,6 +17,8 @@ interface Props {
   breadcrumbs?: Array<{ name: string; href: string }>;
   noindex?: boolean;
   faq?: Array<{ question: string; answer: string }>;
+  /** Extra schema.org Event objects (seasonal campaigns). */
+  events?: Array<Record<string, unknown>>;
 }
 
 const {
@@ -29,6 +31,7 @@ const {
   breadcrumbs = [],
   noindex = false,
   faq = [],
+  events = [],
 } = Astro.props;
 
 const fullTitle = title ? `${title}` : '5 Star Limo Service & Party Bus Rental Near You in Orange County';
@@ -84,6 +87,7 @@ const ogImage = image?.startsWith('/') ? `${site.url}${image}` : image || `${sit
       kind={kind}
       breadcrumbs={breadcrumbs}
       faq={faq}
+      events={events}
     />
   </head>
   <body class="min-h-screen bg-ink text-white antialiased">

@@ -41,6 +41,15 @@ export const mainNav: NavItem[] = [
       { label: 'Stretch Limo Rental', href: '/fleet/stretch-suv-limo-rentals/' },
     ],
   },
+  {
+    label: 'Events',
+    children: [
+      { label: 'Halloween Party Bus & Limo', href: '/halloween-party-bus-vs-limo-orange-county/' },
+      { label: 'Homecoming Limo & Party Bus', href: '/homecoming-limo-party-bus-orange-county/' },
+      { label: 'Oktoberfest & Fall Festivals', href: '/oktoberfest-fall-festival-party-bus-orange-county/' },
+      { label: 'Party Bus Prices & Rates', href: '/party-bus-prices-orange-county/' },
+    ],
+  },
   { label: 'About Us', href: '/about-us/' },
   { label: 'Gallery', href: '/gallery/' },
   { label: 'Blog', href: '/blog/' },

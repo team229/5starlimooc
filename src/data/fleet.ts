@@ -85,4 +85,7 @@ export const serviceFooter: NavLinkLike[] = [
   { label: 'Wine Tour', href: '/services/wine-tour-limo-service/' },
   { label: 'Hollywood Tour', href: '/services/hollywood-tour-limo-service/' },
   { label: 'Corporate Events', href: '/corporate-limo-service/' },
+  { label: 'Halloween Party Bus & Limo', href: '/halloween-party-bus-vs-limo-orange-county/' },
+  { label: 'Homecoming Limo & Party Bus', href: '/homecoming-limo-party-bus-orange-county/' },
+  { label: 'Oktoberfest & Fall Festivals', href: '/oktoberfest-fall-festival-party-bus-orange-county/' },
 ];

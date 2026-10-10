@@ -2,7 +2,7 @@
 
 export const hero = {
   kicker: 'LUXURY MEETS PARTY VIBES',
-  title: '5 Star Limousine & Party Bus Rental Service in Near You in Orange County',
+  title: '5 Star Limousine & Party Bus Rental Service in Orange County',
   heading: 'Premier Limousine Service',
   lead: 'Experience the ultimate luxury limousine rental service in Orange County. From weddings to corporate events, we specialize in making every occasion unforgettable with our elite fleet.',
   offerBadge: 'EXCLUSIVE OFFER',
@@ -12,37 +12,12 @@ export const hero = {
   areas: 'Serving Santa Ana, Anaheim, Newport Beach, and surrounding areas.',
 };
 
-export const halloween = {
-  eyebrow: 'Halloween 2026 — Reserve Your Ride',
-  titleLines: [
-    'A Hauntingly Elegant',
-    'Halloween Limousine & Party Bus',
-    'Experience.',
-  ],
-  body: 'This Halloween, step into something unforgettable. 5 Star Limousine Service & Party Bus Rental brings the same luxury, safety, and 24/7 reliability you trust for weddings and proms — now for your spooky-season night out. From costume bar crawls to haunted attraction tours, ride in style with stretch limos, Hummer limos, or premium party buses, all fully licensed, insured, and ready to roll across Anaheim and Orange County. Halloween weekend vanishes fast, so lock in your date today and get your first hour free.',
-  bullets: [
-    '🎃 Costume Bar Crawls',
-    '👻 Haunted Attraction Rides',
-    '🦇 Anaheim & OC',
-    '🕷️ Limos, Party Buses & Hummers',
-    '💀 Licensed & Insured',
-    '🕸️ 24/7 All Weekend',
-  ],
-  callCta: '☎ Call 714-605-4550',
-  quoteCta: 'Get a Free Quote',
-  note: '5 Star Limousine Service & Party Bus Rental Halloween promotion is subject to availability. Halloween weekend dates sell out fast — book early to secure your ride.',
-  image: '/images/wp-content/uploads/2026/09/chatgpt-image-sep-22-2026-12_48_44-am.webp',
-  imageAlt:
-    '5 Star Limousine Service and Party Bus Rental luxury vehicle available for Halloween 2026 night out in Orange County',
-  date: '🎃 Oct 31, 2026',
-  chips: ['5 Star Limousine Service', 'Orange County Limousine & Party Bus Rental', '1st HR Free On Booking', 'OC Wide Coverage', '24/7 Booking Support'],
-};
-
 export const whatWeDoBest = {
   title: 'What We Do Best!',
   paragraphs: [
-    '<strong>5 Star Limousine Service offers premier limousine rental in Orange County. Our luxurious fleet includes stretch limousines, Party Bus, <a href="/fleet/hummer-limo-rental/">Hummer Limos,</a> Lincoln MKT stretch limos, <a href="/fleet/cadillac-escalade-limo/">Cadillac Escalade stretched limos,</a> <a href="/fleet/mercedes-sprinter-limo-bus/">Mercedes Sprinter Van Limos,</a> <a href="/fleet/chrysler-300-limo-rental/">Chrysler 300 Limos,</a> <a href="/luxury-suv-service/">Executive SUV’s, and</a> <a href="/shuttle-van-service/">Shuttle Vans.</a></strong>',
-    '<strong>5 Star Limo Service in Orange County wants to be the one and only transportation service that you employ. No one else in Anaheim can provide the level of skills & service like us. We have a wide selection of luxury vehicles to choose from. No matter what your plans call for, we have you covered. Our limos are perfect for <a href="/services/prom-limo-service/">Proms,</a> <a href="/services/wedding-limo-service/">Weddings,</a> <a href="/services/bachelor-party-limo-service/">Bachelor Parties,</a> <a href="/services/quinceanera-limo-service/">Quinceaneras,</a> <a href="/services/concerts-limo-party-bus-service/">Concerts,</a> <a href="/services/wine-tour-limo-service/">Temecula Wine Tours,</a> <a href="/services/airport-limo-service/">Airport Transfers,</a> <a href="/corporate-limo-service/">Corporate Events,</a> <a href="/services/hollywood-tour-limo-service/">Hollywood Tour & night outs.</a></strong>',
+    '<strong>5 Star Limousine Service offers premier limousine rental in Orange County. Our luxurious fleet includes stretch limousines, party buses, <a href="/fleet/hummer-limo-rental/">Hummer limos</a>, Lincoln MKT stretch limos, <a href="/fleet/cadillac-escalade-limo/">Cadillac Escalade stretched limos</a>, <a href="/fleet/mercedes-sprinter-limo-bus/">Mercedes Sprinter van limos</a>, <a href="/fleet/chrysler-300-limo-rental/">Chrysler 300 limos</a>, <a href="/luxury-suv-service/">executive SUVs</a> and <a href="/shuttle-van-service/">shuttle vans</a>.</strong>',
+    '<strong>5 Star Limo Service in Orange County aims to be the one and only transportation company you ever need. No other Anaheim limo company matches our blend of skill, service and style, and no other fleet offers so many ways to arrive in luxury. Our limos and party buses are the first choice for <a href="/services/prom-limo-service/">proms</a>, <a href="/services/wedding-limo-service/">weddings</a>, <a href="/services/bachelor-party-limo-service/">bachelor parties</a>, <a href="/services/quinceanera-limo-service/">quinceañeras</a>, <a href="/services/concerts-limo-party-bus-service/">concerts</a>, <a href="/services/wine-tour-limo-service/">Temecula wine tours</a>, <a href="/services/airport-limo-service/">airport transfers</a>, <a href="/corporate-limo-service/">corporate events</a> and <a href="/services/hollywood-tour-limo-service/">Hollywood tours and nights out</a>.</strong>',
+    '<strong>Whether you need a stretch limo for two or a 50-passenger party bus for a group of fifty, we match the right vehicle to your event, your headcount and your budget — with transparent rates and a professional chauffeur on every ride. Compare our <a href="/party-bus-prices-orange-county/">party bus and limo prices</a>, browse the <a href="/fleet/">full fleet</a>, or call and we will build the perfect itinerary for your night.</strong>',
   ],
 };
 
@@ -53,8 +28,8 @@ export const fleetSection = {
 
 export const bookingSection = {
   title: 'Book Your Perfect Luxury Ride with 5 Star Limousine Service!',
-  lead: 'Our fleet consists of luxury cars in excellent condition. We maintain our vehicles on a regular basis. We are always prepared for any need you have.',
-  body: 'Our goal is to provide a transportation service that embodies luxury, style, and safety. We genuinely care about our customers, taking great pride in exceeding your expectations. Once you experience our level of service, you’ll realize you made an excellent choice by selecting us as your transportation provider.',
+  lead: 'Our Orange County fleet is kept immaculate and serviced on a strict schedule, so your limo or party bus is ready and spotless for whatever your event demands.',
+  body: 'Our goal is transportation that embodies luxury, style and safety. We sweat the details — clean vehicles, punctual chauffeurs and genuine care — because exceeding your expectations is the entire job. Compare our <a href="/party-bus-prices-orange-county/">party bus and limo rates</a>, explore the <a href="/fleet/">fleet</a>, or <a href="/contact/">request a free quote</a>, and you’ll see why Orange County keeps choosing 5 Star Limousine Service for weddings, proms, corporate events and unforgettable nights out.',
 };
 
 export const happyClients = {

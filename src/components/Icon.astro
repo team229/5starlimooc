@@ -4,7 +4,7 @@
  * site so no external icon font is requested at runtime.
  * Every icon uses a 0 0 24 24 viewBox.
  */
-export type IconName = 'phone' | 'facebook' | 'instagram' | 'yelp' | 'youtube' | 'chevron-down' | 'calendar' | 'cup' | 'star' | 'gift' | 'menu' | 'close' | 'check' | 'map-pin' | 'clock' | 'mail' | 'arrow-right';
+export type IconName = 'phone' | 'facebook' | 'instagram' | 'yelp' | 'youtube' | 'chevron-down' | 'calendar' | 'cup' | 'star' | 'gift' | 'menu' | 'close' | 'check' | 'map-pin' | 'clock' | 'mail' | 'arrow-right' | 'car';
 
 interface Props {
   name: IconName;
@@ -31,6 +31,8 @@ const paths: Record<IconName, string> = {
   cup:
     'M4 3h16l-1.5 4H5.5L4 3zm1.5 6h13l-1.2 9.2A2 2 0 0 1 15.32 20H8.68a2 2 0 0 1-1.98-1.8L5.5 9zM8 12v5h2v-5H8zm6 0v5h2v-5h-2z',
   star: 'M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 21.2l1.6-7L2 9.5l7.1-.6z',
+  car:
+    'M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z',
   gift:
     'M20 7h-2.2a3 3 0 0 0-4.8-3.5L12 4.3l-1-.8A3 3 0 0 0 6.2 7H4a1 1 0 0 0-1 1v3h9V8h-2a1 1 0 1 1 1-1h1.5a1 1 0 1 0 0 2H12v3h9V8a1 1 0 0 0-1-1zM3 13v8h9v-8H3zm11 0v8h7v-8h-7zM8 15H5v5h3v-5zm11 0h-3v5h3v-5z',
   menu: 'M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z',

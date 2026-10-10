@@ -324,6 +324,15 @@
       "type": "p",
       "text": "Book your party bus with 5 Star Limousine & Transportation Services today and enjoy a premium experience at a price you can share!",
       "html": "<a href=\"/contact/\">Book your party bus</a> with 5 Star Limousine & Transportation Services today and enjoy a premium experience at a price you can share!"
+    },
+    {
+      "type": "h2",
+      "text": "Split the Cost for Homecoming Too"
+    },
+    {
+      "type": "p",
+      "text": "Sharing a party bus works just as well for homecoming. Compare homecoming limo and party bus options and check our upcoming Orange County events for dates.",
+      "html": "Sharing a party bus works just as well for homecoming. Compare <a href=\"/homecoming-limo-party-bus-orange-county/\">homecoming limo and party bus options</a> and check our <a href=\"/#events\">upcoming Orange County events</a> for dates."
     }
   ],
   "images": [

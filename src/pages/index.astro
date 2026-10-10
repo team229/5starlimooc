@@ -4,27 +4,29 @@
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import Halloween from '../components/Halloween.astro';
+import SeasonalEvents from '../components/SeasonalEvents.astro';
 import FleetShowcase from '../components/FleetShowcase.astro';
 import Reviews from '../components/Reviews.astro';
 import OccasionGrid from '../components/OccasionGrid.astro';
 import WhyChoose from '../components/WhyChoose.astro';
 import ServiceAreas from '../components/ServiceAreas.astro';
 import site from '../data/site';
+import { homepageEventSchemas } from '../data/events';
 
 const description =
   'Experience luxury transportation with 5 Star Limo Service & Party Bus Rental in Orange County. Book premium limo and party bus rentals today.';
 ---
 
 <BaseLayout
-  title="5 Star Limo Service & Party Bus Rental Near You in Orange County"
+  title="Luxury Limo & Party Bus Rental in Orange County | 5 Star"
   description={description}
   path="/"
   image={site.logo}
+  events={homepageEventSchemas}
 >
   <div class="home-starfield">
     <Hero />
-    <Halloween />
+    <SeasonalEvents />
     <FleetShowcase />
     <Reviews />
     <OccasionGrid />

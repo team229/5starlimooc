@@ -10,11 +10,16 @@ const scraped = (await getCollection('pages'))
   .filter((p) => p.path && p.path !== '/')
   .sort((a, b) => a.path.localeCompare(b.path));
 
+const HAND_BUILT_TITLES: Record<string, string> = {
+  '/homecoming-limo-party-bus-orange-county/': 'Homecoming Limo & Party Bus Rental',
+  '/oktoberfest-fall-festival-party-bus-orange-county/': 'Oktoberfest & Fall Festival Party Bus',
+};
+
 const statics = [
   { path: '/', title: 'Home' },
   ...HAND_BUILT.filter((h) => h !== '/' && !scraped.some((s) => s.path === h)).map((h) => ({
     path: h,
-    title: h.replace(/\//g, ' ').trim(),
+    title: HAND_BUILT_TITLES[h] ?? h.replace(/\//g, ' ').trim(),
   })),
 ];
 
