@@ -8,11 +8,11 @@
  */
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
-import { HAND_BUILT } from '../data/routes';
+import { HAND_BUILT, EXCLUDE_PATHS } from '../data/routes';
 import { site } from '../data/site';
 
 /** Pages that must not appear in the sitemap. */
-const EXCLUDE = new Set(['/404', '/404-2/', '/thankyou/']);
+const EXCLUDE = new Set(EXCLUDE_PATHS);
 
 export const GET: APIRoute = async () => {
   const scraped = (await getCollection('pages'))

@@ -1,7 +1,7 @@
-# https://5starlimooc.com
+# https://www.5starlimooc.com
 User-agent: *
 Allow: /
 Disallow: /thankyou/
 Disallow: /404-2/
 
-Sitemap: https://5starlimooc.com/sitemap.xml
+Sitemap: https://www.5starlimooc.com/sitemap.xml

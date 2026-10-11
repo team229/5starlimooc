@@ -7,9 +7,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import Icon from '../../components/Icon.astro';
+import { NOINDEX_PATHS } from '../../data/routes';
 
 const posts = (await getCollection('pages'))
-  .filter((p) => p.data.kind === 'post')
+  .filter((p) => p.data.kind === 'post' && !NOINDEX_PATHS.has(p.data.path))
   .sort((a, b) => (a.data.date < b.data.date ? 1 : -1));
 
 function excerpt(page: { description: string; blocks: { type: string; text?: string }[] }) {

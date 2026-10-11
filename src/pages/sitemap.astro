@@ -3,11 +3,13 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import { HAND_BUILT } from '../data/routes';
+import { HAND_BUILT, EXCLUDE_PATHS } from '../data/routes';
+
+const EXCLUDE = new Set(EXCLUDE_PATHS);
 
 const scraped = (await getCollection('pages'))
   .map((p) => ({ path: p.data.path, title: p.data.h1 || p.data.title }))
-  .filter((p) => p.path && p.path !== '/')
+  .filter((p) => p.path && p.path !== '/' && !EXCLUDE.has(p.path))
   .sort((a, b) => a.path.localeCompare(b.path));
 
 const HAND_BUILT_TITLES: Record<string, string> = {
@@ -17,7 +19,7 @@ const HAND_BUILT_TITLES: Record<string, string> = {
 
 const statics = [
   { path: '/', title: 'Home' },
-  ...HAND_BUILT.filter((h) => h !== '/' && !scraped.some((s) => s.path === h)).map((h) => ({
+  ...HAND_BUILT.filter((h) => h !== '/' && !EXCLUDE.has(h) && !scraped.some((s) => s.path === h)).map((h) => ({
     path: h,
     title: HAND_BUILT_TITLES[h] ?? h.replace(/\//g, ' ').trim(),
   })),

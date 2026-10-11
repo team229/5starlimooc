@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 // Every asset (images, fonts, styles) is served from this repo;
 // the only outbound requests are the analytics/review tracking scripts.
 export default defineConfig({
-  site: 'https://5starlimooc.com',
+  site: 'https://www.5starlimooc.com',
   trailingSlash: 'always',
   build: {
     inlineStylesheets: 'auto',

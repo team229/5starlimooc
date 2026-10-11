@@ -9,7 +9,7 @@ import PageHero from '../components/PageHero.astro';
 import PageShell from '../components/PageShell.astro';
 import CtaBand from '../components/CtaBand.astro';
 import CityPage from '../components/CityPage.astro';
-import { HAND_BUILT, KIND_CRUMB } from '../data/routes';
+import { HAND_BUILT, KIND_CRUMB, NOINDEX_PATHS } from '../data/routes';
 import { heroFor } from '../data/serviceHeroes';
 
 /** Sidebar "keep exploring" links, tuned per page kind. */
@@ -82,6 +82,7 @@ const breadcrumbs = [
   date={page.date}
   kind={page.kind}
   breadcrumbs={breadcrumbs}
+  noindex={NOINDEX_PATHS.has(page.path)}
   faq={faq}
 >
   {page.kind === 'city' && <CityPage page={page} />}

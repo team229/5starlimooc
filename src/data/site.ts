@@ -13,8 +13,8 @@ export const site = {
   // used on the Google Business Profile.
   alternateNames: ['5 Star Limo OC', '5 Star Limo', 'Five Star Limousine'],
   // Canonical domain of the site this build is for (used for schema/canonical only,
-  // never to load an asset).
-  url: 'https://5starlimooc.com',
+  // never to load an asset). www is the live host; the apex 301s to www.
+  url: 'https://www.5starlimooc.com',
   tagline: 'Luxury Meets Party Vibes',
   description:
     '5 Star Limousine & Transportation Services provides luxury limousine and party bus rental services including airport transfers, corporate travel, weddings, parties, and special events across Orange County with professional chauffeurs and premium vehicles.',
@@ -25,7 +25,6 @@ export const site = {
   priceRange: '$$',
   address: {
     street: '1125 N Magnolia Ave',
-    streetAlt: '520 N. Magnolia Ave',
     city: 'Anaheim',
     region: 'CA',
     postalCode: '92801',
