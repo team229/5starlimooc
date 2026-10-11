@@ -15,6 +15,10 @@ export const site = {
   // Canonical domain of the site this build is for (used for schema/canonical only,
   // never to load an asset). www is the live host; the apex 301s to www.
   url: 'https://www.5starlimooc.com',
+  // Date of the most recent site-wide content/technical refresh. Emitted as
+  // <lastmod> in sitemap.xml for pages that carry no per-article date. Bump
+  // this on a meaningful site-wide edit only — not on every deploy.
+  contentUpdated: '2026-10-11',
   tagline: 'Luxury Meets Party Vibes',
   description:
     '5 Star Limousine & Transportation Services provides luxury limousine and party bus rental services including airport transfers, corporate travel, weddings, parties, and special events across Orange County with professional chauffeurs and premium vehicles.',

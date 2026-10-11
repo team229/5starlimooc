@@ -14,6 +14,9 @@ const pages = defineCollection({
     eyebrow: z.string().default(''),
     h1: z.string().default(''),
     date: z.string().default(''),
+    // Optional explicit "last meaningfully edited" date (YYYY-MM-DD). Takes
+    // precedence over `date` when present; used for sitemap <lastmod>.
+    updated: z.string().default(''),
     kind: z.string().default('page'),
     featured: z.string().default(''),
     canonical: z.string().default(''),
