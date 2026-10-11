@@ -6,7 +6,7 @@
  "h1": "Shuttle Van Service in Anaheim, Orange County",
  "date": "2023-02-02",
  "kind": "page",
- "featured": "/images/wp-content/uploads/2023/03/van-14-pass.jpg",
+ "featured": "/images/heroes/shuttle-van-service.webp",
  "blocks": [
   {
    "type": "h3",
@@ -24,8 +24,8 @@
   },
   {
    "type": "img",
-   "src": "/images/wp-content/uploads/2023/03/van-14-pass.jpg",
-   "alt": "Shuttle van 14 passenger"
+   "src": "/images/heroes/shuttle-van-service.webp",
+   "alt": "White shuttle van at an airport terminal drop-off"
   },
   {
    "type": "h4",
