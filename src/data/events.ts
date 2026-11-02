@@ -189,6 +189,26 @@ export const christmasSection = {
 };
 
 /* ------------------------------------------------------------------ *
+ * Homepage New Year's Eve card
+ * ------------------------------------------------------------------ */
+
+export const newYearsEveSection = {
+  eyebrow: "New Year's Eve 2026 — Booking Now",
+  title: "New Year's Eve Party Bus & Limo Rental",
+  lead:
+    'Skip the rideshare surge and the parking nightmare. One fixed-rate vehicle, one professional chauffeur and one safe ride home for the whole group.',
+  bullets: [
+    'Dinner, party and countdown stops',
+    'No surge pricing, no designated driver',
+    'Groups of 2–50 passengers',
+  ],
+  image: '/images/events/new-years-eve-party-bus-limo-orange-county.webp',
+  imageAlt: "Fireworks over the city on New Year's Eve in Orange County",
+  href: '/new-years-eve-party-bus-limo-orange-county/',
+  cta: "See New Year's Eve Rides & Rates",
+};
+
+/* ------------------------------------------------------------------ *
  * Landing pages
  * ------------------------------------------------------------------ */
 
@@ -741,6 +761,188 @@ export const christmasLanding: LandingEvent = {
   },
 };
 
+export const newYearsEveLanding: LandingEvent = {
+  key: 'new-years-eve',
+  path: '/new-years-eve-party-bus-limo-orange-county/',
+  crumb: "New Year's Eve Transportation",
+  keyword: "New Year's Eve party bus & limo",
+  eyebrow: "New Year's Eve 2026 — Orange County",
+  h1: "New Year's Eve Party Bus & Limo Rental in Orange County",
+  metaTitle: "New Year's Eve Party Bus & Limo Rental in Orange County | 5 Star Limo OC",
+  metaDescription:
+    "New Year's Eve party bus and limo rental in Orange County. Skip the rideshare surge, keep your group together and get home safe. Call (714) 605-4550.",
+  heroImage: '/images/events/new-years-eve-party-bus-limo-orange-county.webp',
+  heroImageAlt: "New Year's Eve party bus and limo rental in Orange County with fireworks over the city",
+  intro: [
+    "New Year's Eve is the busiest night of the year, and the last thing you want is to spend it hunting for parking or watching rideshare prices surge. A 5 Star <a href=\"/services/party-bus-rental/\">party bus rental</a> or <a href=\"/fleet/hummer-limo-rental/\">luxury limo</a> keeps your whole group together, gets you to the celebration on time and brings everyone home safely after the countdown.",
+    "We're based in Anaheim and serve New Year's Eve groups across Orange County, including <a href=\"/limo-party-bus-rentals-service-anaheim-ca/\">Anaheim</a>, <a href=\"/limo-party-bus-rentals-service-orange-ca/\">Orange</a>, <a href=\"/limo-party-bus-rentals-service-santa-ana-ca/\">Santa Ana</a>, <a href=\"/limo-party-bus-rentals-service-irvine-ca/\">Irvine</a>, <a href=\"/limo-party-bus-rentals-service-newport-beach-ca/\">Newport Beach</a> and <a href=\"/limo-party-bus-rentals-service-costa-mesa-ca/\">Costa Mesa</a>. Build a route around dinner, a house party, a club or a hotel celebration — with multiple pickups and drop-offs so nobody drives home at 1 a.m.",
+    "New Year's Eve books out earlier than any other date. Check our <a href=\"/party-bus-prices-orange-county/\">party bus prices guide</a>, then call early to lock in your vehicle, your rate and your first hour free.",
+  ],
+  highlights: [
+    {
+      title: 'Skip the rideshare surge',
+      body: "New Year's Eve rideshare prices spike right when everyone wants to leave. One fixed-rate limo or party bus keeps the cost predictable and the group together.",
+    },
+    {
+      title: 'A safe ride home',
+      body: 'Every booking includes a professional chauffeur who stays with your group all night, so nobody has to drive after midnight.',
+    },
+    {
+      title: 'Dinner, parties & countdowns',
+      body: 'From a holiday dinner to a hotel party or club, we plan multiple stops and a late-night drop-off that fits your group.',
+    },
+    {
+      title: 'Groups from 2 to 50',
+      body: 'From a 6-passenger stretch limo to a 50-passenger party bus, there is a vehicle for every New Year\'s Eve group size and budget.',
+    },
+    {
+      title: 'No parking nightmare',
+      body: 'We drop you at the door and pick you up where you left off, so your group never circles a packed lot at midnight.',
+    },
+    {
+      title: 'Book early — it sells out',
+      body: "New Year's Eve is our busiest date of the year. Reserve early to lock in your vehicle, your rate and your first hour free.",
+    },
+  ],
+  includes: [
+    'Professional chauffeur and custom New Year\'s Eve route planning',
+    'Multiple pickup and drop-off stops across Orange County',
+    'Complimentary bottled water, ice and soft drinks',
+    'Bluetooth sound system and LED party lighting',
+    'Festive decor and photo-stop options',
+    '24/7 booking support and on-time arrival guarantee',
+  ],
+  cities: [
+    'Anaheim',
+    'Orange',
+    'Santa Ana',
+    'Irvine',
+    'Newport Beach',
+    'Costa Mesa',
+    'Huntington Beach',
+    'Fullerton',
+    'Tustin',
+    'Garden Grove',
+    'Westminster',
+    'Yorba Linda',
+  ].map(pick),
+  vehicles: [
+    {
+      title: 'Party Bus Rental',
+      body: "The go-to for New Year's Eve — wrap-around seating, lights and a sound system for groups of 14–50.",
+      href: '/services/party-bus-rental/',
+    },
+    {
+      title: '50-Passenger Party Bus',
+      body: 'Keep the entire New Year\'s Eve crew in one vehicle with maximum space, dancing room and premium audio.',
+      href: '/services/large-50-passenger-party-bus-service/',
+    },
+    {
+      title: 'Hummer Limo',
+      body: "A bold, spacious limo with a head-turning presence — a favorite for New Year's Eve arrivals.",
+      href: '/fleet/hummer-limo-rental/',
+    },
+    {
+      title: 'Mercedes Sprinter Limo Bus',
+      body: 'A refined option for smaller groups heading to dinner and the countdown.',
+      href: '/fleet/mercedes-sprinter-limo-bus/',
+    },
+  ],
+  pricing: [
+    { vehicle: 'Stretch limousine', seats: '6–8', rate: '$100–$125/hr', best: 'Dinner & a small group' },
+    { vehicle: 'Chrysler 300 limo', seats: '8', rate: '$125–$140/hr', best: 'Arrivals worth filming' },
+    { vehicle: 'Hummer limo', seats: '12', rate: '$140–$160/hr', best: 'NYE parties & photos' },
+    { vehicle: 'Mercedes Sprinter limo', seats: 'up to 14', rate: '$140–$200/hr', best: 'Friends & family groups' },
+    { vehicle: 'Party bus, small', seats: '15–20', rate: '$195–$250/hr', best: 'Countdown crews' },
+    { vehicle: '50-passenger party bus', seats: '40–50', rate: 'from $250/hr', best: 'Everyone together' },
+  ],
+  pricingNote:
+    "New Year's Eve rates follow the same Orange County bands, with a four-hour minimum on most vehicles and a holiday premium on December 31. Most NYE groups book five to six hours to cover dinner, the countdown and the ride home. Split across the group, a party bus usually costs less per person than surge-priced rides. Rates are starting points — call for a fixed quote for your date.",
+  itineraries: [
+    {
+      title: 'Dinner & countdown in Anaheim',
+      body: 'Start with pickups around Anaheim and Orange, head to dinner, then on to the countdown party — with a late-night drop-off for the whole group.',
+      links: [
+        { label: 'Anaheim limo & party bus', href: '/limo-party-bus-rentals-service-anaheim-ca/' },
+        { label: 'Orange limo & party bus', href: '/limo-party-bus-rentals-service-orange-ca/' },
+      ],
+    },
+    {
+      title: 'Newport Beach & Costa Mesa celebration',
+      body: 'One coordinated route for dinner, a waterfront party and the midnight countdown across Newport Beach and Costa Mesa, with one chauffeur all night.',
+      links: [
+        { label: 'Newport Beach', href: '/limo-party-bus-rentals-service-newport-beach-ca/' },
+        { label: 'Costa Mesa', href: '/limo-party-bus-rentals-service-costa-mesa-ca/' },
+      ],
+    },
+    {
+      title: 'Hotel & club loop from Irvine',
+      body: 'We handle the pickups, the parking and the late-night drive so your group can celebrate across Irvine and Santa Ana without splitting into ride-shares.',
+      links: [
+        { label: 'Irvine', href: '/limo-party-bus-rentals-service-irvine-ca/' },
+        { label: 'Santa Ana', href: '/limo-party-bus-rentals-service-santa-ana-ca/' },
+      ],
+    },
+  ],
+  faq: [
+    {
+      question: "How much does a New Year's Eve party bus or limo cost in Orange County?",
+      answer:
+        "New Year's Eve stretch limos generally run about $100–$160 per hour, while party buses run about $195–$375 per hour depending on size. Most NYE groups book five to six hours, and December 31 may carry a holiday premium. Splitting the total across the group usually costs less per person than surge-priced rides. See our party bus prices guide for full 2026 rates.",
+    },
+    {
+      question: "How far in advance should we book for New Year's Eve?",
+      answer:
+        "As early as possible — New Year's Eve is the busiest date of the year and sells out weeks in advance. We recommend reserving at least three to four weeks ahead, and earlier for large groups or the prime evening hours.",
+    },
+    {
+      question: "What time should we start the booking?",
+      answer:
+        "Most groups start around 7–8 p.m. for dinner, then continue to the party and countdown, with a drop-off after midnight. We build the schedule around your plans and keep the vehicle with you for the full booking.",
+    },
+    {
+      question: "Can we make multiple stops on New Year's Eve?",
+      answer:
+        "Yes. We plan the route around your group — neighborhood pickups, dinner, the party and a late-night drop-off — so everyone stays together and nobody has to drive.",
+    },
+    {
+      question: "How many people fit in a New Year's Eve party bus?",
+      answer:
+        'Our party buses seat anywhere from 14 to 50 passengers, and our limos and Sprinters cover smaller groups from 6 to 14. The 50-passenger party bus is the most popular choice for large NYE groups.',
+    },
+    {
+      question: 'Is alcohol allowed on the party bus?',
+      answer:
+        'Yes, for guests 21 and over. Our party buses are BYOB-friendly and include ice and coolers. Alcohol is not permitted on trips with underage guests, and our chauffeurs enforce a strict no-alcohol policy on those bookings.',
+    },
+    {
+      question: 'Do you charge surge pricing on New Year\'s Eve?',
+      answer:
+        'No. We quote a fixed rate for your date and vehicle, so the price does not change when demand spikes. December 31 may carry a holiday premium, which we confirm in writing before you book.',
+    },
+    {
+      question: "Which Orange County cities do you serve on New Year's Eve?",
+      answer:
+        'We serve NYE groups across Orange County, including Anaheim, Orange, Santa Ana, Irvine, Newport Beach, Costa Mesa, Huntington Beach, Fullerton, Tustin, Garden Grove, Westminster and Yorba Linda.',
+    },
+  ],
+  related: [
+    { label: 'Party bus rental service', href: '/services/party-bus-rental/' },
+    { label: '50-passenger party bus', href: '/services/large-50-passenger-party-bus-service/' },
+    { label: 'Party bus prices & rates', href: '/party-bus-prices-orange-county/' },
+    { label: 'Hummer limo rental', href: '/fleet/hummer-limo-rental/' },
+    { label: 'Christmas limo & party bus', href: '/christmas-limo-party-bus-orange-county/' },
+    { label: 'All blog articles', href: '/blog/' },
+  ],
+  event: {
+    name: "New Year's Eve Party Bus & Limo in Orange County 2026",
+    startDate: '2026-12-31',
+    endDate: '2027-01-01',
+    description:
+      "New Year's Eve party bus and limo rentals for dinner, countdown parties and a safe ride home across Anaheim, Irvine, Newport Beach and Orange County.",
+  },
+};
+
 /** Build a valid schema.org Event object for any landing event. */
 export function buildEventSchema(e: {
   name: string;
@@ -776,11 +978,16 @@ export function buildEventSchema(e: {
   };
 }
 
-/** Homepage Event schema for the current seasonal campaign (Christmas). */
+/** Homepage Event schemas for the current seasonal campaigns (Christmas + New Year's Eve). */
 export const homepageEventSchemas = [
   buildEventSchema({
     ...christmasLanding.event,
     image: christmasLanding.heroImage,
     url: christmasLanding.path,
+  }),
+  buildEventSchema({
+    ...newYearsEveLanding.event,
+    image: newYearsEveLanding.heroImage,
+    url: newYearsEveLanding.path,
   }),
 ];
