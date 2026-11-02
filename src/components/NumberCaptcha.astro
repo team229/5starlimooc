@@ -1,0 +1,110 @@
+---
+/**
+ * Simple arithmetic ("number") captcha for lead forms.
+ * The question is generated in the browser and the answer is kept in memory
+ * (never in the DOM), so page scrapers can't simply read it off the markup.
+ *
+ * Usage: drop <NumberCaptcha /> inside a form, then in the form's submit
+ * handler validate with `captcha.check(value)` and call `captcha.reset()`
+ * after a successful send.
+ */
+interface Props {
+  id?: string;
+  /** Classes for the answer input — pass the page's shared input style. */
+  inputClass?: string;
+}
+
+const {
+  id = 'number-captcha',
+  inputClass = 'w-full rounded border border-white/10 bg-panel-3 px-4 py-3.5 text-sm text-white placeholder:text-white/40 transition-colors focus:border-gold focus:outline-none',
+} = Astro.props;
+---
+
+<div id={id} data-number-captcha class="grid gap-1.5">
+  <label for={`${id}-answer`} class="text-sm text-white/70">
+    Human check: <span data-captcha-question class="font-semibold text-white">What is 1 + 1?</span>
+  </label>
+  <input
+    id={`${id}-answer`}
+    type="text"
+    name="captcha_answer"
+    inputmode="numeric"
+    autocomplete="off"
+    autocapitalize="off"
+    spellcheck="false"
+    required
+    placeholder="Enter the number"
+    aria-describedby={`${id}-error`}
+    class={inputClass}
+  />
+  <p id={`${id}-error`} data-captcha-error class="hidden text-xs text-red-400" role="alert"></p>
+</div>
+
+<script>
+  type CaptchaEl = HTMLElement & {
+    check?: (value: string) => boolean;
+    reset?: () => void;
+  };
+
+  const answers = new WeakMap<HTMLElement, number>();
+
+  const setup = (root: CaptchaEl) => {
+    if (root.dataset.captchaReady === 'true') return;
+    root.dataset.captchaReady = 'true';
+
+    const question = root.querySelector<HTMLElement>('[data-captcha-question]');
+    const input = root.querySelector<HTMLInputElement>('input[name="captcha_answer"]');
+    const error = root.querySelector<HTMLElement>('[data-captcha-error]');
+
+    const ask = () => {
+      const a = 1 + Math.floor(Math.random() * 9);
+      const b = 1 + Math.floor(Math.random() * 9);
+      answers.set(root, a + b);
+      if (question) question.textContent = `What is ${a} + ${b}?`;
+    };
+
+    const showError = (message: string) => {
+      if (!error) return;
+      error.textContent = message;
+      error.classList.remove('hidden');
+    };
+
+    const clearError = () => {
+      if (!error) return;
+      error.textContent = '';
+      error.classList.add('hidden');
+    };
+
+    root.check = (value: string) => {
+      const expected = answers.get(root);
+      const given = Number(value.trim());
+      if (value.trim() === '' || !Number.isFinite(given) || given !== expected) {
+        showError('Incorrect answer — please try the new sum.');
+        ask();
+        if (input) {
+          input.value = '';
+          input.focus();
+        }
+        return false;
+      }
+      clearError();
+      return true;
+    };
+
+    root.reset = () => {
+      ask();
+      clearError();
+      if (input) input.value = '';
+    };
+
+    input?.addEventListener('input', clearError);
+    ask();
+  };
+
+  document.querySelectorAll<CaptchaEl>('[data-number-captcha]').forEach(setup);
+
+  // Astro view transitions / client-side navigation, if enabled later.
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll<CaptchaEl>('[data-number-captcha]').forEach(setup);
+  });
+</script>

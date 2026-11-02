@@ -6,6 +6,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import Icon from '../components/Icon.astro';
+import NumberCaptcha from '../components/NumberCaptcha.astro';
 import site, { tracking } from '../data/site';
 
 const socials = [
@@ -112,6 +113,8 @@ const inputClass =
             placeholder="Event Details (Date, Group Size, Occasion)"
             class={`${inputClass} resize-y`}></textarea>
 
+          <NumberCaptcha inputClass={inputClass} />
+
           <button id="submit-btn" type="submit" class="btn-gold mt-1 w-full">CHECK AVAILABILITY</button>
           <p id="form-status" class="hidden text-center text-sm" role="status"></p>
         </form>
@@ -134,10 +137,18 @@ const inputClass =
   const form = document.getElementById('limo-lead-form') as HTMLFormElement | null;
   const btn = document.getElementById('submit-btn') as HTMLButtonElement | null;
   const status = document.getElementById('form-status');
+  const captcha = document.getElementById('number-captcha') as
+    | (HTMLElement & { check?: (value: string) => boolean; reset?: () => void })
+    | null;
+  const captchaAnswer = document.getElementById('number-captcha-answer') as HTMLInputElement | null;
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!btn || !status) return;
+
+    // Number captcha — regenerate and stop before hitting the endpoint.
+    if (captcha && !captcha.check?.(captchaAnswer?.value ?? '')) return;
+
     btn.innerHTML = 'SENDING...';
     btn.disabled = true;
     status.classList.add('hidden');
@@ -152,6 +163,7 @@ const inputClass =
         status.textContent = 'Success! Redirecting…';
         status.className = 'mt-3 text-center text-sm text-gold';
         form.reset();
+        captcha?.reset();
         window.location.href = tracking.thankYouUrl;
         return;
       } else {
