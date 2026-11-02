@@ -47,6 +47,7 @@ export const mainNav: NavItem[] = [
       { label: 'Halloween Party Bus & Limo', href: '/halloween-party-bus-vs-limo-orange-county/' },
       { label: 'Homecoming Limo & Party Bus', href: '/homecoming-limo-party-bus-orange-county/' },
       { label: 'Oktoberfest & Fall Festivals', href: '/oktoberfest-fall-festival-party-bus-orange-county/' },
+      { label: 'Christmas Limo & Party Bus', href: '/christmas-limo-party-bus-orange-county/' },
       { label: 'Party Bus Prices & Rates', href: '/party-bus-prices-orange-county/' },
     ],
   },

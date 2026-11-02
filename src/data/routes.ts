@@ -15,6 +15,7 @@ export const HAND_BUILT = [
   '/sitemap/',
   '/homecoming-limo-party-bus-orange-county/',
   '/oktoberfest-fall-festival-party-bus-orange-county/',
+  '/christmas-limo-party-bus-orange-county/',
 ];
 
 /**

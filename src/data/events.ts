@@ -1,14 +1,14 @@
 /**
  * Seasonal events marketing content.
  *
- * Feeds two things:
- *   1. the homepage "Upcoming Events in Orange County" section
- *      (`components/SeasonalEvents.astro`)
- *   2. the Halloween / Homecoming / Oktoberfest landing pages
+ * Feeds:
+ *   1. the homepage Christmas section (`components/ChristmasSection.astro`)
+ *   2. the Christmas landing page (`pages/christmas-limo-party-bus-orange-county.astro`)
+ *   3. the Halloween / Homecoming / Oktoberfest landing pages
  *      (`components/EventLandingPage.astro`)
  *
- * Keyword targets: party bus + limo rental for Halloween, homecoming and
- * Oktoberfest / fall festivals across Anaheim and Orange County.
+ * Keyword targets: Christmas limo and party bus rental, Christmas light tours,
+ * holiday parties and New Year's Eve across Anaheim and Orange County.
  */
 import site from './site';
 import { cities, type City } from './cities';
@@ -164,6 +164,29 @@ export const seasonalEvents: SeasonalEvent[] = [
     ],
   },
 ];
+
+/* ------------------------------------------------------------------ *
+ * Homepage Christmas section
+ * ------------------------------------------------------------------ */
+
+export const christmasSection = {
+  eyebrow: 'Christmas 2026 — Booking Now',
+  headingLead: 'Christmas Limo & Party Bus Rentals in',
+  headingHighlight: 'Orange County',
+  lead:
+    "Christmas light tours, office parties, family gatherings and New Year's Eve — reserve a limo or party bus for your whole group and let a professional chauffeur handle the traffic, the parking and the late-night drive home.",
+  bullets: [
+    'Christmas light tours across Orange County',
+    'Holiday and company party transportation',
+    "New Year's Eve — book early, dates sell out",
+    'Groups of 2–50 passengers, chauffeur included',
+  ],
+  image: '/images/events/christmas-limo-party-bus-orange-county.webp',
+  imageAlt: 'A historic mansion lit with Christmas lights at night in California',
+  href: '/christmas-limo-party-bus-orange-county/',
+  cta: 'See Christmas Rides & Rates',
+  offer: 'Reserve early and get your first hour free on select vehicles.',
+};
 
 /* ------------------------------------------------------------------ *
  * Landing pages
@@ -535,6 +558,189 @@ export const oktoberfestLanding: LandingEvent = {
   },
 };
 
+export const christmasLanding: LandingEvent = {
+  key: 'christmas',
+  path: '/christmas-limo-party-bus-orange-county/',
+  crumb: 'Christmas Transportation',
+  keyword: 'Christmas limo & party bus',
+  eyebrow: 'Christmas 2026 — Orange County',
+  h1: 'Christmas Limo & Party Bus Rental in Orange County',
+  metaTitle: 'Christmas Limo & Party Bus Rental in Orange County | 5 Star Limo OC',
+  metaDescription:
+    "Christmas limo and party bus rental in Orange County for holiday light tours, company parties and New Year's Eve. Groups of 2–50. Call (714) 605-4550.",
+  heroImage: '/images/events/christmas-limo-party-bus-orange-county.webp',
+  heroImageAlt: 'Christmas limo and party bus rental in Orange County with festive holiday lights',
+  intro: [
+    "Christmas in Orange County means neighborhood light tours, office parties, family dinners and New Year's Eve — and every one of them is easier when nobody in your group has to drive. A 5 Star <a href=\"/services/party-bus-rental/\">party bus rental</a> or <a href=\"/fleet/hummer-limo-rental/\">luxury limo</a> keeps everyone together, on time and off the road, with a professional chauffeur handling the traffic, the parking and the late-night ride home.",
+    "We're based in Anaheim and serve holiday groups across Orange County, including <a href=\"/limo-party-bus-rentals-service-anaheim-ca/\">Anaheim</a>, <a href=\"/limo-party-bus-rentals-service-orange-ca/\">Orange</a>, <a href=\"/limo-party-bus-rentals-service-santa-ana-ca/\">Santa Ana</a>, <a href=\"/limo-party-bus-rentals-service-irvine-ca/\">Irvine</a>, <a href=\"/limo-party-bus-rentals-service-newport-beach-ca/\">Newport Beach</a> and <a href=\"/limo-party-bus-rentals-service-huntington-beach-ca/\">Huntington Beach</a>. Build a route around the best Christmas lights, a holiday dinner, a company party or a New Year's Eve celebration — we handle multiple pickups and drop-offs so the whole group stays together.",
+    "Christmas and New Year's Eve are the busiest nights of the year for us. Start with our <a href=\"/party-bus-prices-orange-county/\">party bus prices guide</a>, then call early to lock in your date, your vehicle and your first hour free.",
+  ],
+  highlights: [
+    {
+      title: 'Christmas light tours',
+      body: 'Build a route through the best decorated neighborhoods, drives and displays in Orange County — with a chauffeur to handle the traffic and parking so everyone can enjoy the lights.',
+    },
+    {
+      title: 'Holiday & company parties',
+      body: 'Arrive together and get home safely. We handle office parties, family gatherings and friend-group dinners with multiple pickups and a chauffeur on duty all night.',
+    },
+    {
+      title: "New Year's Eve",
+      body: "Skip the rideshare surge and the parking nightmare. Reserve a limo or party bus for New Year's Eve and keep your whole group together from the first toast to the last drop-off.",
+    },
+    {
+      title: 'A professional chauffeur',
+      body: "Licensed, insured and background-checked chauffeurs handle every mile, so nobody has to volunteer as the designated driver on Christmas Eve or New Year's Eve.",
+    },
+    {
+      title: 'Groups from 2 to 50',
+      body: 'From a 6-passenger stretch limo to a 50-passenger party bus, there is a vehicle for every holiday group size and budget.',
+    },
+    {
+      title: 'Book early for the holidays',
+      body: "Christmas light tours and New Year's Eve sell out weeks ahead. Reserve early to lock in your date, your vehicle and your first hour free.",
+    },
+  ],
+  includes: [
+    'Professional chauffeur and custom holiday route planning',
+    'Multiple pickup and drop-off stops across Orange County',
+    'Complimentary bottled water, ice and soft drinks',
+    'Bluetooth sound system and LED party lighting',
+    'Festive decor and photo-stop options',
+    '24/7 booking support and on-time arrival guarantee',
+  ],
+  cities: [
+    'Anaheim',
+    'Orange',
+    'Santa Ana',
+    'Irvine',
+    'Newport Beach',
+    'Huntington Beach',
+    'Fullerton',
+    'Tustin',
+    'Costa Mesa',
+    'Garden Grove',
+    'Westminster',
+    'Yorba Linda',
+  ].map(pick),
+  vehicles: [
+    {
+      title: 'Party Bus Rental',
+      body: 'The go-to for Christmas light tours and holiday parties — wrap-around seating, lights and a sound system for groups of 14–50.',
+      href: '/services/party-bus-rental/',
+    },
+    {
+      title: '50-Passenger Party Bus',
+      body: 'Keep the entire holiday crew in one vehicle with maximum space, dancing room and premium audio.',
+      href: '/services/large-50-passenger-party-bus-service/',
+    },
+    {
+      title: 'Hummer Limo',
+      body: "A bold, spacious limo with a head-turning presence — a favorite for holiday parties and New Year's Eve.",
+      href: '/fleet/hummer-limo-rental/',
+    },
+    {
+      title: 'Mercedes Sprinter Limo Bus',
+      body: 'A refined option for smaller holiday groups, family gatherings and airport runs over the holidays.',
+      href: '/fleet/mercedes-sprinter-limo-bus/',
+    },
+  ],
+  pricing: [
+    { vehicle: 'Stretch limousine', seats: '6–8', rate: '$100–$125/hr', best: 'Holiday dinners & date nights' },
+    { vehicle: 'Chrysler 300 limo', seats: '8', rate: '$125–$140/hr', best: 'Arrivals worth filming' },
+    { vehicle: 'Hummer limo', seats: '12', rate: '$140–$160/hr', best: 'Holiday parties & NYE' },
+    { vehicle: 'Mercedes Sprinter limo', seats: 'up to 14', rate: '$140–$200/hr', best: 'Family groups & airport runs' },
+    { vehicle: 'Party bus, small', seats: '15–20', rate: '$195–$250/hr', best: 'Christmas light tours' },
+    { vehicle: '50-passenger party bus', seats: '40–50', rate: 'from $250/hr', best: 'Big holiday crews' },
+  ],
+  pricingNote:
+    "Holiday rates follow the same Orange County bands as the rest of the year, with a four-hour minimum on most vehicles. Christmas Eve, Christmas Day and New Year's Eve may carry a holiday premium and sell out early. Split across the group, a holiday limo or party bus usually costs less per person than separate cars and surge-priced rides. Rates are starting points — call for a fixed quote for your date.",
+  itineraries: [
+    {
+      title: 'Christmas light tour from Anaheim',
+      body: 'Start with neighborhood pickups around Anaheim and Orange, then follow a route past the best decorated streets and displays. Your chauffeur handles the traffic and parking while the group stays together.',
+      links: [
+        { label: 'Anaheim limo & party bus', href: '/limo-party-bus-rentals-service-anaheim-ca/' },
+        { label: 'Orange limo & party bus', href: '/limo-party-bus-rentals-service-orange-ca/' },
+      ],
+    },
+    {
+      title: 'Holiday party loop through Irvine & Newport Beach',
+      body: 'One coordinated route for office parties and family gatherings across Irvine, Newport Beach and Costa Mesa — multiple stops, one chauffeur, and a safe ride home for everyone.',
+      links: [
+        { label: 'Irvine', href: '/limo-party-bus-rentals-service-irvine-ca/' },
+        { label: 'Newport Beach', href: '/limo-party-bus-rentals-service-newport-beach-ca/' },
+        { label: 'Costa Mesa', href: '/limo-party-bus-rentals-service-costa-mesa-ca/' },
+      ],
+    },
+    {
+      title: "New Year's Eve in Orange County",
+      body: "Ring in the new year without worrying about the drive home. We build a New Year's Eve route around dinner, the celebration and a late-night drop-off for the whole group.",
+      links: [
+        { label: 'Party bus rental service', href: '/services/party-bus-rental/' },
+        { label: 'Party bus prices & rates', href: '/party-bus-prices-orange-county/' },
+      ],
+    },
+  ],
+  faq: [
+    {
+      question: 'How much does a Christmas limo or party bus cost in Orange County?',
+      answer:
+        'Christmas stretch limos generally run about $100–$160 per hour depending on the vehicle, while party buses run about $195–$375 per hour depending on size and date. Most holiday groups book a 4–5 hour package, and splitting the total across the group usually works out to less per person than separate cars and surge-priced rides. Christmas Eve, Christmas Day and New Year\'s Eve may carry a holiday premium. See our party bus prices guide for full 2026 rates.',
+    },
+    {
+      question: "How far in advance should we book for Christmas or New Year's Eve?",
+      answer:
+        "Book as early as you can — Christmas light tours and New Year's Eve are the busiest dates of the year and sell out weeks in advance. We recommend reserving at least three to four weeks ahead, and earlier for large groups or the prime evening hours.",
+    },
+    {
+      question: 'Do you offer Christmas light tours in Orange County?',
+      answer:
+        'Yes. We build custom Christmas light tour routes around the best decorated neighborhoods, drives and displays in Orange County. Your chauffeur handles the traffic, the parking and the driving while your group enjoys the lights.',
+    },
+    {
+      question: 'Can we make multiple stops during a holiday party?',
+      answer:
+        "Absolutely. We plan the route around your group — neighborhood pickups, a light-tour stop, dinner and the party — with multiple drop-offs at the end of the night. Your chauffeur stays with the group for the full booking.",
+    },
+    {
+      question: 'How many people fit in a Christmas party bus?',
+      answer:
+        'Our party buses seat anywhere from 14 to 50 passengers, and our limos and Sprinters cover smaller groups from 6 to 14. The 50-passenger party bus is the most popular choice for large holiday groups who want everyone in one vehicle.',
+    },
+    {
+      question: 'Is alcohol allowed on the party bus?',
+      answer:
+        'Yes, for guests 21 and over. Our party buses are BYOB-friendly and include ice and coolers. Alcohol is not permitted on trips with underage guests, and our chauffeurs enforce a strict no-alcohol policy on those bookings.',
+    },
+    {
+      question: 'Do you provide Christmas decorations?',
+      answer:
+        'Yes. We offer festive decor and photo-stop options so your holiday group can make an entrance. Tell us your theme when you book and we will confirm what is available for your vehicle and date.',
+    },
+    {
+      question: 'Which Orange County cities do you serve for Christmas?',
+      answer:
+        'We serve holiday groups across Orange County, including Anaheim, Orange, Santa Ana, Irvine, Newport Beach, Huntington Beach, Fullerton, Tustin, Costa Mesa, Garden Grove, Westminster and Yorba Linda.',
+    },
+  ],
+  related: [
+    { label: 'Party bus rental service', href: '/services/party-bus-rental/' },
+    { label: '50-passenger party bus', href: '/services/large-50-passenger-party-bus-service/' },
+    { label: 'Party bus prices & rates', href: '/party-bus-prices-orange-county/' },
+    { label: 'Hummer limo rental', href: '/fleet/hummer-limo-rental/' },
+    { label: 'Mercedes Sprinter limo bus', href: '/fleet/mercedes-sprinter-limo-bus/' },
+    { label: 'All blog articles', href: '/blog/' },
+  ],
+  event: {
+    name: 'Christmas Limo & Party Bus Season in Orange County 2026',
+    startDate: '2026-11-20',
+    endDate: '2027-01-01',
+    description:
+      "Christmas limo and party bus rentals for holiday light tours, company parties, family gatherings and New Year's Eve across Anaheim, Irvine, Newport Beach and Orange County.",
+  },
+};
+
 /** Build a valid schema.org Event object for any landing event. */
 export function buildEventSchema(e: {
   name: string;
@@ -570,25 +776,11 @@ export function buildEventSchema(e: {
   };
 }
 
-/** Homepage Event list (Halloween, Homecoming, Oktoberfest). */
+/** Homepage Event schema for the current seasonal campaign (Christmas). */
 export const homepageEventSchemas = [
   buildEventSchema({
-    name: 'Halloween Party Bus & Limo Rental in Orange County 2026',
-    startDate: '2026-09-25',
-    endDate: '2026-11-01',
-    description:
-      'Halloween limo and party bus rentals for costume bar crawls, haunted attractions and nights out across Anaheim and Orange County.',
-    image: '/images/events/halloween-party-bus-orange-county.webp',
-    url: '/halloween-party-bus-vs-limo-orange-county/',
-  }),
-  buildEventSchema({
-    ...homecomingLanding.event,
-    image: homecomingLanding.heroImage,
-    url: homecomingLanding.path,
-  }),
-  buildEventSchema({
-    ...oktoberfestLanding.event,
-    image: oktoberfestLanding.heroImage,
-    url: oktoberfestLanding.path,
+    ...christmasLanding.event,
+    image: christmasLanding.heroImage,
+    url: christmasLanding.path,
   }),
 ];

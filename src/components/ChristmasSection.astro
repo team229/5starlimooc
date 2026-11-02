@@ -1,0 +1,113 @@
+---
+/**
+ * Homepage Christmas section — replaces the old "Upcoming Events" grid with a
+ * single Christmas campaign block that links to the dedicated Christmas
+ * landing page.
+ */
+import Icon from './Icon.astro';
+import site from '../data/site';
+import { christmasSection } from '../data/events';
+
+const tel = site.phone.replace(/[^\d+]/g, '');
+---
+
+<section id="christmas" class="relative overflow-hidden border-b border-line py-16 md:py-24">
+  <!-- gold seasonal glow (kept subtle so the fixed starfield shows through) -->
+  <div
+    class="pointer-events-none absolute inset-0"
+    style="background:
+      radial-gradient(circle at 10% 0%, rgba(212,175,55,0.14) 0%, transparent 42%),
+      radial-gradient(circle at 90% 100%, rgba(198,155,64,0.12) 0%, transparent 45%),
+      radial-gradient(circle at 78% 12%, rgba(255,215,0,0.06) 0%, transparent 34%);"
+  >
+  </div>
+
+  <div class="container-site relative">
+    <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+      <!-- image / link to the Christmas landing page -->
+      <a
+        href={christmasSection.href}
+        class="group relative block overflow-hidden rounded-2xl border border-gold/25"
+      >
+        <img
+          src={christmasSection.image}
+          alt={christmasSection.imageAlt}
+          class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+          decoding="async"
+          width="1800"
+          height="1200"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+        <span
+          class="absolute top-4 left-4 rounded-full border border-gold/45 bg-black/75 px-3 py-1 text-[10px] font-extrabold tracking-[0.16em] text-gold uppercase backdrop-blur-sm"
+        >
+          {christmasSection.eyebrow}
+        </span>
+        <span
+          class="absolute bottom-4 left-4 inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.18em] text-white uppercase"
+        >
+          <Icon name="star" class="h-4 w-4 text-gold" />
+          Holiday lights · Parties · NYE
+        </span>
+      </a>
+
+      <!-- copy -->
+      <div>
+        <span
+          class="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-[11px] font-extrabold tracking-[0.18em] text-gold uppercase"
+        >
+          {christmasSection.eyebrow}
+        </span>
+
+        <h2 class="mt-6 font-display text-[30px] leading-[1.12] font-bold text-white md:text-[46px]">
+          {christmasSection.headingLead} <span class="text-gold">{christmasSection.headingHighlight}</span>
+        </h2>
+
+        <p class="mt-5 text-[15px] leading-[1.85] text-white/70 md:text-base">{christmasSection.lead}</p>
+
+        <ul class="mt-6 grid gap-3">
+          {
+            christmasSection.bullets.map((bullet) => (
+              <li class="flex items-start gap-3 text-[14px] leading-snug text-white/80 md:text-[15px]">
+                <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gold/40">
+                  <Icon name="check" class="h-3 w-3 text-gold" />
+                </span>
+                {bullet}
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={christmasSection.href} class="btn-gold">
+            {christmasSection.cta}
+            <Icon name="arrow-right" class="h-4 w-4" />
+          </a>
+          <a href={`tel:${tel}`} class="btn-outline">
+            <Icon name="phone" class="h-4 w-4" />
+            Check availability
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- promo CTA -->
+    <div
+      class="relative mt-12 overflow-hidden rounded-xl border border-gold/25 bg-gradient-to-br from-[#0d0d0d] to-black px-6 py-10 text-center shadow-[0_12px_40px_rgba(0,0,0,0.6)]"
+    >
+      <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-gold-deep via-gold-bright to-gold-deep"></div>
+      <h3 class="font-accent text-2xl font-extrabold tracking-wide text-gold uppercase md:text-4xl">
+        Get 1 Hour Free!
+      </h3>
+      <p class="mx-auto mt-3 max-w-xl text-sm text-white/70 md:text-base">{christmasSection.offer}</p>
+      <div class="mt-7 flex flex-wrap justify-center gap-3">
+        <a href={`tel:${tel}`} class="btn-gold">
+          <Icon name="phone" class="h-4 w-4" />
+          Call {site.phoneDisplay}
+        </a>
+        <a href="/contact/" class="btn-outline">Get a Free Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
