@@ -21,6 +21,16 @@ interface Props {
 }
 
 const { eyebrow = '', title, breadcrumbs = [], date = '', image = '', imageAlt = '' } = Astro.props;
+
+/** Post dates are stored as YYYY-MM-DD; render them the way a reader expects. */
+const displayDate = /^\d{4}-\d{2}-\d{2}/.test(date)
+  ? new Date(`${date.slice(0, 10)}T12:00:00Z`).toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+      timeZone: 'UTC',
+    })
+  : date;
 ---
 
 <section class="relative overflow-hidden border-b border-line bg-panel">
@@ -73,7 +83,7 @@ const { eyebrow = '', title, breadcrumbs = [], date = '', image = '', imageAlt =
 
     {eyebrow && <p class="eyebrow mb-4">{eyebrow}</p>}
     <h1 class="heading-gold max-w-4xl text-3xl leading-[1.15] font-bold md:text-[44px]">{title}</h1>
-    {date && <p class="mt-4 text-sm text-white/50">Published on {date}</p>}
+    {date && <p class="mt-4 text-sm text-white/50">Published on {displayDate}</p>}
 
     <div class="mt-8 flex flex-wrap gap-3">
       <a href={`tel:${site.phone.replace(/[^\d+]/g, '')}`} class="btn-gold">

@@ -13,6 +13,17 @@ const posts = (await getCollection('pages'))
   .filter((p) => p.data.kind === 'post' && !NOINDEX_PATHS.has(p.data.path))
   .sort((a, b) => (a.data.date < b.data.date ? 1 : -1));
 
+/** Stored dates are YYYY-MM-DD; cards show a readable date instead. */
+function displayDate(value: string) {
+  if (!/^\d{4}-\d{2}-\d{2}/.test(value)) return value;
+  return new Date(`${value.slice(0, 10)}T12:00:00Z`).toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+}
+
 function excerpt(page: { description: string; blocks: { type: string; text?: string }[] }) {
   if (page.description) return page.description;
   const p = page.blocks.find((b) => b.type === 'p' && b.text && b.text.length > 60);
@@ -55,7 +66,7 @@ function excerpt(page: { description: string; blocks: { type: string; text?: str
             </a>
             <div class="flex flex-1 flex-col p-6">
               {post.data.date && (
-                <p class="mb-3 text-[11px] font-bold tracking-[0.16em] text-gold uppercase">{post.data.date}</p>
+                <p class="mb-3 text-[11px] font-bold tracking-[0.16em] text-gold uppercase">{displayDate(post.data.date)}</p>
               )}
               <h2 class="font-display text-lg leading-snug font-bold text-white">
                 <a href={post.data.path} class="transition-colors group-hover:text-gold">
